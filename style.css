@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    background-color: #FFEBC3;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(0, 0, 0, 0.2);
+    /* o ultimo numero é a opacidade da navbar */
+}
+
+.header .container .navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+.header .container .navbar li {
+    padding: 0 50px;
+    /* espaço entre as palavras da navbar */
+    margin-top: 30px;
+    /* deixando as palavras da navbar no meio */
+}
+
+.header .container .navbar li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.header .container .navbar .login-link {
+    margin-top: 0.5%;
+
+}
+
+.header .container .navbar .frame-login {
+    display: flex;
+    width: 50px;
+    height: 20px;
+    padding: 15px 70px;
+    justify-content: center;
+    align-items: center;
+    gap: 9.945px;
+    /* estilo do frame*/
+    border-radius: 5px;
+    /* canto arredondado */
+    border-radius: 5px;
+    border: 0.994px solid #fff;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url(imagens-serie/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.content1 .apresentacao .logo-content1 {
+    justify-content: center;
+    display: flex;
+    margin-top: 5%;
+}
+
+.content1 .apresentacao h4 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.caixaInformacao {
+    width: 900px;
+    /*largura */
+    margin: 0 auto;
+    /* Centralizar a caixa horizontalmente na página */
+    padding: 40px;
+    background-color: rgba(241, 209, 146, 0.5);
+    border-radius: 5px;
+    
+    /* deixar opacidade menor  */
+
+}
+
+.caixaInformacao p {
+    mix-blend-mode: normal;
+    /* Removi o efeito de soft light */
+    color: #0C0C0C;     
+    font-size: 20px;    
+    line-height: 25.78px;   
+    letter-spacing: 0.5px;
+}
+
+.imagem2 {
+    float: left;
+    margin-right: 20px;
+}
