@@ -89,7 +89,7 @@ body {
 }
 
 .conteudo0 .recipienteDiario {
-    
+    margin: 4% 0px 5px 20%;
 }
 
 .recipienteDiario h2 {
@@ -97,9 +97,7 @@ body {
     font-family: Monda;
     font-size: 40px;
     letter-spacing: 1.6px;
-    text-transform: uppercase;  
-    margin: 4% 0px 5px 20%;
-
+    text-transform: uppercase;   
 }
 
 .recipienteDiario p {   
@@ -109,14 +107,13 @@ body {
     font-weight: 400;     
     text-align: left;
     letter-spacing: 0.8px;
-    line-height: 25px;
-    margin: 5px 0px 90px 20%;    
+    line-height: 25px;      
 }
 
-.ElenaDiario {
-    justify-content: center;
-    display: flex;
-    align-items: end;
+.ElenaDiario {  
+    margin-top: -400px;
+    margin-left: 500px;    
+
 }
 
 .imgElenaDiario {
@@ -126,6 +123,9 @@ body {
     border-end-start-radius: 50px;
 }
 
+.recipienteDiario2 {
+    margin-top: 150px;
+}
 
 .recipienteDiario2 p {    
     font-family: Monda;
@@ -134,8 +134,7 @@ body {
     font-size: 30px;
     text-align: center;
     letter-spacing: 1.2px;
-    text-transform: uppercase;  
-    
+    text-transform: uppercase;          
 }
 
 
