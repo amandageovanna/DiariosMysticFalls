@@ -4,8 +4,23 @@
 }
 
 @font-face {
+    font-family: 'Bona-Bold';
+    src: url(fontes/BonaNova-Bold.ttf);
+}
+
+@font-face {
     font-family: 'Montserrat';
     src: url(fontes/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Monda';
+    src: url(fontes/Monda-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Monda-Bold';
+    src: url(fontes/Monda-Bold.ttf);
 }
 
 body {
@@ -73,25 +88,42 @@ body {
     background-position: center center;
 }
 
-.banner .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.recipienteDiario h2 {
+    color: white;
+    font-family: Monda;
+    font-size: 40px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;  
+    margin: 5% 0px 5px 20%;
 
 }
 
-.content1 {
+.recipienteDiario p {   
+    color: #fafafa;      
+    font-family: "Montserrat-Regular", Helvetica;
+    width: 500px;    
+    font-weight: 400;     
+    text-align: left;
+    letter-spacing: 0.8px;
+    line-height: 25px;
+    margin: 5px 0px 5px 20%;
+
+    
+}
+
+
+.conteudo1 {
     background-color: #443527;
 }
-.content1 .apresentacao .logo-content1 {
+
+.conteudo1 .recipienteApresentacao .logo-recipienteApresentacao {
     justify-content: center;
     display: flex;
     margin-top: 5%;
     height: 120px;
 }
 
-.containerColunasSobre {
+.recipienteColunasSobre {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,10 +151,10 @@ body {
 
 .caixaDireita p {
     color: #ffffff;
-    font-size: 18px;    
+    font-size: 18px;
     letter-spacing: 0.5px;
     font-family: 'Montserrat';
-    line-height: 25.8px;    
+    line-height: 25.8px;
     text-align: center;
     margin: 50px;
 }
