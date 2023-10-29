@@ -88,6 +88,10 @@ body {
     background-position: center center;
 }
 
+.conteudo0 .recipienteDiario {
+    
+}
+
 .recipienteDiario h2 {
     color: white;
     font-family: Monda;
@@ -100,14 +104,37 @@ body {
 
 .recipienteDiario p {   
     color: #fafafa;      
-    font-family: "Montserrat-Regular", Helvetica;
+    font-family: Montserrat;
     width: 500px;    
     font-weight: 400;     
     text-align: left;
     letter-spacing: 0.8px;
     line-height: 25px;
-    margin: 5px 0px 5px 20%;
+    margin: 5px 0px 90px 20%;    
+}
 
+.ElenaDiario {
+    justify-content: center;
+    display: flex;
+    align-items: end;
+}
+
+.imgElenaDiario {
+    width: 500px;
+    height: 300px;
+    border-top-left-radius: 50px;
+    border-end-start-radius: 50px;
+}
+
+
+.recipienteDiario2 p {    
+    font-family: Monda;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;  
     
 }
 
