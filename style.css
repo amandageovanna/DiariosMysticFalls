@@ -1,12 +1,24 @@
+@font-face {
+    font-family: 'BonaNova';
+    src: url(fontes/BonaNova-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(fontes/Montserrat-VariableFont_wght.ttf);
+}
+
 body {
     margin: 0;
-    background-color: #FFEBC3;
+    background-color: #9E8466;
+
 }
 
 .header {
     position: absolute;
     width: 100%;
-    height: 100px;
+    padding: 10px 0;
+    /* Espaçamento interno */
     background-color: rgb(0, 0, 0, 0.2);
     /* o ultimo numero é a opacidade da navbar */
 }
@@ -15,10 +27,11 @@ body {
     list-style: none;
     display: flex;
     justify-content: center;
-
+    padding: 0;
 }
 
 .header .container .navbar li {
+    margin: 10px;
     padding: 0 50px;
     /* espaço entre as palavras da navbar */
     margin-top: 30px;
@@ -54,7 +67,7 @@ body {
 .banner {
     width: 100%;
     height: 100vh;
-    background-image: url(imagens-serie/header.png);
+    background-image: url(imagens-serie/header3.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -68,40 +81,71 @@ body {
 
 }
 
+.content1 {
+    background-color: #443527;
+}
 .content1 .apresentacao .logo-content1 {
     justify-content: center;
     display: flex;
     margin-top: 5%;
+    height: 120px;
 }
 
-.content1 .apresentacao h4 {
-    font-size: 24px;
-    text-align: center;
+.containerColunasSobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
 }
 
-.caixaInformacao {
-    width: 900px;
-    /*largura */
-    margin: 0 auto;
-    /* Centralizar a caixa horizontalmente na página */
-    padding: 40px;
-    background-color: rgba(241, 209, 146, 0.5);
-    border-radius: 5px;
-    
-    /* deixar opacidade menor  */
-
-}
-
-.caixaInformacao p {
-    mix-blend-mode: normal;
-    /* Removi o efeito de soft light */
-    color: #0C0C0C;     
-    font-size: 20px;    
-    line-height: 25.78px;   
-    letter-spacing: 0.5px;
-}
-
-.imagem2 {
+.caixaDireita {
+    width: 1000px;
+    height: 500px;
+    background-color: #584634;
+    box-shadow: 0px 4px 4px #00000040;
+    /* serve para colocar sombra na caixa aqui */
+    margin: 1%;
+    /* Define margens de 10px (superior), 20px (direita), 15px (inferior) e 5px (esquerda). */
     float: left;
-    margin-right: 20px;
+
+}
+
+.caixaDireita h2 {
+    color: #ffffff;
+    font-family: 'BonaNova';
+    text-align: center;
+    margin: 40px;
+}
+
+.caixaDireita p {
+    color: #ffffff;
+    font-size: 18px;    
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat';
+    line-height: 25.8px;    
+    text-align: center;
+    margin: 50px;
+}
+
+
+.caixaEsquerda {
+    background-color: #584634;
+    width: 450px;
+    height: 500px;
+    box-shadow: 0px 4px 4px #00000040;
+    float: left;
+
+}
+
+.imagemCaixaEsquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.imgCidade {
+    height: 350px;
+    width: 400px;
+    border-radius: 20px;
 }
