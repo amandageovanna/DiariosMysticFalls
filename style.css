@@ -140,6 +140,8 @@ body {
 
 .conteudo1 {
     background-color: #443527;
+    height: 980px;    
+
 }
 
 .conteudo1 .recipienteApresentacao .logo-recipienteApresentacao {
@@ -158,21 +160,23 @@ body {
 
 .caixaDireita {
     width: 1000px;
-    height: 500px;
+    height: 700px;
     background-color: #584634;
     box-shadow: 0px 4px 4px #00000040;
     /* serve para colocar sombra na caixa aqui */
-    margin: 1%;
-    /* Define margens de 10px (superior), 20px (direita), 15px (inferior) e 5px (esquerda). */
-    float: left;
+    margin: 0px 0px 0px 30px;
+    
 
 }
 
 .caixaDireita h2 {
     color: #ffffff;
     font-family: 'BonaNova';
-    text-align: center;
-    margin: 40px;
+    text-align: center;    
+    text-transform: uppercase;
+    line-height: 41.2px;
+    letter-spacing: 0.8px;
+
 }
 
 .caixaDireita p {
@@ -182,16 +186,16 @@ body {
     font-family: 'Montserrat';
     line-height: 25.8px;
     text-align: center;
-    margin: 50px;
+    margin: 20px 40px 50px 40px;
 }
 
 
 .caixaEsquerda {
     background-color: #584634;
     width: 450px;
-    height: 500px;
-    box-shadow: 0px 4px 4px #00000040;
-    float: left;
+    height: 600px;
+    box-shadow: 0px 4px 4px #00000040;  
+    align-self: stretch;   
 
 }
 
