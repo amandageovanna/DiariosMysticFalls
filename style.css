@@ -88,8 +88,11 @@ body {
     background-position: center center;
 }
 
+
+
 .conteudo0 .recipienteDiario {
-    margin: 4% 0px 5px 20%;
+    margin: 4% 0px 20px 20%;
+
 }
 
 .recipienteDiario h2 {
@@ -97,58 +100,66 @@ body {
     font-family: Monda;
     font-size: 40px;
     letter-spacing: 1.6px;
-    text-transform: uppercase;   
+    text-transform: uppercase;
+
 }
 
-.recipienteDiario p {   
-    color: #fafafa;      
+.recipienteDiario p {
+    color: #fafafa;
     font-family: Montserrat;
-    width: 500px;    
-    font-weight: 400;     
+    width: 500px;
+    font-weight: 400;
     text-align: left;
     letter-spacing: 0.8px;
-    line-height: 25px;      
+    line-height: 25px;
 }
 
-.ElenaDiario {  
+.ElenaDiario {
     margin-top: -400px;
-    margin-left: 500px;    
+    margin-left: 500px;
 
 }
 
 .imgElenaDiario {
-    width: 500px;
-    height: 300px;
+    width: 550px;
+    height: 350px;
     border-top-left-radius: 50px;
     border-end-start-radius: 50px;
+    margin: 20px 20px;
 }
 
 .recipienteDiario2 {
     margin-top: 150px;
 }
 
-.recipienteDiario2 p {    
+.recipienteDiario2 p {
     font-family: Monda;
     font-weight: 200;
     color: #ffffff;
     font-size: 30px;
     text-align: center;
     letter-spacing: 1.2px;
-    text-transform: uppercase;          
+    text-transform: uppercase;
 }
 
 
 .conteudo1 {
     background-color: #443527;
-    height: 980px;    
+    height: 1780x;
 
 }
 
 .conteudo1 .recipienteApresentacao .logo-recipienteApresentacao {
     justify-content: center;
     display: flex;
-    margin-top: 5%;
+
+
+}
+
+.logoTVD {
     height: 120px;
+    margin: 40px;
+    margin: 50px 50px;
 }
 
 .recipienteColunasSobre {
@@ -165,14 +176,14 @@ body {
     box-shadow: 0px 4px 4px #00000040;
     /* serve para colocar sombra na caixa aqui */
     margin: 0px 0px 0px 30px;
-    
+
 
 }
 
 .caixaDireita h2 {
     color: #ffffff;
     font-family: 'BonaNova';
-    text-align: center;    
+    text-align: center;
     text-transform: uppercase;
     line-height: 41.2px;
     letter-spacing: 0.8px;
@@ -194,9 +205,16 @@ body {
     background-color: #584634;
     width: 450px;
     height: 600px;
-    box-shadow: 0px 4px 4px #00000040;  
-    align-self: stretch;   
+    box-shadow: 0px 4px 4px #00000040;
+    align-self: stretch;
 
+}
+
+.caixaEsquerda p {
+    color: #ffffff;
+    font-family: "Bona Nova";
+    text-align: center;
+    font-size: 20px;
 }
 
 .imagemCaixaEsquerda {
@@ -210,4 +228,13 @@ body {
     height: 350px;
     width: 400px;
     border-radius: 20px;
+}
+
+.imagemTrio {
+    display: flex;
+    justify-content: center;
+}
+
+.pngTrio {
+    height: 700px;
 }
