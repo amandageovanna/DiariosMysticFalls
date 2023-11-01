@@ -240,7 +240,36 @@ body {
 }
 
 .conteudo2 {
-    color: #ffffff;
+    color: #ffffff;    
     
+}
+
+.imgElenaVampira {
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.imgLobisomem {
+    border-radius: 10px;
+} 
+
+.imgElijahVampiro {
+    border-radius: 10px;
+}
+
+.imgKlausHibrido {
+    border-radius: 10px;
+}
+
+.Doppelgangers {
+    border-radius: 10px;
+}
+
+.imgBruxa {
+    border-radius: 10px;
+}
+.sessaoEspecies {
     
+
 }
