@@ -149,12 +149,23 @@ body {
 
 }
 
+.ondaPagina {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.ondaMarrom {
+height: 100%;
+width: 100%;
+}
+
+
 .conteudo1 .recipienteApresentacao .logo-recipienteApresentacao {
     justify-content: center;
     display: flex;
-
-
 }
+
 
 .logoTVD {
     height: 120px;
@@ -240,6 +251,7 @@ body {
     height: 700px;
 }
 
+
 .conteudo2 {
     color: #ffffff;
     background-color: #6E5D4E;
@@ -269,6 +281,11 @@ body {
     margin: 5px;
 }
 
+.conteudo2 .sessaoEspecies1 .especie a {
+    text-decoration: none;
+    color: #ffffff;
+}  
+
 .subtituloSessao {
     color: white;
     text-align: center;
@@ -291,7 +308,12 @@ body {
 
 .conteudo2 .sessaoEspecies2 .especie p {
     margin: 5px;
-}
+    }
+
+.conteudo2 .sessaoEspecies2 .especie a {
+    text-decoration: none;
+    color: #ffffff;
+}  
 
 .quadradoEspecie {
     width: 350px;
@@ -319,20 +341,17 @@ body {
 }
 
 
-.elipse {
-    background-color: #d9d9d9;
-    height: 201px;
-    width: 203px;
-    border-radius: 50%;
-}
-
 .flexbox {
     display: flex;
     align-items: center;
     justify-content: center;
     
+    
 }
 
 .tamanhoPers {
     margin: 10px;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diários de Mystic Falls</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
 
 </head>
 
@@ -56,6 +57,10 @@
         </div>
 
 
+    </div>
+
+    <div class="ondaPagina">
+        <img class="ondaMarrom" src="icones/MARROM.png">
     </div>
 
     <div class="conteudo1">
@@ -111,6 +116,8 @@
         </div>
     </div>
 
+
+
     <div class="conteudo2">
         <br>
         <h1 class="TituloSessao"> Espécies </h1>
@@ -120,31 +127,34 @@
 
         <div class="sessaoEspecies1">
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/vampEspecie.png">
-                <p>vampiro</p>
+                <img class="quadradoEspecie" src="imagens-serie/vampEspecie.png" 
+                onmouseover="playGif(this);" onmouseout="stopGif(this)">
+                <p><a href="#">vampiro</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/lobEspecie.png">
-                <p>lobisomen</p>
+                <img class="quadradoEspecie" src="imagens-serie/lobEspecie.png" 
+                onmouseover="playGif1(this);" onmouseout="stopGif1(this)">
+                <p><a href="#">lobisomen</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/elijahEspecie.png">
-                <p>vampiro original</p>
+                <img class="quadradoEspecie" src="imagens-serie/elijahEspecie.png" onmouseover="playGif2(this);" onmouseout="stopGif2(this)">
+                
+                <p><a href="#">vampiro original</a></p>
             </div>
         </div>
         <br> <br>
         <div class="sessaoEspecies2">
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/klausEspecie.png">
-                <p>híbrido</p>
+                <img class="quadradoEspecie" src="imagens-serie/klausEspecie.png" onmouseover="playGif3(this);" onmouseout="stopGif3(this)">
+                <p><a href="#">híbrido</a></p>
             </div>
             <div class="especie">
                 <img class="quadradoEspecie" src="imagens-serie/doppelSessao.png">
-                <p>duplicata</p>
+                <p><a href="#">duplicata</a></p>
             </div>
             <div class="especie">
                 <img class="quadradoEspecie" src="imagens-serie/bruxaEspecie.png">
-                <p>bruxa</p>
+                <p><a href="#">bruxa</a></p>
             </div>
         </div>
     </div>
@@ -199,5 +209,40 @@
         <h1> Mystic Falls: Lugares Emblemáticos</h1>
     </div>
 </body>
+
+<script>
+function playGif(image){
+    image.src = 'imagens-serie/gifElenaVampira.gif'
+}
+
+function stopGif(image) {
+    image.src = 'imagens-serie/vampEspecie.png'
+}
+
+function playGif1(image){
+    image.src = 'imagens-serie/gifLobisomem.gif'
+}
+
+function stopGif1(image) {
+    image.src = 'imagens-serie/lobEspecie.png'
+}
+
+function playGif2(image){
+    image.src = 'imagens-serie/elijahGif.gif'
+}
+
+function stopGif2(image) {
+    image.src = 'imagens-serie/elijahEspecie.png'
+}
+
+function playGif3(image){
+    image.src = 'imagens-serie/gifKlaus.gif'
+}
+
+function stopGif3(image) {
+    image.src = 'imagens-serie/klausEspecie.png'
+}
+
+</script>
 
 </html>
