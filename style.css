@@ -187,6 +187,7 @@ body {
     text-transform: uppercase;
     line-height: 41.2px;
     letter-spacing: 0.8px;
+    font-weight: 400;
 
 }
 
@@ -240,36 +241,111 @@ body {
 }
 
 .conteudo2 {
-    color: #ffffff;    
-    
+    color: #ffffff;
+    background-color: #6E5D4E;
+}
+
+.conteudo2 h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    line-height: 82.500px;
+    font-weight: 400;
+    letter-spacing: 1.6px;
+    font-size: 39px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.conteudo2 p {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 25px;
+
+}
+
+.conteudo2 .sessaoEspecies1 .especie p {
+    margin: 5px;
+}
+
+.conteudo2 .subtituloConteudo2 {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 25px;
+}
+
+.sessaoEspecies1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sessaoEspecies2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo2 .sessaoEspecies2 .especie p {
+    margin: 5px;
 }
 
 .imgElenaVampira {
     width: 350px;
     height: 250px;
-    border-radius: 10px;
+    border-radius: 20px;
+    display: flex;
+
 }
 
 .imgLobisomem {
-    border-radius: 10px;
-} 
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+}
 
 .imgElijahVampiro {
-    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
 }
 
 .imgKlausHibrido {
-    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
 }
 
 .Doppelgangers {
-    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
 }
 
 .imgBruxa {
-    border-radius: 10px;
-}
-.sessaoEspecies {
-    
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
 
+}
+
+.especie {
+    text-align: center;
+    margin: 15px;
+}
+
+.linhaTitulo {
+    width: 465px;
+    border: 2px solid #8e8e8e;   
+    display: flex;
+    margin-left: 38%;
+    
+   
 }
