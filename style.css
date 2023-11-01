@@ -245,7 +245,7 @@ body {
     background-color: #6E5D4E;
 }
 
-.conteudo2 h1 {
+.TituloSessao {
     color: white;
     text-align: center;
     font-family: 'Montserrat';
@@ -253,7 +253,7 @@ body {
     font-weight: 400;
     letter-spacing: 1.6px;
     font-size: 39px;
-    margin-bottom: 0px;
+    margin-bottom: -5px;
     margin-top: 0px;
 }
 
@@ -269,11 +269,12 @@ body {
     margin: 5px;
 }
 
-.conteudo2 .subtituloConteudo2 {
+.subtituloSessao {
     color: white;
     text-align: center;
     font-family: 'Montserrat';
     font-size: 25px;
+    font-weight: 400;
 }
 
 .sessaoEspecies1 {
@@ -292,43 +293,7 @@ body {
     margin: 5px;
 }
 
-.imgElenaVampira {
-    width: 350px;
-    height: 250px;
-    border-radius: 20px;
-    display: flex;
-
-}
-
-.imgLobisomem {
-    width: 350px;
-    height: 250px;
-    border-radius: 20px;
-    display: flex;
-}
-
-.imgElijahVampiro {
-    width: 350px;
-    height: 250px;
-    border-radius: 20px;
-    display: flex;
-}
-
-.imgKlausHibrido {
-    width: 350px;
-    height: 250px;
-    border-radius: 20px;
-    display: flex;
-}
-
-.Doppelgangers {
-    width: 350px;
-    height: 250px;
-    border-radius: 20px;
-    display: flex;
-}
-
-.imgBruxa {
+.quadradoEspecie {
     width: 350px;
     height: 250px;
     border-radius: 20px;
@@ -343,9 +308,25 @@ body {
 
 .linhaTitulo {
     width: 465px;
-    border: 2px solid #8e8e8e;   
+    border: 2px solid #8e8e8e;
     display: flex;
     margin-left: 38%;
-    
-   
+
+}
+
+.conteudo3 {
+    background-color: #342B25;
+}
+
+
+.elipse {
+    background-color: #d9d9d9;
+    height: 201px;
+    width: 203px;
+    border-radius: 50%;
+}
+
+.personagens {
+    display: flex;
+    align-items: center;
 }
