@@ -555,63 +555,59 @@ p {
 
 .conteudo5 {
     background-color: #6A594A;
+    height: 900px;
 }
 
-section.slider {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    overflow: hidden;
-}
-
-.slider-content {
-    width: 400%;
-    height: auto;
-    display: flex;
-}
-
-.slider-content input {
-    display: none;
-}
-
-.slide-box {
-    width: 25%;
-    height: auto;
-    position: relative;
-    text-align: center;
-}
-
-.slide-box img {
-    width: 900px;
+.conteudo6 {
+    background-image: url(imagens-serie/cenários/valores.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 500px;
 }
 
-.nav-manual, .nav-auto {
-    position: absolute;
-    width: 100%;
-    margin-top: 35%;
+.conteudo6 h1 {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'BonaNova';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.conteudo6 p {
+    margin: 0;
+    padding: 20px;    
+    color: white;
+    font-family: 'BonaNova';
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.linhaValores {
+    justify-content: space-evenly;
     display: flex;
-    justify-content: center;
-
+    align-items: center;
 }
 
-.nav-manual .manual-btn, .nav-auto div {
-    border: 1px solid #211914;
-    padding: 10px;
-    border-radius: 60%;
-    cursor: pointer;
-    transition: 0.2s;
+.conteudo7 {
+    background-color: #9E8466;    
 }
 
-.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
-    margin-right: 10px;
+.conteudo7 p {
+    color: #fafafa;
+    font-family: Montserrat;
+    width: 500px;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.8px;
+    line-height: 25px;
 }
-
-.nav-manual .manual-btn:hover{
-    background-color: #211914;
-}
-
 .footer {
     background-color: #241B11;
     padding: 10px;
