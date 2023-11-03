@@ -476,6 +476,47 @@ p {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+.coluna {
+    width: 300px;
+    background-color: #3D332D;  
+}
+
+.linhas {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.esquerda {
+    background-color: #4F453F;
+    color: #EFEFEF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128.9%; 
+    letter-spacing: 0.45px;
+    width: 190px;
+
+}
+
+.direita {
+    color: #EFEFEF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128.9%; 
+    letter-spacing: 0.45px;
+    width: 190px;
+}
+
+.divisor {
+    height: 2px;
+    background-color: black;
+    margin: 10px 0;
+}
+
 .conteudo4 {
     background-color: #B19877;
     display: flex;
