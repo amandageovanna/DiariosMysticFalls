@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diários de Mystic Falls</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
 
 </head>
 
@@ -127,33 +129,36 @@
 
         <div class="sessaoEspecies1">
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/vampEspecie.png" 
-                onmouseover="playGif(this);" onmouseout="stopGif(this)">
+                <img class="quadradoEspecie" src="imagens-serie/vampEspecie.png" onmouseover="playGif(this);"
+                    onmouseout="stopGif(this)">
                 <p><a href="#">vampiro</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/lobEspecie.png" 
-                onmouseover="playGif1(this);" onmouseout="stopGif1(this)">
+                <img class="quadradoEspecie" src="imagens-serie/lobEspecie.png" onmouseover="playGif1(this);"
+                    onmouseout="stopGif1(this)">
                 <p><a href="#">lobisomen</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/elijahEspecie.png" onmouseover="playGif2(this);" onmouseout="stopGif2(this)">
-                
+                <img class="quadradoEspecie" src="imagens-serie/elijahEspecie.png" onmouseover="playGif2(this);"
+                    onmouseout="stopGif2(this)">
                 <p><a href="#">vampiro original</a></p>
             </div>
         </div>
         <br> <br>
         <div class="sessaoEspecies2">
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/klausEspecie.png" onmouseover="playGif3(this);" onmouseout="stopGif3(this)">
+                <img class="quadradoEspecie" src="imagens-serie/klausEspecie.png" onmouseover="playGif3(this);"
+                    onmouseout="stopGif3(this)">
                 <p><a href="#">híbrido</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/doppelSessao.png">
+                <img class="quadradoEspecie" src="imagens-serie/doppelSessao.png" onmouseover="playGif4(this);"
+                    onmouseout="stopGif4(this)">
                 <p><a href="#">duplicata</a></p>
             </div>
             <div class="especie">
-                <img class="quadradoEspecie" src="imagens-serie/bruxaEspecie.png">
+                <img class="quadradoEspecie" src="imagens-serie/bruxaEspecie.png" onmouseover="playGif5(this);"
+                    onmouseout="stopGif5(this)">
                 <p><a href="#">bruxa</a></p>
             </div>
         </div>
@@ -164,9 +169,10 @@
     <div class="conteudo3">
         <br>
         <h1 class="TituloSessao"> Personagens <h1>
-                <div class="linhaTitulo"></div>
+                <div class="linhaTitulo"></div> <br>
                 <p class="subtituloSessao"> Navegue e descubra um pouco mais sobre os principais personagens da série
                 </p>
+                <br>
                 <div class="flexbox">
                     <div class="personagens">
                         <img class="tamanhoPers" class="elipse" src="imagens-serie/stefan.png">
@@ -194,55 +200,73 @@
                     <div class="personagens">
                         <img class="tamanhoPers" src="imagens-serie/tyler.png">
                     </div>
+
                 </div>
-                <div>
+                <br>
+
+                <div class="flexbox1">
+                    <div class="caixaDireita2">
+                        <h6 class="TituloSessaoPersonagem">DAMON SALVATORE</h6>
+                        <div class="caixaCitacao">
+
+                            <p> Não me entenda errado, Stefan. Eu não ligo de ser o cara mau. Eu vou tomar todas as
+                                decisões da vida e da morte, enquanto você está ocupado se preocupando com danos
+                                colaterais. Eu até mesmo vou deixar que ela me odeie. Mas no final do dia, eu vou ser
+                                aquele que vai mantê-la viva. </p>
+
+                        </div>
+
+                        <p> Nascido no século XIX em Mystic Falls, Damon compartilhou uma ligação profunda com seu irmão
+                            mais novo, Stefan. No entanto, a chegada de Katherine Pierce, uma vampira sedutora,
+                            desencadeou um tumulto em suas vidas. Essa paixão compartilhada dividiu os irmãos e moldou o
+                            destino de Damon. <br> <br>
+
+                            Damon abraçou sua natureza vampírica, tornando-se um predador cruel, conhecido por seu
+                            charme e sedução. Ele era um anti-herói, cuja brutalidade rivalizava com sua
+                            vulnerabilidade. Sua busca por redenção e seu desejo de superar sua natureza sombria formam
+                            o cerne de sua jornada. <br> <br>
+
+                            O ponto de virada na vida de Damon ocorre com a chegada de Elena Gilbert, uma jovem que se
+                            assemelha a Katherine. Seu amor por Elena desperta uma humanidade adormecida dentro dele,
+                            forçando-o a enfrentar sua dualidade. Ele evolui de um vilão complexo para um aliado
+                            confiável na proteção de Mystic Falls e de seus entes queridos.
+                        </p>
+
+                    </div>
+
+                    <div class="caixaEsquerda2">
+                        <img class="imgSessaoPersonagem" src="imagens-serie/damonSalvatore.png">
+                        <div>
+                            <p class="TituloSessaoPersEsq">INFORMAÇÃO BIBLIOGRÁFICA</p>
+                            <div class="linha1">Linha 1</div>
+                            <div class="linha2">Linha 2</div>
+                            <div class="linha3">Linha 3</div>
+
+
+                        </div>
+                    </div>
+
                 </div>
 
-    </div>
+                <br> <br> <br>
 
-    <div class="conteudo4">
-        <h1> Uma Jornada Inesquecível: Tributo à série </h1>
+                <div class="conteudo4">
+                    <div>
+                        <h1 class="TituloSessao">Uma Jornada Inesquecível: Tributo à série</h1>
+                    </div>
+                    <video src="" controls></video>
+                </div>
 
-    </div>
+                <div class="conteudo5">
+                    <h1 class="TituloSessao"> Mystic Falls: Lugares Emblemáticos</h1>
+                </div>
 
-    <div class="conteudo5">
-        <h1> Mystic Falls: Lugares Emblemáticos</h1>
-    </div>
+
+                <div class="footer">
+                    <p>Copyright 2023 - Todos os Direitos Reservados</p>
+                </div>
+
+
 </body>
-
-<script>
-function playGif(image){
-    image.src = 'imagens-serie/gifElenaVampira.gif'
-}
-
-function stopGif(image) {
-    image.src = 'imagens-serie/vampEspecie.png'
-}
-
-function playGif1(image){
-    image.src = 'imagens-serie/gifLobisomem.gif'
-}
-
-function stopGif1(image) {
-    image.src = 'imagens-serie/lobEspecie.png'
-}
-
-function playGif2(image){
-    image.src = 'imagens-serie/elijahGif.gif'
-}
-
-function stopGif2(image) {
-    image.src = 'imagens-serie/elijahEspecie.png'
-}
-
-function playGif3(image){
-    image.src = 'imagens-serie/gifKlaus.gif'
-}
-
-function stopGif3(image) {
-    image.src = 'imagens-serie/klausEspecie.png'
-}
-
-</script>
 
 </html>
