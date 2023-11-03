@@ -478,16 +478,18 @@ p {
 
 .info {
     display: flex;
-    justify-content: space-between; /* Alinha a esquerda à esquerda e a direita à direita */
+    justify-content: space-between;
+    /* Alinha a esquerda à esquerda e a direita à direita */
     margin-bottom: 0;
-    width: 100%; /* Faz com que as divs ocupem toda a largura da coluna */
+    width: 100%;
+    /* Faz com que as divs ocupem toda a largura da coluna */
 }
 
 .coluna {
     width: 100%;
-    background-color: #3D332D;  
+    background-color: #3D332D;
     box-sizing: border-box;
-   
+
 }
 
 .linhas {
@@ -503,7 +505,7 @@ p {
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    line-height: 128.9%; 
+    line-height: 128.9%;
     letter-spacing: 0.45px;
     width: 50%;
     padding: 20px;
@@ -518,13 +520,13 @@ p {
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    line-height: 128.9%; 
+    line-height: 128.9%;
     letter-spacing: 0.45px;
-    width: 90%;    
+    width: 90%;
     margin-left: 24px;
     display: flex;
     align-items: center;
-    
+
 
 }
 
@@ -553,8 +555,62 @@ p {
 
 .conteudo5 {
     background-color: #6A594A;
-}  
- 
+}
+
+section.slider {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slider-content {
+    width: 400%;
+    height: auto;
+    display: flex;
+}
+
+.slider-content input {
+    display: none;
+}
+
+.slide-box {
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+}
+
+.slide-box img {
+    width: 900px;
+    height: 500px;
+}
+
+.nav-manual, .nav-auto {
+    position: absolute;
+    width: 100%;
+    margin-top: 35%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.nav-manual .manual-btn, .nav-auto div {
+    border: 1px solid #211914;
+    padding: 10px;
+    border-radius: 60%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+    background-color: #211914;
+}
 
 .footer {
     background-color: #241B11;
