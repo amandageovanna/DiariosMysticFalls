@@ -9,6 +9,12 @@
 	margin-top: 30px;
 	margin-right: 100px;
 }
+
+.navbar p {
+    padding: 5px;
+    margin-left: 90px;
+}
+
 body {
 	background-image: url(QuartoElena.jpg);
 	background-size: cover;
@@ -20,8 +26,7 @@ body {
 	flex-direction: column;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	padding: 50px;
+	align-items: center;	
 	margin: 150px;
 
 
@@ -93,19 +98,7 @@ h5 {
 
 }
 
-#botao_logar {
-	/* font-family: "Montserrat";
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-	display: flex;
-	width: 30%;
-	padding: 14px 184px;
-	justify-content: center;
-	gap: 10px;
-	background: #552424;
-	box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.25);	 */
+#botaoLogar {	
 	background-color: #552424;
 	border: none;
 	color: white;
@@ -118,7 +111,7 @@ h5 {
 
 }
 
-#botao_logar:hover {
+#botaoLogar:hover {
 	background-color: #673232;
 	transition-duration: 1s;
 	cursor: pointer;
