@@ -8,6 +8,19 @@
 	font-family: "Montserrat";
 }
 
+.navbar {
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+	margin-top: 30px;
+	margin-right: 100px;   
+}
+
+.navbar p {
+    padding: 5px;
+    margin-left: 90px;
+}
+
 body {
 	background-image: url(QuartoElena.jpg);
 	background-size: cover;
@@ -57,7 +70,7 @@ h2 {
     display: flex;    
     align-items: center;
     flex-direction: column;
-    padding: 200px;
+    margin: 150px;
 }
 
 #botaoCadastrar {	
