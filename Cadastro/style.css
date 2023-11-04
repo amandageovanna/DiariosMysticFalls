@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url(WorkSans-VariableFont_wght.ttf);
+}
+
+* {
+    color: white;
+	font-family: "Montserrat";
+}
+
+body {
+	background-image: url(QuartoElena.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}	
+
+h1 {
+	font-family: "Montserrat";
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-align: center;
+	margin: 5px
+}
+
+h2 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+}
+
+.campoDeDados {
+    color: white;
+	font-family: "Montserrat";
+	font-size: 14px;
+	font-style: normal;
+	background-color: #B6A281;
+	border: none;
+	padding-bottom: 1px;
+	width: 408px;
+	height: 55px;
+	border-radius: 20px;
+    margin: 10px;
+}
+
+.campoDeDados::placeholder {
+    color: white;
+    padding: 15px;
+}
+
+.flexbox {
+    display: flex;    
+    align-items: center;
+    flex-direction: column;
+    padding: 200px;
+}
+
+#botaoCadastrar {	
+	background-color: #552424;
+	border: none;
+	color: white;
+	padding: 15px 100px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 8px;
+    margin: 19px;
+    font-family: 'WorkSans';
+
+}
