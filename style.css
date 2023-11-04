@@ -147,6 +147,29 @@ body {
     text-transform: uppercase;
 }
 
+.ondaPagina {
+    position: relative;
+    width: 100%; 
+  }
+  
+  .ondaPagina p {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-left: 150px;
+
+    
+    
+  }
+  
+  .ondaPagina img {
+    width: 100%; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+  }
 
 .conteudo1 {
     background-color: #443527;
@@ -580,7 +603,7 @@ p {
 
 .conteudo6 p {
     margin: 0;
-    padding: 20px;    
+    padding: 20px;
     color: white;
     font-family: 'BonaNova';
     font-size: 45px;
@@ -596,18 +619,32 @@ p {
 }
 
 .conteudo7 {
-    background-color: #9E8466;    
+    background-color: #9E8466;
 }
 
 .conteudo7 p {
     color: #fafafa;
     font-family: Montserrat;
-    width: 500px;
+    width: 900px;
     font-weight: 400;
-    text-align: left;
-    letter-spacing: 0.8px;
-    line-height: 25px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 26px;
+    font-style: normal;
+    letter-spacing: 0.9px;
 }
+
+.fotoSobreMim {
+    height: 500px;
+    width: 500px;
+    margin-left: 150px;
+}
+
+.flexbox2 {
+    display: flex;
+    justify-content: center;
+}
+
 .footer {
     background-color: #241B11;
     padding: 10px;
