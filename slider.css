@@ -1,4 +1,4 @@
-section.slider{
+.slider{
     margin: 0 auto;
     width: 100%;
     height: auto;
@@ -7,7 +7,7 @@ section.slider{
 }
 
 .slider-content{
-    width: 400%;
+    width: 460%;
     height: auto;
     display: flex;
 }
@@ -25,13 +25,14 @@ section.slider{
 }
 
 .slide-box img{
-    width: 40%;
+    width: 900px;
+    height: 500px;
 }
 
 .nav-manual, .nav-auto{
     position: absolute;
     width: 100%;
-    margin-top: 26%;
+    margin-top: 32%;
     display: flex;
     justify-content: center;
 }
