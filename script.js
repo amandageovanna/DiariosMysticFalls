@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 var radio = document.querySelector('.manual-btn')
 var cont = 1
+var vaiVolta = 0
 
 document.getElementById('radio1').checked = true
 
@@ -11,7 +12,7 @@ setInterval(() => {
 function proximaImg(){
     cont++
 
-    if(cont > 5){
+    if(cont > 5 ){
         cont = 1 
     }
 
