@@ -162,13 +162,13 @@ body {
 
 }
 
-.flexbox {
-    display: flex;
-    justi
-}
-
 .primeiraCaixa p {
     font-family: "Montserrat";
+}
+
+.segundaSessao {
+    display: flex;   
+ 
 }
 
 .segundaCaixa {
@@ -177,9 +177,11 @@ body {
     background-color: #D2BBA0;
     box-shadow: 0px 4px 4px #00000040;
     /* serve para colocar sombra na caixa aqui */
-    margin: 93px 0px 0px 109px;
+    margin: 0px 0px 0px 0px;
+    vertical-align: top; /* Alinha as caixas na parte superior */
     display: inline-block;
     /* inline block é o que faz a coluna ir para o lado */
+   
      
 }
 
@@ -201,9 +203,11 @@ body {
     box-shadow: 0px 4px 4px #00000040;
     /* serve para colocar sombra na caixa aqui */
     margin: 0px 0px 0px 30px;  
+    vertical-align: top; /* Alinha as caixas na parte superior */
     display: inline-block;
      /* inline block é o que faz a coluna ir para o lado */
-}
+     
+    }
 
 .terceiraCaixa .fotoAnel {
     width: 200px;
