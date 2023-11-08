@@ -101,13 +101,23 @@ body {
 
 }
 
+.flexbox0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -800px;
+}
+
+.flexbox3 {
+ margin-left: 40px;
+}
+
 .recipienteDiario h2 {
     color: white;
     font-family: Monda;
     font-size: 40px;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-
 }
 
 .recipienteDiario p {
@@ -118,12 +128,6 @@ body {
     text-align: left;
     letter-spacing: 0.8px;
    
-}
-
-.ElenaDiario {
-    margin-top: -400px;
-    margin-left: 500px;
-
 }
 
 .imgElenaDiario {
@@ -150,7 +154,7 @@ body {
 
 .ondaPagina {
     position: relative;
-    width: 100%; 
+    
   }
   
   .ondaPagina p {
@@ -161,15 +165,11 @@ body {
     text-align: center;
     font-size: 30px;
     text-transform: uppercase;
-    margin-left: 150px;
-
-    
-    
+    margin-left: 150px;       
   }
   
   .ondaPagina img {
-    width: 100%; /* Ajuste o tamanho da imagem conforme necessário */
-    height: auto;
+    width: 100%;
   }
 
 .conteudo1 {
@@ -181,7 +181,7 @@ body {
 .ondaPagina {
     display: flex;
     justify-content: center;
-
+   
 }
 
 .ondaMarrom {
@@ -472,10 +472,24 @@ p {
 
 .linhaTitulo {
     width: 465px;
-    border: 2px solid #8e8e8e;
-    display: flex;
-    margin-left: 35%;
+    border: 2px solid #8e8e8e;    
+    margin-top: 0px;
+    margin-bottom: 30px;
 
+}
+
+.linhaTitulo2 {
+    width: 1100px;
+    border: 2px solid #8e8e8e;  
+    /* margin-left: 180px; */
+    margin-top: 0px;
+    margin-bottom: 30px;
+
+}
+
+.containerTitulo {
+    display: flex;
+    justify-content: center;
 }
 
 .conteudo3 {
@@ -500,6 +514,14 @@ p {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+.tamanhoPers:hover {
+    margin: 10px;
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+   
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);;
+}
 .info {
     display: flex;
     justify-content: space-between;
@@ -613,11 +635,32 @@ p {
     line-height: normal;
 }
 
+
+.conteudo6 p:hover {
+    margin: 0;
+    padding: 20px;
+    color: white;
+    font-family: 'BonaNova';
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-shadow: 2px 10px 10px rgb(145, 143, 143);
+    
+}
+
 .linhaValores {
     justify-content: space-evenly;
     display: flex;
     align-items: center;
 }
+
+.linhaValores {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}:hover
 
 .conteudo7 {
     background-color: #9E8466;
@@ -628,17 +671,22 @@ p {
     font-family: Montserrat;
     width: 900px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     line-height: 26px;
     font-style: normal;
     letter-spacing: 0.9px;
 }
 
+.minhaFoto {
+    margin-left: 150px;
+    margin-bottom: 50px;
+}
+
 .fotoSobreMim {
     height: 500px;
-    width: 500px;
-    margin-left: 150px;
+    width: 500px;   
+    border-radius: 400px;
 }
 
 .flexbox2 {

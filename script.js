@@ -1,24 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
-var radio = document.querySelector('.manual-btn')
-var cont = 1
-var vaiVolta = 0
+//  {
+// var radio = document.querySelector('.manual-btn')
+// var cont = 1
+// var vaiVolta = 0
 
-document.getElementById('radio1').checked = true
+// document.getElementById('radio1').checked = true
 
-setInterval(() => {
-    proximaImg()
-}, 5000)
+// setInterval(() => {
+//     proximaImg()
+// }, 5000)
 
-function proximaImg(){
-    cont++
+// function proximaImg(){
+//     cont++
 
-    if(cont > 5 ){
-        cont = 1 
-    }
+//     if(cont > 5 ){
+//         cont = 1 
+//     }
 
-    document.getElementById('radio'+cont).checked = true
-}
-});
+//     document.getElementById('radio'+cont).checked = true
+// }
+// });
 
 function playGif(image) {
     image.src = 'imagens-serie/gifElenaVampira.gif'
