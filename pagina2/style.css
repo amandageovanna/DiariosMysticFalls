@@ -1,0 +1,40 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.sidebar {
+    width: 270px;
+    height: 900px;
+    background-color: #B19877;
+}
+
+.boxMarrom {
+    background-color: #584634;
+    height: 300px;
+}
+
+.boxImagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.imagemPerfil {
+width: 200px;
+}
+
+.boxMarrom h3 {
+    text-align: center;
+    color: white;
+}
+
+.sidebar p {
+    text-align: center;
+}
+
+.conteudo {
+    background-color: #F2DCB0;
+  
+}
