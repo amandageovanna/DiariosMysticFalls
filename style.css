@@ -105,10 +105,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: -800px;
+    margin-left: -600px;
 }
 
-.flexbox3 {
+.flexboxElena {
  margin-left: 40px;
 }
 
@@ -135,7 +135,7 @@ body {
     height: 350px;
     border-top-left-radius: 50px;
     border-end-start-radius: 50px;
-    margin: 20px 20px;
+    margin-left: 106px;
 }
 
 .recipienteDiario2 {
@@ -159,7 +159,7 @@ body {
   
   .ondaPagina p {
     position: absolute;
-    top: 70%;
+    top: 55%;
     left: 0;
     padding: 10px;
     text-align: center;
@@ -629,7 +629,7 @@ p {
     padding: 20px;
     color: white;
     font-family: 'BonaNova';
-    font-size: 45px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -641,7 +641,7 @@ p {
     padding: 20px;
     color: white;
     font-family: 'BonaNova';
-    font-size: 50px;
+    font-size: 45px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -653,6 +653,7 @@ p {
     justify-content: space-evenly;
     display: flex;
     align-items: center;
+    margin-top: 38px;
 }
 
 .linhaValores {
@@ -660,10 +661,10 @@ p {
     display: flex;
     align-items: center;
     margin-top: 50px;
-}:hover
+}
 
 .conteudo7 {
-    background-color: #9E8466;
+    background-color: #b08e63;
 }
 
 .conteudo7 p {
@@ -676,6 +677,7 @@ p {
     line-height: 26px;
     font-style: normal;
     letter-spacing: 0.9px;
+    margin-top: 20px;
 }
 
 .minhaFoto {
@@ -683,26 +685,36 @@ p {
     margin-bottom: 50px;
 }
 
+
 .fotoSobreMim {
     height: 500px;
     width: 500px;   
     border-radius: 400px;
 }
 
-.flexbox2 {
+.fotoSobreMim:hover {
+    height: 500px;
+    width: 500px;   
+    border-radius: 400px;
+}
+
+
+.boxSobreMim {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .footer {
     background-color: #241B11;
     padding: 10px;
     height: 80px;
+    display: flex;
+    justify-content: center;
 }
 
 .footer p {
     font-family: 'Poppins';
     text-align: center;
     margin: 20px;
-    font-size: 20px;
+    
 }
