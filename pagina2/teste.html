@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Seu Diário Online</title>
+</head>
+<body>
+    <header>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Seu Diário Online</title>
+</head>
+<body>
+    <header>
+        <h1>Meu Diário Online</h1>
+    </header>
+    <main>
+        <section class="entry-form">
+            <h2>Nova Entrada</h2>
+            <form action="#" method="post">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="content">Conteúdo:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+
+                <button type="submit" onclick="saveEntry()">Salvar</button>
+            </form>
+        </section>
+
+        <section class="entries">
+            <h2>Diários Antigos</h2>
+            <ul class="entry-list">
+                <!-- Links para entradas antigas serão adicionados aqui dinamicamente -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Seu Diário Online</p>
+    </footer>
+
+    <script>
+        // Exemplo de dados simulados (você pode carregar esses dados dinamicamente do servidor)
+        let entriesData = [
+            { id: 1, title: "Primeira Entrada", content: "Conteúdo da primeira entrada", date: "2023-11-09" },
+            { id: 2, title: "Segunda Entrada", content: "Conteúdo da segunda entrada", date: "2023-11-10" },
+            // Adicione mais entradas conforme necessário
+        ];
+
+        function populateEntryList() {
+            const entryList = document.querySelector('.entry-list');
+
+            entriesData.forEach(entry => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+
+                link.href = `javascript:void(0);`;
+                link.textContent = `${entry.title} - ${entry.date}`;
+
+                link.addEventListener('click', () => {
+                    displayEntry(entry);
+                });
+
+                listItem.appendChild(link);
+                entryList.appendChild(listItem);
+            });
+        }
+
+        function displayEntry(entry) {
+            const entryForm = document.querySelector('.entry-form');
+            entryForm.innerHTML = `
+                <h2>Editar Entrada</h2>
+                <form action="#" method="post">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" value="${entry.title}" required>
+
+                    <label for="content">Conteúdo:</label>
+                    <textarea id="content" name="content" rows="4" required>${entry.content}</textarea>
+
+                    <button type="button" onclick="updateEntry(${entry.id})">Atualizar</button>
+                    <button type="button" onclick="deleteEntry(${entry.id})">Excluir</button>
+                </form>
+            `;
+        }
+
+        function updateEntry(entryId) {
+            const titleInput = document.getElementById('title');
+            const contentInput = document.getElementById('content');
+
+            const updatedEntry = {
+                id: entryId,
+                title: titleInput.value,
+                content: contentInput.value,
+                date: new Date().toISOString().split('T')[0], // Atualiza a data para a data atual
+            };
+
+            const index = entriesData.findIndex(entry => entry.id === entryId);
+            entriesData[index] = updatedEntry;
+
+            // Atualiza a lista de entradas
+            populateEntryList();
+
+            // Limpa o formulário de edição
+            resetEntryForm();
+        }
+
+        function deleteEntry(entryId) {
+            const index = entriesData.findIndex(entry => entry.id === entryId);
+            entriesData.splice(index, 1);
+
+            // Atualiza a lista de entradas
+            populateEntryList();
+
+            // Limpa o formulário de edição
+            resetEntryForm();
+        }
+
+        function resetEntryForm() {
+            const entryForm = document.querySelector('.entry-form');
+            entryForm.innerHTML = `
+                <h2>Nova Entrada</h2>
+                <form action="#" method="post">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required>
+
+                    <label for="content">Conteúdo:</label>
+                    <textarea id="content" name="content" rows="4" required></textarea>
+
+                    <button type="submit" onclick="saveEntry()">Salvar</button>
+                </form>
+            `;
+        }
+
+        function saveEntry() {
+            const titleInput = document.getElementById('title');
+            const contentInput = document.getElementById('content');
+
+            const newEntry = {
+                id: entriesData.length + 1,
+                title: titleInput.value,
+                content: contentInput.value,
+                date: new Date().toISOString().split('T')[0],
+            };
+
+            entriesData.push(newEntry);
+
+            // Atualiza a lista de entradas
+            populateEntryList();
+
+            // Limpa o formulário de nova entrada
+            resetEntryForm();
+        }
+
+        // Chamada da função para popular a lista
+        populateEntryList();
+    </script>
+</body>
+</html>
+    </script>
+
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.entry-form,
+.entries {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.entries {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.entry-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.entry-list li {
+    margin-bottom: 10px;
+}
+
+.entry-list a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+}
+
+.entry-list a:hover {
+    background-color: #ddd;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+    </style>
+</body>
+</html>

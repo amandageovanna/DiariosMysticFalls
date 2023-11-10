@@ -30,7 +30,7 @@
 
 body {
     margin: 0;
-    background-color: #9E8466;
+    background-color: #9E8466;   
 
 }
 
@@ -159,7 +159,7 @@ body {
   
   .ondaPagina p {
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 0;
     padding: 10px;
     text-align: center;
@@ -240,7 +240,7 @@ body {
     font-weight: 400;
 }
 
-.flexbox1 {
+.containerSobrePersonagem {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -498,7 +498,7 @@ p {
 }
 
 
-.flexbox {
+.boxPersonagens {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -512,16 +512,14 @@ p {
     height: 150px;
     width: 150px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s; 
+    /* o transition faz a imagem demorar um pouco para chegar no hover aqui embaixo */
 }
 
 .tamanhoPers:hover {
-    margin: 10px;
-    border-radius: 50%;
-    height: 160px;
-    width: 160px;
-   
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);;
+    transform: scale(1.1);
 }
+
 .info {
     display: flex;
     justify-content: space-between;
@@ -633,18 +631,13 @@ p {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: transform 0.4s; 
+    /* o transition faz o texto demorar um pouco para chegar no hover aqui embaixo */
 }
 
 
 .conteudo6 p:hover {
-    margin: 0;
-    padding: 20px;
-    color: white;
-    font-family: 'BonaNova';
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    transform: scale(1.2);
     text-shadow: 2px 10px 10px rgb(145, 143, 143);
     
 }

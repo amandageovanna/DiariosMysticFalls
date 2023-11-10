@@ -34,6 +34,10 @@
     padding: 0px;
 }
 
+body {
+    background-color: #F2DCB0;
+}
+
 .border {
     border: 2px solid red;
 } 
@@ -108,8 +112,10 @@ background-color: #d2bc9f;
 }
 
 
+.main {
+    margin-left: 250px; /* o tamanho da sidebar é 240px, logo, 10 pixels de respiro */
+    margin-right: 6px;
+    /* overflow: hidden; ???? */
 
-.conteudo {
-    background-color: #F2DCB0;
-    margin-left: 270px;
+    
 }
