@@ -1,40 +1,115 @@
+@font-face {
+    font-family: 'BonaNova';
+    src: url(fontes/BonaNova-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bona-Bold';
+    src: url(fontes/BonaNova-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(fontes/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Monda';
+    src: url(fontes/Monda-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Monda-Bold';
+    src: url(fontes/Monda-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fontes/Poppins-Light.ttf);
+}
+
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
+.border {
+    border: 2px solid red;
+} 
+/* usar para entender tamanho dos elementos */
+
 .sidebar {
-    width: 270px;
-    height: 900px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 240px;
+    height: 100%;   
     background-color: #B19877;
 }
 
-.boxMarrom {
+.sidebarMarrom {
     background-color: #584634;
     height: 300px;
-}
-
-.boxImagem {
+    width: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+}
+
+.sidebarMarrom p {
+    color: white;
+    font-family: 'Montserrat';
+    margin-top: 15px;
+    font-size: 20px
 }
 
 .imagemPerfil {
-width: 200px;
-}
-
-.boxMarrom h3 {
-    text-align: center;
-    color: white;
+    width: 170px;
 }
 
 .sidebar p {
     text-align: center;
 }
 
+.sidebar button {
+    height: 60px;
+    background: transparent;
+    border: 0;
+    font-family: 'Montserrat';
+    color: white;
+    cursor: pointer;
+    /* pointer serve para simbolizar que é um link */
+    text-align: left;     
+}
+
+.sidebar button > span {
+/* dentro de um botao, diretamente no Filho que tenha um span */
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; 
+    /* espaçamento entre o icone e o texto */
+    height: 48px; 
+    padding: 0 16px 0 23px;
+    /* o padding alinhou os itens no centro */
+    border-radius: 25px;
+    transition: 0.2s;
+    /* transição quando passa o mouse no botão */
+    margin-left: 15px; /*afastar o botão da lateral esquerda */
+    margin-top: 15px;
+}
+
+/*essa classe serve para quando passar o mouse em cima, dar um fundo diferente  */
+/* aqui embaixo significa: dentro do botão, temos o span */
+.sidebar button:hover > span {
+background-color: #d2bc9f;
+}
+
+
+
 .conteudo {
     background-color: #F2DCB0;
-  
+    margin-left: 270px;
 }
