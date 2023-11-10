@@ -148,7 +148,7 @@ body {
 .caixaNovaEntrada,
 .caixaDiariosAntigos {
     background-color: #E5D1A9;
-    width: 900px;
+    width: 800px;
     height: 600px;
 }
 
@@ -184,7 +184,7 @@ body {
 #input_tituloDiario {
     background-color: #CEB98E;
     border: none;
-    width: 800px;
+    width: 730px;
     height: 30px;
     outline: none;
 }
@@ -214,7 +214,7 @@ body {
 #conteudoDiario {
     background-color: #CEB98E;
     border: none;
-    width: 800px;
+    width: 730px;
     height: 350px;
 }
 
@@ -230,9 +230,23 @@ body {
 }
 
 .caixaBuscar {
-  
+    font-family: 'Poppins';
 }
 
-.caixaBuscar {
-    font-family: 'Poppins';
+.boxBuscar {
+    margin-left: 30px;
+}
+
+.caixaBuscar > span, .calendarioBox > span {
+    font-family: 'Montserrat';
+}
+
+#input_buscar {
+    border: none;
+    width: 260px;
+    height: 30px;    
+}
+
+.calendarioBox {
+    margin-top: 15px;
 }
