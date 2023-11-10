@@ -117,7 +117,7 @@ body {
 .main {
     margin-left: 240px;
     /* o tamanho da sidebar é 240px, logo, 240px de margem a esquerda*/
-   overflow: hidden;
+    overflow: hidden;
 }
 
 .barraBoasVindas {
@@ -135,7 +135,8 @@ body {
     padding: 20px;
 }
 
-.BoxNovaEntrada {
+.BoxNovaEntrada,
+.boxDiariosAntigos {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -144,7 +145,8 @@ body {
 
 }
 
-.caixaNovaEntrada {
+.caixaNovaEntrada,
+.caixaDiariosAntigos {
     background-color: #E5D1A9;
     width: 900px;
     height: 600px;
@@ -156,15 +158,15 @@ body {
     background-color: #CEB98E;
 }
 
-.boxTituloNovaEntrada > span {
+.boxTituloNovaEntrada>span {
     color: white;
     font-family: 'Montserrat';
     font-size: 25px;
-    font-style: normal;    
+    font-style: normal;
     line-height: normal;
     display: flex;
-    justify-content: center; 
-    padding: 20px;    
+    justify-content: center;
+    padding: 20px;
 }
 
 .tituloDiario {
@@ -172,10 +174,10 @@ body {
     margin-top: 20px;
 }
 
-.tituloDiario > span {
+.tituloDiario>span {
     color: white;
     font-family: 'Montserrat';
-    font-size: 25px;    
+    font-size: 25px;
 
 }
 
@@ -186,15 +188,37 @@ body {
     height: 30px;
 }
 
-.caixaConteudo > label {
+.caixaConteudo {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.caixaConteudo>label {
     color: white;
     font-family: 'Montserrat';
     font-size: 25px;    
 }
+
+.caixaConteudo textarea {
+    resize: none  !important;
+    /* coloquei o importante para impedir que o usuário consiga redimensionar a caixa de texto */
+}
+
 
 #conteudoDiario {
     background-color: #CEB98E;
     border: none;
     width: 800px;
     height: 350px;
+}
+
+.botaoSalvar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botaoSalvar>span {
+    color: black;
+    font-family: 'Poppins';
 }
