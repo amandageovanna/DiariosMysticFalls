@@ -141,7 +141,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 90px;
-    margin-top: 100px;
+    margin-top: 70px;
 
 }
 
@@ -186,6 +186,7 @@ body {
     border: none;
     width: 800px;
     height: 30px;
+    outline: none;
 }
 
 .caixaConteudo {
@@ -202,8 +203,13 @@ body {
 .caixaConteudo textarea {
     resize: none  !important;
     /* coloquei o importante para impedir que o usuário consiga redimensionar a caixa de texto */
+    outline: none; /* remove a borda padrão quando clica */
 }
 
+/* .caixaConteudo textarea:focus {
+    box-shadow: 0 0 0 2px #CEB98E;
+    /*  adiciona uma borda ao clicar  
+   } */
 
 #conteudoDiario {
     background-color: #CEB98E;
@@ -220,5 +226,13 @@ body {
 
 .botaoSalvar>span {
     color: black;
+    font-family: 'Poppins';
+}
+
+.caixaBuscar {
+  
+}
+
+.caixaBuscar {
     font-family: 'Poppins';
 }
