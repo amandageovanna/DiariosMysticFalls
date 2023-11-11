@@ -1,0 +1,732 @@
+@font-face {
+    font-family: 'BonaNova';
+    src: url(fontes/BonaNova-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bona-Bold';
+    src: url(fontes/BonaNova-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(fontes/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Monda';
+    src: url(fontes/Monda-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Monda-Bold';
+    src: url(fontes/Monda-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fontes/Poppins-Light.ttf);
+}
+
+body {
+    margin: 0;
+    background-color: #9E8466;   
+
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    padding: 10px 0;
+    /* Espaçamento interno */
+    background-color: rgb(0, 0, 0, 0.2);
+    /* o ultimo numero é a opacidade da navbar */
+}
+
+.header .container .navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.header .container .navbar li {
+    margin: 10px;
+    padding: 0 50px;
+    /* espaço entre as palavras da navbar */
+    margin-top: 30px;
+    /* deixando as palavras da navbar no meio */
+}
+
+.header .container .navbar li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Montserrat";
+}
+
+.header .container .navbar .login-link {
+    margin-top: 0.5%;
+
+}
+
+.header .container .navbar .frame-login {
+    display: flex;
+    width: 50px;
+    height: 20px;
+    padding: 15px 70px;
+    justify-content: center;
+    align-items: center;
+    gap: 9.945px;
+    /* estilo do frame*/
+    border-radius: 5px;
+    /* canto arredondado */
+    border-radius: 5px;
+    border: 0.994px solid #fff;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url(Imagens/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+.conteudo0 .recipienteDiario {
+    margin: 4% 0px 20px 20%;
+
+}
+
+.flexbox0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -600px;
+}
+
+.flexboxElena {
+ margin-left: 40px;
+}
+
+.recipienteDiario h2 {
+    color: white;
+    font-family: Monda;
+    font-size: 40px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.recipienteDiario p {
+    color: #fafafa;
+    font-family: Montserrat;
+    width: 500px;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.8px;
+   
+}
+
+.imgElenaDiario {
+    width: 550px;
+    height: 350px;
+    border-top-left-radius: 50px;
+    border-end-start-radius: 50px;
+    margin-left: 106px;
+}
+
+.recipienteDiario2 {
+    margin-top: 150px;
+}
+
+.recipienteDiario2 p {
+    font-family: Monda;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.ondaPagina {
+    position: relative;
+    
+  }
+  
+  .ondaPagina p {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-left: 150px;       
+  }
+  
+  .ondaPagina img {
+    width: 100%;
+  }
+
+.conteudo1 {
+    background-color: #443527;
+    height: 1780x;
+
+}
+
+.ondaPagina {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.ondaMarrom {
+    height: 100%;
+    width: 100%;
+}
+
+
+.conteudo1 .recipienteApresentacao .logo-recipienteApresentacao {
+    justify-content: center;
+    display: flex;
+}
+
+
+.logoTVD {
+    height: 120px;
+    margin: 40px;
+    margin: 50px 50px;
+}
+
+.recipienteColunasSobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.caixaDireita {
+    width: 1000px;
+    height: 600px;
+    background-color: #584634;
+    box-shadow: 0px 4px 4px #00000040;
+    /* serve para colocar sombra na caixa aqui */
+    margin: 0px 0px 0px 30px;
+}
+
+.caixaDireita2 {
+    width: 920px;
+    height: 700px;
+    background-color: #584634;
+    box-shadow: 0px 4px 4px #00000040;
+    /* serve para colocar sombra na caixa aqui */
+    margin: 0px 0px 0px 30px;
+    background-color: #4F453F;
+
+}
+
+.caixaDireita2 p {
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat';
+    line-height: 25.8px;
+    text-align: center;
+    margin: 20px 40px 50px 40px;
+    font-weight: 400;
+}
+
+.containerSobrePersonagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+}
+
+.caixaTitulo {
+    background-color: #211914;
+    width: 922px;
+    height: 55px;
+
+}
+
+.TituloSessaoPersonagem {
+    font-size: 38px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #211914;
+    font-family: 'BonaNova';
+    font-weight: 400;
+    height: 55px;
+}
+
+.TituloSessaoPersEsq {
+
+    font-weight: 400;
+    font-family: 'Montserrat';
+    color: white;
+    background-color: #211914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    font-size: 23px;
+
+}
+
+
+
+.caixaTitulo p {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    font-family: 'Bona Nova';
+}
+
+.caixaDireita h2 {
+    color: #ffffff;
+    font-family: 'BonaNova';
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 41.2px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+
+}
+
+.caixaDireita p {
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat';
+    line-height: 25.8px;
+    text-align: center;
+    margin: 20px 40px 50px 40px;
+}
+
+
+
+.caixaEsquerda {
+    background-color: #584634;
+    width: 450px;
+    height: 600px;
+    box-shadow: 0px 4px 4px #00000040;
+    align-self: stretch;
+
+}
+
+.caixaCitacao {
+    border-radius: 20px;
+    border: 3px solid #818181;
+    background: rgba(255, 255, 255, 0.00);
+    height: 180px;
+    width: 615px;
+    margin: 25px 60px 10px 155px;
+
+}
+
+.caixaEsquerda2 {
+    background-color: #3D332D;
+    width: 550px;
+    height: 700px;
+    box-shadow: 0px 4px 4px #00000040;
+    align-self: stretch;
+
+}
+
+.imagemDoPersonagem {
+    margin: 0;
+}
+
+.imgSessaoPersonagem {
+    width: 550px;
+    height: 400px;
+    display: block;
+}
+
+
+
+p {
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+}
+
+.caixaEsquerda p {
+    color: #ffffff;
+    font-family: "Bona Nova";
+    text-align: center;
+    font-size: 20px;
+}
+
+.imagemCaixaEsquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.imgCidade {
+    height: 350px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.imagemTrio {
+    display: flex;
+    justify-content: center;
+}
+
+.pngTrio {
+    height: 700px;
+}
+
+
+.conteudo2 {
+    color: #ffffff;
+    background-color: #6E5D4E;
+}
+
+.TituloSessao {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    line-height: 82.500px;
+    font-weight: 400;
+    letter-spacing: 1.6px;
+    font-size: 39px;
+    margin-bottom: -5px;
+    margin-top: 0px;
+}
+
+.conteudo2 p {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 25px;
+
+}
+
+.conteudo2 .sessaoEspecies1 .especie p {
+    margin: 5px;
+}
+
+.conteudo2 .sessaoEspecies1 .especie a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.subtituloSessao {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.sessaoEspecies1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sessaoEspecies2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo2 .sessaoEspecies2 .especie p {
+    margin: 5px;
+}
+
+.conteudo2 .sessaoEspecies2 .especie a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.quadradoEspecie {
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.especie {
+    text-align: center;
+    margin: 15px;
+}
+
+.linhaTitulo {
+    width: 465px;
+    border: 2px solid #8e8e8e;    
+    margin-top: 0px;
+    margin-bottom: 30px;
+
+}
+
+.linhaTitulo2 {
+    width: 1100px;
+    border: 2px solid #8e8e8e;  
+    /* margin-left: 180px; */
+    margin-top: 0px;
+    margin-bottom: 30px;
+
+}
+
+.containerTitulo {
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo3 {
+    background-color: #342B25;
+    height: 1300px;
+}
+
+
+.boxPersonagens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.tamanhoPers {
+    margin: 10px;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s; 
+    /* o transition faz a imagem demorar um pouco para chegar no hover aqui embaixo */
+}
+
+.tamanhoPers:hover {
+    transform: scale(1.1);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    /* Alinha a esquerda à esquerda e a direita à direita */
+    margin-bottom: 0;
+    width: 100%;
+    /* Faz com que as divs ocupem toda a largura da coluna */
+}
+
+.coluna {
+    width: 100%;
+    background-color: #3D332D;
+    box-sizing: border-box;
+
+}
+
+.linhas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.esquerda {
+    background-color: #4F453F;
+    color: #EFEFEF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128.9%;
+    letter-spacing: 0.45px;
+    width: 50%;
+    padding: 20px;
+    margin: 0;
+
+}
+
+
+.direita {
+    color: #EFEFEF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128.9%;
+    letter-spacing: 0.45px;
+    width: 90%;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.divisor {
+    height: 2px;
+    background-color: black;
+    margin: 0;
+    width: 100%;
+}
+
+.conteudo4 {
+    background-color: #B19877;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 700px;
+
+}
+
+.conteudo4 video {
+    width: 800px;
+    height: 500px;
+    margin: 0px 0px 70px 0px
+}
+
+.conteudo5 {
+    background-color: #6A594A;
+    height: 750px;
+}
+
+.conteudo6 {
+    background-image: url(Imagens/valores.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+.conteudo6 h1 {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'BonaNova';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.conteudo6 p {
+    margin: 0;
+    padding: 20px;
+    color: white;
+    font-family: 'BonaNova';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: transform 0.4s; 
+    /* o transition faz o texto demorar um pouco para chegar no hover aqui embaixo */
+}
+
+
+.conteudo6 p:hover {
+    transform: scale(1.2);
+    text-shadow: 2px 10px 10px rgb(145, 143, 143);
+    
+}
+
+.linhaValores {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    margin-top: 38px;
+}
+
+.linhaValores {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.conteudo7 {
+    background-color: #b08e63;
+}
+
+.conteudo7 p {
+    color: #fafafa;
+    font-family: Montserrat;
+    width: 900px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    line-height: 26px;
+    font-style: normal;
+    letter-spacing: 0.9px;
+    margin-top: 20px;
+}
+
+/* PARTE DO SOBRE MIM */
+.boxSobreMim {
+    display: flex;
+    justify-content: center;    
+}
+
+.border {
+    border: solid red;
+}
+
+.fotoSobreMim {
+    position: relative;
+    width: 500px;
+    margin-left: 40px;
+    margin-bottom: 60px;
+  }
+  
+.imagem {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;  
+}
+  
+.fotoSobreMim:hover .overlay {
+    opacity: 1;
+}
+
+/* FIM DA PARTE SOBRE MIM */
+
+.footer {
+    background-color: #241B11;
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer p {
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 20px;
+    font-size: 15px;
+    
+}

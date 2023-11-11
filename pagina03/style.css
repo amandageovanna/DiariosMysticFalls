@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: 'Bona-Bold';
-    src: url(fontes/BonaNova-Bold.ttf);
+    src: url(BonaNova-Bold.ttf);
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url(fontes/Montserrat-VariableFont_wght.ttf);
+    src: url(Montserrat-VariableFont_wght.ttf);
 }
 
 @font-face {
@@ -35,7 +35,7 @@
 }
 
 body {
-    background-color: #F2DCB0;
+    background-color: #EBE2D2;
 }
 
 .border {
@@ -121,7 +121,7 @@ body {
 }
 
 .barraBoasVindas {
-    background-color: #DCC495;
+    background-color: #735944;
     width: 100%;
     height: 60px;
 }
@@ -142,20 +142,21 @@ body {
     align-items: flex-start;
     margin-left: 90px;
     margin-top: 70px;
-
+   
 }
 
 .caixaNovaEntrada {
-    background-color: #E5D1A9;
+    background-color: #CBAB8B;
     width: 900px;
     height: 800px;
     margin-bottom: 40px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .boxTituloNovaEntrada {
     width: 100%;
     height: 80px;
-    background-color: #CEB98E;
+    background-color: #5C4430;
 }
 
 .boxTituloNovaEntrada>span {
@@ -167,6 +168,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    
 }
 
 .tituloDiario {
@@ -192,23 +194,22 @@ body {
 }
 
 .boxPerfil {
-    background-color: #B19877;
+    background-color: #F2E4D1;
     border-radius: 20px;
     width: 180px;
     height: 80px;
 }
 
-.boxPerfil>span {
-    color: white;
-    font-family: 'Montserrat';
+.boxPerfil>span {    
+    font-family: "Monda";
     display: flex;
     justify-content: center;
-    margin-top: 9px;
+    margin-top: 5px;
 
 }
 
 .boxPerfil .parametros>span {
-    color: white;
+    
     font-family: 'Montserrat';
     display: flex;
     justify-content: center;
@@ -218,16 +219,19 @@ body {
 .seuPerfil {
     font-family: "Bona-Bold";
     font-size: 35px;
+}
 
+.descricaoPerfil {
+    font-family: "Poppins";  
 }
 
 .nomePerfil {
     font-size: 27px;
-
+    font-family: "Monda";
 }
 
 .boxParametrosDiarios {
-    background-color: #B19877;
+    background-color: #e4c9a6;
     border-radius: 10px;
     width: 400px;
     height: 80px;
@@ -235,7 +239,7 @@ body {
 }
 
 .boxParametrosDiarios > span {
-    color: white;
+    /* color: white; */
     font-family: 'Montserrat';
     display: flex;
     justify-content: center;
@@ -244,7 +248,7 @@ body {
 }
 
 .parametrosDiarios {
-    color: white;
+    /* color: white; */
     font-family: 'Montserrat';
     display: flex;
     justify-content: center;

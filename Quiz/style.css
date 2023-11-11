@@ -124,7 +124,6 @@ body {
     background-color: #735944;
     width: 100%;
     height: 60px;
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .boxTexto>span {
@@ -134,31 +133,23 @@ body {
     font-family: 'Montserrat';
     font-size: 20px;
     padding: 20px;
+    
 }
 
-.BoxNovaEntrada,
-.boxDiariosAntigos {
+.BoxNovaEntrada {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 90px;
     margin-top: 70px;
-    
 
 }
 
 .caixaNovaEntrada {
     background-color: #CBAB8B;
     width: 800px;
-    height: 650px;
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-
-}
-
-.caixaDiariosAntigos {
-    background-color: #CBAB8B;
-    width: 790px;
-    height: 300px;
+    height: 600px;
+    margin-bottom: 40px;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -187,80 +178,58 @@ body {
 .tituloDiario>span {
     color: white;
     font-family: 'Montserrat';
-    font-size: 20px;
+    font-size: 25px;
 
 }
 
-#input_tituloDiario {
-    background-color: #E9D5B9;
-    border: none;
-    width: 700px;
-    height: 35px;
-    outline: none;
-    margin-top: 10px;
-}
 
 .caixaConteudo {
     margin-left: 40px;
     margin-top: 20px;
 }
 
-.caixaConteudo>label {
-    color: white;
-    font-family: 'Montserrat';
-    font-size: 20px;      
-}
 
-.caixaConteudo textarea {
-    resize: none  !important;
-    /* coloquei o importante para impedir que o usuário consiga redimensionar a caixa de texto */
-    outline: none; /* remove a borda padrão quando clica */
-}
 
 /* .caixaConteudo textarea:focus {
     box-shadow: 0 0 0 2px #CEB98E;
     /*  adiciona uma borda ao clicar  
    } */
 
-#conteudoDiario {
-    background-color: #E9D5B9;
-    border: none;
-    width: 700px;
-    height: 350px;
-    margin-top: 10px;
-}
 
-.botaoSalvar {
+.TituloQuiz>span {
+    font-family: 'Montserrat';
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.botaoSalvar>span {
-    color: black;
-    font-family: 'Poppins';
-}
-
-.caixaBuscar {
-    font-family: 'Poppins';
-}
-
-.boxBuscar {
-    margin-left: 30px;
-}
-
-.caixaBuscar > span, .calendarioBox > span {
-    font-family: 'Montserrat';
-}
-
-#input_buscar {
-    border: none;
-    width: 260px;
-    height: 30px;    
+   
     
 }
 
-.calendarioBox {
-    margin-top: 15px;
+.boxImagemQuiz {
+    display: flex;
+    justify-content: center;
 }
 
+.imagemQuiz {
+    margin: 15px;
+    width: 610px;
+    height: 360px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.boxBotao>button {
+    font-family: 'Montserrat';
+    cursor: pointer;
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;   
+    background-color: #d5cac2;
+}
+
+.boxBotao {
+    display: flex;
+    justify-content: center;
+}
