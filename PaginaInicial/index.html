@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diários de Mystic Falls</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">    
+    <!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="script.js"></script>
-    
+    <style>
+        
+    </style>
 </head>
 
 
@@ -18,12 +22,13 @@
                 <!-- colocar logo aqui  -->
             </div>
             <ul class="navbar">
-                <li><a href="#">HOME</a></li>
+                
                 <li><a href="##">SOBRE A SÉRIE</a></li>
+                <li><a href="###">ESPÉCIES</a></li>
                 <li><a href="###">PERSONAGENS</a></li>
                 <li><a href="####">SOBRE MIM</a></li>
                 <li class="login-link">
-                    <div class="frame-login"><a href="#####">ACESSAR</a></div>
+                    <div class="frame-login" onclick="telaLogin()">ACESSAR</div>
                 </li>
             </ul>
         </div>
@@ -292,7 +297,8 @@
                 <div class="linhaTitulo2"></div>
             </div>
         </div>
-        <video src="" controls></video>
+     
+        <div id="vimeoPlayer"></div>
     </div>
 
     <div class="conteudo6">

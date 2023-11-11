@@ -10,8 +10,8 @@
 
 <body>
     <div class="navbar">
-        <p>LOGIN</p>
-        <p>HOME</p>
+        <p onclick="telaLogin()">LOGIN</p>
+        <p onclick="telaInicial()">HOME</p>
     </div>
     <div id="BoxCadastro">
         <div class="flexbox">
@@ -25,5 +25,15 @@
         </div>
     </div>
 </body>
+
+<script>
+ function telaInicial() {
+    window.location.href = "../PaginaInicial/index.html"}
+
+function telaLogin() {
+    window.location.href = "../Login/index.html"
+}   
+
+</script>
 
 </html>

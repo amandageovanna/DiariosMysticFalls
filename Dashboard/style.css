@@ -1,31 +1,31 @@
 @font-face {
     font-family: 'BonaNova';
-    src: url(fontes/BonaNova-Regular.ttf);
+    src: url(Fontes/BonaNova-Regular.ttf);
 }
 
 @font-face {
     font-family: 'Bona-Bold';
-    src: url(BonaNova-Bold.ttf);
+    src: url(Fontes/BonaNova-Bold.ttf);
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url(Montserrat-VariableFont_wght.ttf);
+    src: url(Fontes/Montserrat-VariableFont_wght.ttf);
 }
 
 @font-face {
     font-family: 'Monda';
-    src: url(fontes/Monda-Regular.ttf);
+    src: url(Fontes/fontes/Monda-Regular.ttf);
 }
 
 @font-face {
     font-family: 'Monda-Bold';
-    src: url(fontes/Monda-Bold.ttf);
+    src: url(Fontes/fontes/Monda-Bold.ttf);
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url(fontes/Poppins-Light.ttf);
+    src: url(Fontes/Poppins-Light.ttf);
 }
 
 
@@ -124,6 +124,7 @@ body {
     background-color: #735944;
     width: 100%;
     height: 60px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .boxTexto>span {

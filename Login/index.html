@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />    
     <title>Login - Diários de Mystic Falls</title>
 </head>
 
 <body>
     <div class="navbar">
-        <p>HOME</p>
+        <div class="navbarLogin" onclick="telaInicial()">HOME</div>
     </div>
     <div class="flexbox">
         <h1>Bem-vindo à Diários de Mystic Falls</h1>
@@ -24,8 +24,17 @@
 
         <button onclick="logar()" id="botaoLogar">Login</button>
 
-        <h5>Não tem uma conta? <a href="" id="ancoraCadastro">Crie agora!</a></h4>
+        <h5>Não tem uma conta? <span onclick="telaCadastro()">Crie agora!</span></h4>
     </div>
 </body>
+
+<script>
+    function telaInicial() {
+    window.location.href = "../PaginaInicial/index.html"}
+
+    function telaCadastro() {
+     window.location.href = "../Cadastro/index.html"}
+    
+</script>
 
 </html>

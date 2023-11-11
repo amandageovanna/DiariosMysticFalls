@@ -83,6 +83,10 @@ body {
     /* canto arredondado */
     border-radius: 5px;
     border: 0.994px solid #fff;
+    font-family: "Montserrat";
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .banner {
@@ -673,6 +677,7 @@ p {
     margin-top: 20px;
 }
 
+
 /* PARTE DO SOBRE MIM */
 .boxSobreMim {
     display: flex;
@@ -714,6 +719,7 @@ p {
 }
 
 /* FIM DA PARTE SOBRE MIM */
+
 
 .footer {
     background-color: #241B11;

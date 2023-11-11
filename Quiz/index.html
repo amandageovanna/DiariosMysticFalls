@@ -13,7 +13,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemPerfil" src="fotoPerfil.png">
+                <img class="imagemPerfil" src="Imagens/fotoPerfil.png">
                 <p>Olá, Amanda!</p>
             </div>
         </div>
@@ -21,21 +21,18 @@
         <div class="navegacao">
             <button>
                 <span>
-                    <img src="simboloMetrica.png">
-                    <span> Métricas </span>
+                    <img src="Imagens/simboloMetrica.png">
+                    <span onclick="telaDashboard()"> Métricas </span>
                 </span>
             </button>
 
             <button>
                 <span>
-                    <img src="quiz.png">
+                    <img src="Imagens/quiz.png">
                     <span> Quiz </span>
                 </span>
             </button>
-
-            <div>
-                <span></span>
-            </div>
+           
         </div>
 
     </div>
@@ -58,7 +55,7 @@
                     <span> Qual espécie você seria em The Vampire Diaries?
                     </span>
                     <div class="boxImagemQuiz">
-                        <img class="imagemQuiz" src="01.jpg">
+                        <img class="imagemQuiz" src="Imagens/01.jpg">
                     </div>
                 </div>
 
@@ -77,14 +74,19 @@
         </div>
 
 
-
     </main>
 
 
     </div>
 
 
-
 </body>
 
+
+<script>
+    function telaDashboard() {
+     window.location.href = "../Dashboard/index.html"
+                 
+    }
+</script>
 </html>

@@ -13,7 +13,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemPerfil" src="fotoPerfil.png">
+                <img class="imagemPerfil" src="Imagens/fotoPerfil.png">
                 <p>Olá, Amanda!</p>
             </div>
         </div>
@@ -21,15 +21,15 @@
         <div class="navegacao">
             <button>
                 <span>
-                    <img src="simboloMetrica.png">
+                    <img src="Imagens/simboloMetrica.png">
                     <span> Métricas </span>
                 </span>
             </button>
 
             <button>
                 <span>
-                    <img src="quiz.png">
-                    <span> Quiz </span>
+                    <img src="Imagens/quiz.png">
+                    <span onclick="telaQuiz()"> Quiz </span>
                 </span>
             </button>
 
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-             
+
 
                 <!-- parte da dashboard -->
 
@@ -108,6 +108,10 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
                 <script>
+                    function telaQuiz() {
+                          window.location.href = "../Quiz/index.html"
+                    }
+
                     const ctx = document.getElementById('myChart');
 
                     new Chart(ctx, {
@@ -132,7 +136,6 @@
 
 
                 </script>
-                <!--  -->
             </div>
         </div>
 

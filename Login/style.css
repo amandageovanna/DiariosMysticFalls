@@ -10,9 +10,11 @@
 	margin-right: 100px;
 }
 
-.navbar p {
+.navbarLogin {
     padding: 5px;
     margin-left: 90px;
+	cursor: pointer;
+
 }
 
 body {
