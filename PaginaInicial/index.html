@@ -23,10 +23,10 @@
             </div>
             <ul class="navbar">
                 
-                <li><a href="##">SOBRE A SÉRIE</a></li>
-                <li><a href="###">ESPÉCIES</a></li>
-                <li><a href="###">PERSONAGENS</a></li>
-                <li><a href="####">SOBRE MIM</a></li>
+                <li><a href="#sobre">SOBRE A SÉRIE</a></li>
+                <li><a href="#espécies">ESPÉCIES</a></li>
+                <li><a href="#personagens">PERSONAGENS</a></li>
+                <li><a href="#sobremim">SOBRE MIM</a></li>
                 <li class="login-link">
                     <div class="frame-login" onclick="telaLogin()">ACESSAR</div>
                 </li>
@@ -188,11 +188,11 @@
         <br>
         <div class="boxPersonagens">
             <div class="personagens">
-                <img class="tamanhoPers" class="elipse" src="Imagens/stefan.png">
+                <img id="stefan" onclick="mudarInformacoes('STEFAN SALVATORE')" class="tamanhoPers" class="elipse" src="Imagens/stefan.png">
             </div>
 
             <div class="personagens">
-                <img class="tamanhoPers" src="Imagens/elenaPersonagem.png">
+                <img id="elena" onclick="mudarInformacoes('elena')" class="tamanhoPers" src="Imagens/elenaPersonagem.png">
             </div>
 
             <div class="personagens">
@@ -363,3 +363,4 @@
 </body>
 
 </html>
+
