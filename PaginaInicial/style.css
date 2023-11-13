@@ -670,10 +670,10 @@ p {
     width: 900px;
     font-weight: 400;
     font-size: 16px;
-    text-align: center;
+    
     line-height: 26px;
     font-style: normal;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.10px;
     margin-top: 20px;
 }
 

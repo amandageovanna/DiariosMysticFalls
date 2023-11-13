@@ -25,7 +25,7 @@ function mudarInformacoes(personagemId) {
         "<br><br> Eu sou o primeiro híbrido de sucesso dele, Caroline. Não acha que isso é um pouco legal?",
     ];
 
-    var imgSrcs = [`Imagens/stefanSalvatore.jpg`, `Imagens/elenaGilbert.jpeg`, "Imagens/damonSalvatore.png", "Imagens/carolineForbes.jpg", `Imagens/bonnieBennett.jpg`, "Imagens/mattDonovan.jpg", "Imagens/tylerLockwood.jpg"];
+    var imgSrcs = [`Imagens/stefanSalvatore.jpg`, `Imagens/elenaGilbert.jpeg`, "Imagens/damonSalvatore.png", "Imagens/carolineForbes.png", `Imagens/bonnieBennett.png`, "Imagens/mattDonovan.png", "Imagens/tylerLockwood.png"];
 
     var infoBibliografica = ["1 de Novembro, 1846", "22 de Junho, 1992", "18 de Junho, 1839", "10 de Outubro, 1992", "5 de Fevereiro, 1993", "26 de Fevereiro, 1993", "10 de Fevereiro, 1993"];
 
