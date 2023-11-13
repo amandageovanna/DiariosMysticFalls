@@ -33,8 +33,17 @@
                 </span>
             </button>
 
-            <div>
-                <span></span>
+            <button>
+                <span>
+                    <img src="Imagens/diario.png">
+                    <span onclick="telaDiario()"> Diário </span>
+                </span>
+            </button>
+
+            <div class="deslogar">
+                <span>                    
+                    <span onclick="telaSair()">SAIR</span>
+                </span>
             </div>
         </div>
 
@@ -109,7 +118,15 @@
 
                 <script>
                     function telaQuiz() {
-                          window.location.href = "../Quiz/index.html"
+                        window.location.href = "../Quiz/index.html"
+                    }
+
+                    function telaSair() {
+                        window.location.href = "../PaginaInicial/index.html"
+                    }
+
+                    function telaDiario() {
+                        window.location.href = "../PaginaDiario/index.html"
                     }
 
                     const ctx = document.getElementById('myChart');

@@ -268,3 +268,15 @@ body {
     align-items: center;
 }
 
+.deslogar > span {
+    color: white;
+    font-family: 'Montserrat';
+     display: flex;
+     align-items: flex-end;
+     height: 48px;
+     padding: 0 16px 0 23px;
+     /* o padding alinhou os itens no centro */
+     margin-left: 60px;     
+     margin-top: 350px;
+     cursor: pointer;
+}
