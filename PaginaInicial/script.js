@@ -6,7 +6,7 @@ function mudarInformacoes(personagemId) {
     var caixaEsquerda2 = document.querySelector('.caixaEsquerda2');
 
     // vetores com informações dos personagens
-    var titulos = ["STEFAN SALVATORE", "ELENA GILBERT", "CAROLINE FORBES", "BONNIE BENNET", "MATT DONOVAN", "TYLER LOCKWOOD"];
+    var titulos = ["STEFAN SALVATORE", "ELENA GILBERT", "CAROLINE FORBES", "BONNIE BENNETT", "MATT DONOVAN", "TYLER LOCKWOOD"];
     var citacoes = [
         // Stefan:
         "A vida não se resume a momentos finais e sim aos momentos que levaram a eles",
@@ -21,22 +21,52 @@ function mudarInformacoes(personagemId) {
         // Tyler:
        "Eu sou o primeiro híbrido de sucesso dele, Caroline. Não acha que isso é um pouco legal?",
     ];
-    var imgSrcs = ["Imagens/stefanSalvatore.jpg"];
-    var infoBibliografica = [["Nascimento", "1 de Novembro, 1846"]];
+    var imgSrcs = ["Imagens/stefanSalvatore.jpg", "Imagens/elenaGilbert.jpg", "Imagens/carolineForbes.jpg", "Imagens/bonnieBennett.jpg", "Imagens/mattDonovan.jpg","Imagens/tylerLockwood.jpg"];
+
+    var infoBibliografica = ["1 de Novembro, 1846", "22 de Junho, 1992", "10 de Outubro, 1992", "5 de Fevereiro, 1993", "26 de Fevereiro, 1993", "10 de Fevereiro, 1993"];
+
+    var sobrePersonagem = [
+// Stefan:
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+
+// Elena: 
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+ // Caroline: 
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  // Bonnie:
+
+   // Matt:
+
+    // Tyler:
+    ]
     // achar a posição do personagem no vetor
     var posicao = titulos.indexOf(personagemId);
 
     // atualiza os elementos HTML com as informações do personagem
     if (posicao !== -1) {
-        caixaDireita2.innerHTML = "<h6 class='TituloSessaoPersonagem'>" +
-            titulos[posicao] + "</h6> <div class='caixaCitacao'> <p>" +
-            citacoes[posicao] + "</p> </div>";
-
-        caixaEsquerda2.innerHTML = "<img class='imgSessaoPersonagem' src='" +
-            imgSrcs[posicao] +
-            "'><div><p class='TituloSessaoPersEsq'>INFORMAÇÃO BIBLIOGRÁFICA</p></div><div class='coluna'>" +
-            "<div class='linhas'><div class='info'><div class='esquerda'>" + infoBibliografica[posicao][0] + ":</div><div class='direita'>" + infoBibliografica[posicao][1] + "</div></div></div>" +
-            "</div>";
+        caixaDireita2.innerHTML = `<h6 class="TituloSessaoPersonagem"> ${titulos[posicao]} </h6> 
+        <div class="caixaCitacao">
+         <p> 
+            ${citacoes[posicao]} 
+         </p> 
+         </div>
+           
+         <p> 
+            ${}
+         </p> `
+         caixaEsquerda2.innerHTML = `img class="imgSessaoPersonagem" src="${imgSrcs[posicao]}">
+           <div> 
+              <p class="TituloSessaoPersEsq"> INFORMAÇÃO BIBLIOGRÁFICA </p> 
+           </div> 
+           
+           <div class="coluna">
+              <div class="linhas">
+                 <div class="info">
+                      <div class="esquerda"> Nascimento:</div>
+                      <div class="direita"> ${infoBibliografica[posicao][1]}}</div>
+                      </div> 
+                    </div>
+            </div>`
     }
 }
 
