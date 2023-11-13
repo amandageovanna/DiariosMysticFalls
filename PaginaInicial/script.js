@@ -6,9 +6,22 @@ function mudarInformacoes(personagemId) {
     var caixaEsquerda2 = document.querySelector('.caixaEsquerda2');
 
     // vetores com informações dos personagens
-    var titulos = ["STEFAN SALVATORE"];
-    var citacoes = ["A vida não se resume a momentos finais e sim aos momentos que levaram a eles"];
-    var imgSrcs = ["imagens-serie/stefanSalvatore.png"];
+    var titulos = ["STEFAN SALVATORE", "ELENA GILBERT", "CAROLINE FORBES", "BONNIE BENNET", "MATT DONOVAN", "TYLER LOCKWOOD"];
+    var citacoes = [
+        // Stefan:
+        "A vida não se resume a momentos finais e sim aos momentos que levaram a eles",
+        // Elena: 
+        "Eu achava que o pior sentimento era perder alguém que se ama, mas estava errada. O pior é quando você percebe que perdeu a si mesma.",
+        // Caroline: 
+        "Por que eu deveria deixar o fato de que meu namorado foi transformado em um híbrido estragar o meu dia?",
+        // Bonnie:
+        " Você não pode viver a sua vida para os outros. Você tem de fazer o que for certo para você, mesmo que isso machuque as pessoas que você ama.",
+        // Matt:
+        "Elena está namorando um vampiro. Você é uma bruxa. Minha irmã é um fantasma. E eu sou apenas um cara que tenta imaginar como sua vida virou de ponta cabeça.",
+        // Tyler:
+       "Eu sou o primeiro híbrido de sucesso dele, Caroline. Não acha que isso é um pouco legal?",
+    ];
+    var imgSrcs = ["Imagens/stefanSalvatore.jpg"];
     var infoBibliografica = [["Nascimento", "1 de Novembro, 1846"]];
     // achar a posição do personagem no vetor
     var posicao = titulos.indexOf(personagemId);
@@ -26,7 +39,7 @@ function mudarInformacoes(personagemId) {
             "</div>";
     }
 }
-      
+
 
 //  associar manipuladores de eventos a cada imagem em um loop.
 var imagens = document.querySelectorAll('.tamanhoPers');
