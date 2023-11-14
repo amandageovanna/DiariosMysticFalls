@@ -57,7 +57,7 @@ body {
 
 .sidebarMarrom {
     background-color: #584634;
-    height: 300px;
+    height: 233px;
     width: 240px;
     display: flex;
     justify-content: center;
@@ -268,15 +268,21 @@ body {
     align-items: center;
 }
 
-.deslogar > span {
-    color: white;
-    font-family: 'Montserrat';
+.deslogar > span {   
      display: flex;
      align-items: flex-end;
      height: 48px;
      padding: 0 16px 0 23px;
-     /* o padding alinhou os itens no centro */
-     margin-left: 60px;     
-     margin-top: 350px;
-     cursor: pointer;
+     /* o padding alinhou os itens no centro */  
+     
+}
+
+.caixaDeslogar {
+    cursor: pointer;
+    color: white;
+    font-family: 'Montserrat';
+    margin-left: 70px;     
+    margin-top: 188px;
+    padding: 0 16px 0 23px;
+
 }

@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'Bona Nova';
+    src: url(fontes/BonaNova-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bona Bold';
+    src: url(assets/fontes/BonaNova-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(assets/fontes/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Monda';
+    src: url(assets/fontes/Monda-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Monda-Bold';
+    src: url(assets/fontes/Monda-Bold.ttf);
+}
+
+
 body {
     margin: 0;
     background-color: #9E8466;
@@ -247,7 +273,7 @@ body {
     justify-content: center;
     color: white;
     background-color: #211914;
-    font-family: 'BonaNova';
+    font-family: 'Bona Nova';
     font-weight: 400;
     height: 55px;
 }
@@ -278,7 +304,8 @@ body {
 
 .caixaDireita h2 {
     color: #ffffff;
-    font-family: 'BonaNova';
+    font-size: 29px;
+    font-family: 'Bona Nova';
     text-align: center;
     text-transform: uppercase;
     line-height: 41.2px;
@@ -351,8 +378,9 @@ p {
 .caixaEsquerda p {
     color: #ffffff;
     font-family: "Bona Nova";
+    margin-top: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .imagemCaixaEsquerda {
@@ -501,6 +529,7 @@ p {
 
 .tamanhoPers:hover {
     transform: scale(1.1);
+
 }
 
 .info {
@@ -597,7 +626,7 @@ p {
     padding: 20px;
     text-align: center;
     color: white;
-    font-family: 'BonaNova';
+    font-family: 'Bona Nova';
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -608,7 +637,7 @@ p {
     margin: 0;
     padding: 20px;
     color: white;
-    font-family: 'BonaNova';
+    font-family: 'Bona Nova';
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -689,7 +718,7 @@ p {
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .5s ease;
+    transition: .5s ;
 }
 
 .fotoSobreMim:hover .overlay {
@@ -708,7 +737,7 @@ p {
 }
 
 .footer p {
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
     text-align: center;
     margin: 20px;
     font-size: 15px;
