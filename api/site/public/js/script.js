@@ -90,20 +90,17 @@ function mudarInformacoes(personagemId) {
         A trajetória de Tyler é caracterizada por sacrifícios pessoais, lutas internas e uma busca constante por sua própria identidade. Seu papel como um representante dos lobisomens em Mystic Falls adiciona uma camada única à dinâmica sobrenatural da série, destacando a complexidade de sua jornada e sua contribuição para o universo fictício da trama.`,
     ]
 
-    var informacaoAdicional = ["Transformado por:", "Transformado por:", "Transformado por:", "Causas da morte:", "Causas de morte", "Transformado por:",]
+    var informacaoAdicional = ["Transformado por:", "Transformado por:", "Transformado por:", "Transformado por:", "Causas da morte:", "Causas de morte:", "Transformado por:",]
 
     var transformado = [
         // Stefan
         "Katherine Pierce em 25 de Setembro, 1864",
-
         //Elena
         "Sangue de Damon em 6 de Novembro de 2011 (administrado por Meredith Fell)",
         //Damon
         "Katherine Pierce em 25 de Setembro de 1864",
         // Caroline
-        "Damon Salvatore em 26 de Fevereiro, 2010 (transição iniciada por Katherine)",
-        // Damon 
-        "Katherine Pierce em 25 de Setembro de 1864",
+        "Damon Salvatore em 26 de Fevereiro, 2010 (transição iniciada por Katherine)",       
         // Bonnie
         "Uso excessivo de magia (1ª e 2ª vezes; ressuscitada)",
         // Matt
@@ -172,7 +169,8 @@ function mudarInformacoes(personagemId) {
 }
 
 function telaLogin() {
-    window.location.href = "../Login/index.html"
+    window.location.href = "../login.html"
+   
 }
 
 // funções para chamar o gif //
