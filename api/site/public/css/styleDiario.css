@@ -146,7 +146,7 @@ body {
 
 }
 
-.entradasAntigas>span {
+.linhaEntradasAntigas>span {
     font-family: 'Montserrat';
     display: flex;
     align-items: center;    
@@ -154,9 +154,9 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: 0.2s;
-}
+    }
 
-.entradasAntigas:hover>span {
+.linhaEntradasAntigas:hover>span {
     background-color: #d2bc9f;
 }
 
