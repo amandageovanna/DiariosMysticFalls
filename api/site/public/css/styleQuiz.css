@@ -189,17 +189,12 @@ body {
 }
 
 
-
-/* .caixaConteudo textarea:focus {
-    box-shadow: 0 0 0 2px #CEB98E;
-    /*  adiciona uma borda ao clicar  
-   } */
-
-
 .TituloQuiz>span {
     font-family: 'Montserrat';
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -210,14 +205,16 @@ body {
 .boxImagemQuiz {
     display: flex;
     justify-content: center;
+   
 }
 
 .imagemQuiz {
     margin: 15px;
-    width: 610px;
-    height: 360px;
+    width: 590px;
+    height: 350px;
     margin-bottom: 20px;
     margin-top: 0px;
+    border-radius: 20px;
 }
 
 .boxBotao>button {
