@@ -173,6 +173,10 @@ function telaLogin() {
    
 }
 
+function cadastrar() {
+    window.location.href = "cadastro.html"
+}
+
 // funções para chamar o gif //
 function playGif(image) {
     image.src = 'assets/paginaInicial/gifElenaVampira.gif'

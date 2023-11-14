@@ -98,10 +98,10 @@ h5 {
 
 .corCrie {
 	cursor: pointer;
-	color: #caa06c;
+	color: #cfaf87;
 }
 
-#botaoLogar {	
+.botaoLogar {	
 	background-color: #552424;
 	border: none;
 	color: white;
@@ -114,7 +114,7 @@ h5 {
 
 }
 
-#botaoLogar:hover {
+.botaoLogar:hover {
 	background-color: #673232;
 	transition-duration: 1s;
 	cursor: pointer;

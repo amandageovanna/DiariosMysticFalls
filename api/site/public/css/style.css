@@ -1,33 +1,3 @@
-@font-face {
-    font-family: 'BonaNova';
-    src: url(fontes/BonaNova-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Bona-Bold';
-    src: url(fontes/BonaNova-Bold.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url(fontes/Montserrat-VariableFont_wght.ttf);
-}
-
-@font-face {
-    font-family: 'Monda';
-    src: url(fontes/Monda-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Monda-Bold';
-    src: url(fontes/Monda-Bold.ttf);
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url(fontes/Poppins-Light.ttf);
-}
-
 body {
     margin: 0;
     background-color: #9E8466;
@@ -178,6 +148,7 @@ body {
 .cadastre>p {
     left: 60%;
     font-size: 40px;
+    cursor: pointer;
 }
 
 .borda {
