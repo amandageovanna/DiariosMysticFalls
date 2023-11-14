@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styleDashboard.css">
     <script src="js/scriptDashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemPerfil" src="Imagens/fotoPerfil.png">
+                <img class="imagemPerfil" src="assets/dashboard/fotoPerfil.png">
                 <p>Olá, Amanda!</p>
             </div>
         </div>
@@ -22,27 +23,27 @@
         <div class="navegacao">
             <button>
                 <span>
-                    <img src="Imagens/simboloMetrica.png">
+                    <img src="assets/dashboard/simboloMetrica.png">
                     <span> Métricas </span>
                 </span>
             </button>
 
             <button>
                 <span>
-                    <img src="Imagens/quiz.png">
+                    <img src="assets/dashboard/quiz.png">
                     <span onclick="telaQuiz()"> Quiz </span>
                 </span>
             </button>
 
             <button>
                 <span>
-                    <img src="Imagens/diario.png">
+                    <img src="assets/dashboard/diario.png">
                     <span onclick="telaDiario()"> Diário </span>
                 </span>
             </button>
 
             <div class="deslogar">
-                <span>                    
+                <span>
                     <span onclick="telaSair()">SAIR</span>
                 </span>
             </div>
@@ -115,9 +116,31 @@
 
                 <canvas id="myChart" width="900" height="300" style="margin-left: 30px; margin-right: 30px; "></canvas>
 
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
 
-                </div>
+                const ctx = document.getElementById('myChart');
+                                
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                            datasets: [{
+                                label: 'Quantidade de Diários por Mês',
+                                data: [15, 18, 27, 16, 19, 22, 29, 23, 21, 17, 16, 28],
+                                backgroundColor: '#584634',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
         </div>
 
         </div>

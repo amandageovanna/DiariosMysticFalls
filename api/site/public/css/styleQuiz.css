@@ -221,12 +221,15 @@ body {
 }
 
 .boxBotao>button {
+    margin-top: 5px;
     font-family: 'Montserrat';
     cursor: pointer;
-    border-radius: 50px;
+    border: none;
+    border-radius: 10px;
     width: 100px;
     height: 40px;   
-    background-color: #d5cac2;
+    background-color: #dbcfca;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .boxBotao {
