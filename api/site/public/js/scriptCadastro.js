@@ -1,6 +1,6 @@
 function telaInicial() {
-    window.location.href = "../PaginaInicial/index.html"}
+    window.location.href = "index.html"}
 
 function telaLogin() {
-    window.location.href = "../Login/index.html"
+    window.location.href = "login.html"
 }  

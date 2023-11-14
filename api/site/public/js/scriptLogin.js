@@ -1,9 +1,9 @@
 function telaInicial() {
-    window.location.href = "../PaginaInicial/index.html"
+    window.location.href = "index.html"
 }
 
 function telaCadastro() {
-    window.location.href = "../Cadastro/index.html"
+    window.location.href = "cadastro.html"
 }
 
 function logar() {

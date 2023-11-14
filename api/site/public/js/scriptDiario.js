@@ -1,9 +1,9 @@
 function telaMetricas() {
-    window.location.href = "../Dashboard/index.html"}
+    window.location.href = "..dashboard.html"}
 
     function telaQuiz() {
-    window.location.href = "../Quiz/index.html"    }
+    window.location.href = "..quiz.html"}
 
     function telaSair() {
-    window.location.href = "../PaginaInicial/index.html"    }
+    window.location.href = "..index.html"}
   

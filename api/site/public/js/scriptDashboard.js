@@ -1,13 +1,13 @@
 function telaQuiz() {
-    window.location.href = "../Quiz/index.html"
+    window.location.href = "quiz.html"
 }
 
 function telaSair() {
-    window.location.href = "../PaginaInicial/index.html"
+    window.location.href = "index.html"
 }
 
 function telaDiario() {
-    window.location.href = "../PaginaDiario/index.html"
+    window.location.href = "diario.html"
 }
 
 const ctx = document.getElementById('myChart');
