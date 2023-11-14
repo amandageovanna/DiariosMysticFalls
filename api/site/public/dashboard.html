@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styleDashboard.css">
+    <script src="js/scriptDashboard.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebarMarrom">
+            <div class="sidebar-header">
+                <img class="imagemPerfil" src="Imagens/fotoPerfil.png">
+                <p>Olá, Amanda!</p>
+            </div>
+        </div>
+
+        <div class="navegacao">
+            <button>
+                <span>
+                    <img src="Imagens/simboloMetrica.png">
+                    <span> Métricas </span>
+                </span>
+            </button>
+
+            <button>
+                <span>
+                    <img src="Imagens/quiz.png">
+                    <span onclick="telaQuiz()"> Quiz </span>
+                </span>
+            </button>
+
+            <button>
+                <span>
+                    <img src="Imagens/diario.png">
+                    <span onclick="telaDiario()"> Diário </span>
+                </span>
+            </button>
+
+            <div class="deslogar">
+                <span>                    
+                    <span onclick="telaSair()">SAIR</span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <main class="main">
+
+        <div class="barraBoasVindas">
+            <div class="boxTexto">
+                <span> MEU DIÁRIO ONLINE </span>
+            </div>
+        </div>
+
+        <div class="BoxNovaEntrada">
+            <div class="caixaNovaEntrada">
+                <div class="boxTituloNovaEntrada">
+                    <span> MÉTRICAS POR QUANTIDADE DE DIÁRIOS MENSAL</span>
+                </div>
+
+
+                <div class="metricasPerfis">
+                    <div class="boxPerfil">
+                        <span> Stefan </span>
+                        <div class="parametros">
+                            <span> Mais que 25 diários</span>
+                        </div>
+                    </div>
+
+                    <div class="boxPerfil">
+                        <span> Elena </span>
+                        <div class="parametros">
+                            <span> Até 24 diários </span>
+                        </div>
+                    </div>
+
+                    <div class="boxPerfil">
+                        <span> Katherine </span>
+                        <div class="parametros">
+                            <span> Até 16 diários </span>
+                        </div>
+                    </div>
+
+                    <div class="boxPerfil">
+                        <span> Damon </span>
+                        <div class="parametros">
+                            <span> Até 08 diários </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="TituloQuiz">
+                    <span class="seuPerfil"> Seu perfil é...</span> <br>
+                    <span class="nomePerfil"> Katherine </span> <br>
+                    <span class="descricaoPerfil"> Está melhorando... Você pode mais!</span>
+                </div>
+
+                <div class="quantidadeDiarios">
+                    <div class="boxParametrosDiarios">
+                        <span> Quantidade total de diários cadastrados: </span>
+                        <div class="parametrosDiarios">
+                            <span> 02 </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- parte da dashboard -->
+
+                <canvas id="myChart" width="900" height="300" style="margin-left: 30px; margin-right: 30px; "></canvas>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                </div>
+        </div>
+
+        </div>
+
+    </main>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
