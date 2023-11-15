@@ -211,6 +211,9 @@ body {
     height: 35px;
     outline: none;
     margin-top: 10px;
+    font-size: 16px;
+   
+    
 }
 
 .caixaConteudo {
@@ -229,13 +232,14 @@ body {
     /* coloquei o importante para impedir que o usuário consiga redimensionar a caixa de texto */
     outline: none;
     /* remove a borda padrão quando clica */
+    font-family: "Bona Nova";
+    font-size: 14px;
+    
 }
 
-/* .caixaConteudo textarea:focus {
-    box-shadow: 0 0 0 2px #CEB98E;
-    /*  adiciona uma borda ao clicar  
-   } */
-
+.caixaConteudo > labelfor { 
+    color: white;
+}
 #conteudoDiario {
     background-color: #E9D5B9;
     border: none;
@@ -256,13 +260,6 @@ body {
 .caixaBuscar>span,
 .calendarioBox>span {
     font-family: 'Montserrat';
-}
-
-#input_buscar {
-    border: none;
-    width: 260px;
-    height: 30px;
-
 }
 
 .calendarioBox {

@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Login - Diários de Mystic Falls</title>
-    <script src="js/scriptLogin.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Diários de Mystic Falls</title>    
     <link rel="stylesheet" href="css/styleLogin.css" />
+    <script src="./js/sessao.js"></script>
+
 </head>
 
 <body style="background-image: url(assets/cadastro.login/QuartoElena.jpg);">
@@ -17,17 +18,97 @@
         <h1>Bem-vindo à Diários de Mystic Falls</h1>
         <h2>Faça login para acessar sua conta</h2>
         <h3>Nome de Usuário</h3>
-        <input id="username" class="camposDeEntrada">
+        <input id="email_input" class="camposDeEntrada">
         <h3>Senha</h3>
-        <input id="password" class="camposDeEntrada">
+        <input id="senha_input" class="camposDeEntrada">
 
         <h4><a href="#">Esqueceu sua senha?</a></h4>
 
-        <button onclick="logar()" class="botaoLogar">Login</button>
+        <button onclick="entrar()" class="botaoLogar">Login</button>
 
         <h5>Não tem uma conta? <span class="corCrie" onclick="telaCadastro()">Crie agora!</span></h4>
     </div>
 </body>
 
+<script>
+    function telaInicial() {
+        window.location.href = "index.html"
+    }
+
+    function telaCadastro() {
+        window.location.href = "cadastro.html"
+    }
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.DIARIOS = JSON.stringify(json.DIARIOS)
+
+                    setTimeout(function () {
+                        window.location = "diario.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
 
 </html>
