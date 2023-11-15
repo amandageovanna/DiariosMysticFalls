@@ -51,10 +51,26 @@ function deletarDiario(idDiario) {
     return database.executar(instrucao);
 }
 
+function buscarDiariosPorUsuario(idUsuario) {
+    console.log("ACESSEI O DIARIO MODEL para buscar diários por usuário, function buscarDiariosPorUsuario()", idUsuario);
+
+    var instrucao = `
+    SELECT idDiario, Titulo, Conteudo, dtQuantidade
+    FROM Diario
+    WHERE FkUsuario = ${idUsuario}
+    ORDER BY dtQuantidade DESC;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+
+    return database.executar(instrucao);
+
+}
 
 module.exports = {
     criarDiario,
     obterUltimosDiarios,
     atualizarDiario,
-    deletarDiario
+    deletarDiario,
+    buscarDiariosPorUsuario
 }

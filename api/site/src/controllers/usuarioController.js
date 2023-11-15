@@ -20,20 +20,20 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        diarioModel.buscarDiariosPorUsuario(resultadoAutenticar[0].Id)
-                            .then((resultadoDiarios) => {
-                                if (resultadoDiarios.length > 0) {
+                        // diarioModel.buscarDiariosPorUsuario(resultadoAutenticar[0].Id)
+                        //     .then((resultadoDiarios) => {
+                        //         if (resultadoDiarios.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
-                                        diarios: resultadoDiarios
+                                        // diarios: resultadoDiarios
                                     });
-                                } else {
-                                    res.status(204).json({ diarios: [] });
-                                }
-                            })
+                            //     } else {
+                            //         res.status(204).json({ diarios: [] });
+                            //     }
+                            // })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
