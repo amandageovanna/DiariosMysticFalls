@@ -3,6 +3,7 @@ var diarioModel = require("../models/diarioModel");
 function criarDiario(req, res) {
     var titulo = req.body.titulo;
     var conteudo = req.body.conteudo;
+    var fkUsuario = req.body.fkUsuario; // para garantir que cada diário seja atribuido para o usuario correto no bd
 
     diarioModel.criarDiario(titulo, conteudo)
         .then(function () {
@@ -30,38 +31,25 @@ function atualizarDiario (req, res) {
     var novoTitulo = req.body.titulo;
     var novoConteudo = req.body.conteudo;
 
-    diarioModel.(novaDescricao, idAviso)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
+    diarioModel.atualizarDiario(idDiario, novoTitulo, novoConteudo)
+    .then(function () {
+        res.status(200).json({mensagem: "Diário atualizado com sucesso!" });
+    })
+    .catch(function (erro) {
+        res.status(500).json({erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!"});
+    });
 }
 
-function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+function deletarDiario(req, res) {
+    var idDiario = req.params.id;
 
-    avisoModel.deletar(idAviso)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+    diarioModel.deletarDiario(idDiario)
+        .then(function () {
+            res.status(200).json({mensagem: "Diário deletado com sucesso!" });
+        })
+        .catch(function (erro) {
+            res.status(500).json({erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!"});
+        });
 }
 
 module.exports = {
