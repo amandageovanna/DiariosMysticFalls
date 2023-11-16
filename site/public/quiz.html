@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styleQuiz.css">    
+    <link rel="stylesheet" href="css/styleQuiz.css">
 </head>
 
 <body>
@@ -42,9 +42,9 @@
 
             <div class="deslogar">
                 <div class="caixaDeslogar">
-                    <span  onclick="telaSair()">SAIR</span>
+                    <span onclick="telaSair()">SAIR</span>
                 </div>
-             </div>
+            </div>
         </div>
 
     </div>
@@ -63,42 +63,149 @@
                     <span> TESTE SEUS CONHECIMENTOS! </span>
                 </div>
 
-                <div class="TituloQuiz ">
-                    <span> Pronto para mostrar que é um verdadeiro fã de 'The Vampire Diaries'? Teste seus conhecimentos gerais e descubra se você é um especialista na saga de Mystic Falls!
+                <div class="TituloQuiz" id="TituloQuiz">
+                    <span> Pronto para mostrar que é um verdadeiro fã de 'The Vampire Diaries'? Teste seus conhecimentos
+                        gerais e descubra se você é um especialista na saga de Mystic Falls!
                     </span>
+
                     <div class="boxImagemQuiz">
                         <img class="imagemQuiz" src="assets/quiz/01.jpg">
+
+                    </div>
+
+                    <div class="boxBotao">
+                        <button>
+                            <span onclick="iniciarQuiz()">Iniciar</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="sessaoQuiz" id="sessaoQuiz">
+
+
                     </div>
                 </div>
 
-                <div class="boxBotao">
-                    <button>
-                        <span>Iniciar</span>
-                    </button>
-                </div>
-
             </div>
-        </div>
-        </div>
 
+
+
+
+        </div>
+        </div>
+        </div>
+        <!-- //  <div class="boxBotao">
+                        //     <button>                            
+                        //       <span onclick="proximaPergunta()">Proxima</span>
+                        //     </button>
+                        //   </div> -->
     </main>
     </div>
 
 </body>
 
 <script>
+
+    function iniciarQuiz() {
+        var tituloQuiz = document.getElementById('TituloQuiz');
+        var sessaoQuiz = document.getElementById('sessaoQuiz');
+
+        tituloQuiz.style.display = 'none'; // esconder a div inicial
+        sessaoQuiz.style.display = 'block';  //aparecer a div das questoes
+
+
+        exibirPerguntaAtual();
+    }
+
+    function exibirPerguntaAtual() {
+        var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
+
+        var perguntas = [
+            // 1 
+            "Elena Gilbert morreu com o sangue de qual vampiro no organismo?",
+            // 2
+            "Quem jogou o carro de Matt da ponte Wickery?",
+            // 3
+            "Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos?",
+            // 4
+            "Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar. Por qual motivo?",
+            // 5
+            "Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr. Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ. Соmо еlеѕ ѕе сhаmаvаm?",
+            // 6
+            "Segundo The Vampire Diaries, o que o sangue de vampiro causa a uma pessoa com câncer?",
+            // 7
+            "Qual dos irmãos Originais foi cativado por Katherine Pierce?",
+            // 8
+            "O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada?",
+            // 9 
+            "Como Tyler Lockwood reativa a maldição de lobo na sexta temporada?",
+            // 10 
+            "Quem transformou Caroline em vampira? "
+        ]
+
+        var posicao = 0;
+
+        if (posicao < perguntas.length) {
+            sessaoQuiz.innerHTML = `${perguntas[posicao]} <br> 
+            <input type="radio" name="questao1">Stefan<br>
+            <input type="radio" name="questao2" id="correta1">Damon<br>
+            <input type="radio" name="questao3">Alaric<br> 
+
+            <input type="submit" name="submit" value="Próxima" onclick="proximaPergunta()">   
+            `
+        }
+    }
+
+    var score = 0;
+
+    function proximaPergunta() {
+        var opcaoSelecionada = document.querySelector
+        if ('input[name="resposta"]:checked') {
+            posicao++;
+        } else {
+            sessaoQuiz.innerHTML += "Por favor, selecione uma resposta antes de avançar."
+        }
+    }
+
+    // sessaoQuiz.innerHTML = `
+    //   "Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo?" <br>
+    //    <input type="radio" name="questao1">Stefan<br>
+    //    <input type="radio" name="questao2" id="correta1">Damon<br>
+    //    <input type="radio" name="questao3">Alaric<br> 
+
+    //    <input type="submit" name="submit" value="Próxima" onclick="proximaPergunta()"> 
+
+
+
+
+    // var respostas = [ ]
+
+    // var opcaoPergunta1 = ["Stefan", "Damon", "Alaric"]
+    // var opcaoPergunta2 = ["Klaus", "Rebekah", "Elijah"]
+    // var opcaoPergunta3 = ["10 de maio de 1993", "10 de maio de 1996", "10 de maio de 1994"]
+    // var opcaoPergunta4 = ["О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа.", "О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.", "О соlаr роѕѕuі асônіtо, nãо dеіха vаmріrоѕ а соmреlіrеm."]
+    // var opcaoPergunta5 = ["Luka, Josette e Olivia.", "Josette, Lucas e Olivia.", "Luka, Josette e Liv."]
+    // var opcaoPergunta6 = ["Mata a pessoa.", "Cura o câncer.", "Transforma em vampiro."]
+    // var opcaoPergunta7 = ["Kol", "Elijah", "Niklaus"]       
+    // var opcaoPergunta8 = ["Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа.", "Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.", "Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа."]
+    // var opcaoPergunta9 = ["Mata Liv.", "Mata Kai.", "Mata Matt."]
+    // var opcaoPergunta10 = ["Stefan Salvatore", "Katherine Petrova", "Damon Salvatore"]
+
+
     function telaDashboard() {
-    window.location.href = "dashboard.html"
+        window.location.href = "dashboard.html"
 
-}
+    }
 
-function telaSair() {
-    window.location.href = "index.html"
-}
+    function telaSair() {
+        window.location.href = "index.html"
+    }
 
-function telaDiario() {
-    window.location.href = "diario.html"
-}
+    function telaDiario() {
+        window.location.href = "diario.html"
+    }
 </script>
 
 </html>

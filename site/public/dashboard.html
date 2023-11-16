@@ -44,9 +44,9 @@
 
             <div class="deslogar">
                 <div class="caixaDeslogar">
-                    <span  onclick="telaSair()">SAIR</span>
+                    <span onclick="telaSair()">SAIR</span>
                 </div>
-             </div>
+            </div>
         </div>
 
     </div>
@@ -116,10 +116,21 @@
 
                 <canvas id="myChart" width="900" height="300" style="margin-left: 30px; margin-right: 30px; "></canvas>
 
-            <script>
+                <script>
+                    function telaDiario() {
+                        window.location.href = "diario.html"
+                    }
 
-                const ctx = document.getElementById('myChart');
-                                
+                    function telaQuiz() {
+                        window.location.href = "quiz.html"
+                    }
+
+                    function telaSair() {
+                        window.location.href = "index.html"
+                    }
+
+                    const ctx = document.getElementById('myChart');
+
                     new Chart(ctx, {
                         type: 'bar',
                         data: {
