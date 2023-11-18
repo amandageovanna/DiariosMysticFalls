@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/styleQuiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -85,10 +86,22 @@
                     <div class="sessaoQuiz" id="sessaoQuiz">
 
 
-                    </div> 
-                    <div id="botaoQuiz">
+                    </div>
+
+                  
+                    <div class="respostasQuiz">
 
                     </div>
+
+                    <div class="botaoQuiz">
+
+                    </div>
+
+                    <div class="container">
+                        <canvas id="quizChart" width="400" height="200"></canvas>
+                    </div>
+
+                    
                 </div>
 
             </div>
@@ -107,6 +120,12 @@
 <script>
     var score = 0;
 
+    var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
+    var sessaoQuiz = document.querySelector('.sessaoQuiz');
+    var respostasQuiz = document.querySelector('.respostasQuiz');
+    var botaoQuiz = document.querySelector('.botaoQuiz');
+
+
 
     function iniciarQuiz() {
         var tituloQuiz = document.getElementById('TituloQuiz');
@@ -121,183 +140,252 @@
 
 
     function exibirPerguntaAtual() {
-        var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
-        var sessaoQuiz = document.querySelector('.sessaoQuiz'); // 
 
-        sessaoQuiz.innerHTML = `
-      
-            <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>
-            
-                 <input type="radio" name="questao1">Stefan<br>
-                 <input type="radio" name="questao2" id="correta01">Damon<br>
-                 <input type="radio" name="questao3">Alaric<br> <br> `
 
+        sessaoQuiz.innerHTML = `      
+            <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>`
+
+          respostasQuiz.innerHTML = `
+         <input type="radio" name="questao1"> Stefan<br>
+         <input type="radio" name="questao1" id="correta01"> Damon<br>
+        <input type="radio" name="questao1"> Alaric<br> <br>
+                 `
+
+         botaoQuiz.innerHTML = `
+        <input type="submit" class="botaoProxima"  name="submit" value="Próxima pergunta" onclick="verificarScore1()"> 
+          `
+    }
+    function verificarScore1() {
 
         if (document.getElementById('correta01').checked) {
-            score++;}
-          
-            botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima"  name="submit" value="Próxima pergunta" onclick="proximaPergunta2()"> `
-
-
+            score++;
+        }
+        proximaPergunta2()
     }
-
 
     function proximaPergunta2() {
         sessaoQuiz.innerHTML = `
-        <b> Q2- Quem jogou o carro de Matt da ponte Wickery? </b> <br><br>
-            <input type="radio" name="questao1">Klaus<br>
-            <input type="radio" name="questao2" id="id="correta02">Rebekah<br>
-            <input type="radio" name="questao3">Elijah<br> <br>`
+        <b> Q2- Quem jogou o carro de Matt da ponte Wickery? </b> <br><br>`
 
-            if (document.getElementById('correta02').checked) {
+        respostasQuiz.innerHTML = `
+        <input type="radio" name="questao2"> Klaus<br>
+        <input type="radio" name="questao2" id="correta02"> Rebekah<br>
+        <input type="radio" name="questao2"> Elijah<br> <br>`
+
+        botaoQuiz.innerHTML = ` 
+        <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore2()"> 
+    `
+    }
+
+    function verificarScore2() {
+        if (document.getElementById('correta02').checked) {
             score++;
         }
-
-        sessaoQuiz.innerHTML += ` <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta3()"> 
-         
-        `
-       
+        proximaPergunta3()
     }
 
     function proximaPergunta3() {
         sessaoQuiz.innerHTML = `      
 
-        <b> Q3- Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos? </b> <br><br>
+        <b> Q3- Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos? </b> <br><br> `
 
-         <input type="radio" name="questao1">10 de maio de 1993<br>
-         <input type="radio" name="questao2">10 de maio de 1996<br>
-         <input type="radio" name="questao3" id="correta03">10 de maio de 1994<br> <br>
+        respostasQuiz.innerHTML = `
+         <input type="radio" name="questao3"> 10 de maio de 1993<br>
+         <input type="radio" name="questao3"> 10 de maio de 1996<br>
+         <input type="radio" name="questao3" id="correta03"> 10 de maio de 1994<br> <br> `
+        botaoQuiz.innerHTML = ` 
+            <input type = "submit" class="botaoProxima" name = "submit" value = "Próxima pergunta" onclick = "verificarScore3()"> `
+    }
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta4()"> `
+    function verificarScore3() {
+        if (document.getElementById('correta03').checked) {
+            score++;
+        }
+        proximaPergunta4()
     }
 
     function proximaPergunta4() {
         sessaoQuiz.innerHTML = `
-        <b> Q4- Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar. Por qual motivo? </b> <br><br>
+                <b> Q4 - Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar.Por qual motivo ? </b> <br><br>`
+        respostasQuiz.innerHTML = `
+                    <input type="radio" name="questao4"> О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа<br>
+                    <input type="radio" name="questao4" id="correta04"> О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.<br>
+                     <input type="radio" name="questao4"> О соlаr роѕѕuі асônіtо, nãо dеіха vаmріrоѕ а соmреlіrеm.<br> <br>`
+        botaoQuiz.innerHTML = ` 
+            <input type = "submit" class="botaoProxima" name = "submit" value = "Próxima pergunta" onclick = "verificarScore4()" > `
+    }
 
-         <input type="radio" name="questao1">О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа<br>
-         <input type="radio" name="questao2" id="correta04">О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.<br>
-         <input type="radio" name="questao3">О соlаr роѕѕuі асônіtо, nãо dеіха vаmріrоѕ а соmреlіrеm.<br> <br>
-
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta5()"> `
+    function verificarScore4() {
+        if (document.getElementById('correta04').checked) {
+            score++;
+        }
+        proximaPergunta5()
     }
 
     function proximaPergunta5() {
         sessaoQuiz.innerHTML = `
-        <b> Q5- Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr. Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ. Соmо еlеѕ ѕе сhаmаvаm?" </b> <br><br>
+            <b> Q5 - Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr.Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ.Соmо еlеѕ ѕе сhаmаvаm ? " </b> <br><br>`
 
-         <input type="radio" name="questao1">Luka, Josette e Olivia<br>
-         <input type="radio" name="questao2" id="correta05">Josette, Lucas e Olivia <br>
-         <input type="radio" name="questao3">Luka, Josette e Liv<br> <br>
+        respostasQuiz.innerHTML = ` 
+            <input type = "radio" name = "questao5"> Luka, Josette e Olivia <br>
+             <input type="radio" name="questao5" id="correta05"> Josette, Lucas e Olivia <br>
+             <input type="radio" name="questao5"> Luka, Josette e Liv<br> <br> ` 
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta6()"> `
+        botaoQuiz.innerHTML = ` 
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore5()"> `
 
     }
 
+    function verificarScore5() {
+        if (document.getElementById('correta05').checked) {
+            score++;
+        }
+        proximaPergunta6()
+    }
+
+
     function proximaPergunta6() {
         sessaoQuiz.innerHTML = `
-        <b> Q6- Segundo The Vampire Diaries, o que o sangue de vampiro causa a uma pessoa com câncer? </b> <br><br>
+        <b> Q6- Segundo The Vampire Diaries, o que o sangue de vampiro causa a uma pessoa com câncer? </b> <br><br>`
 
-         <input type="radio" name="questao3" id="correta06">Transforma em vampiro<br> 
-         <input type="radio" name="questao1">Mata a pessoa<br>
-         <input type="radio" name="questao2">Cura o câncer<br>
-         <input type="radio" name="questao3">Transforma em vampiro<br> <br>
+        respostasQuiz.innerHTML = `<input type="radio" name="questao6"> Transforma em vampiro<br> 
+         <input type="radio" name="questao6" id="correta06"> Mata a pessoa<br>
+         <input type="radio" name="questao6"> Cura o câncer<br> <br>`
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta7()"> `
+         botaoQuiz.innerHTML = ` <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore6()"> `
 
+    }
+
+    function verificarScore6() {
+        if (document.getElementById('correta06').checked) {
+            score++;
+        }
+        proximaPergunta7()
     }
 
     function proximaPergunta7() {
         sessaoQuiz.innerHTML = `
-        <b>  Q7- Qual dos irmãos Originais foi cativado por Katherine Pierce? </b> <br><br>
+        <b>  Q7- Qual dos irmãos Originais foi cativado por Katherine Pierce? </b> <br><br>`
 
-         <input type="radio" name="questao1">Kol<br>
-         <input type="radio" name="questao2" id="correta07">Elijah<br>
-         <input type="radio" name="questao3">Niklaus<br> <br>
+        respostasQuiz.innerHTML =`
+         <input type="radio" name="questao7"> Kol<br>
+         <input type="radio" name="questao7" id="correta07"> Elijah<br>
+         <input type="radio" name="questao7"> Niklaus<br> <br> `
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta8()"> `
+         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore7()"> `
 
+    }
+
+    function verificarScore7() {
+        if (document.getElementById('correta07').checked) {
+            score++;
+        }
+        proximaPergunta8()
     }
 
     function proximaPergunta8() {
         sessaoQuiz.innerHTML = `
-        <b> Q8- O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada? </b> <br><br>
+        <b> Q8- O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada? </b> <br><br>`
 
-         <input type="radio" name="questao1">Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
-         <input type="radio" name="questao2">Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.<br>
-         <input type="radio" name="questao3" id="correta08">Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа<br> <br>
+        respostasQuiz.innerHTML =` <input type="radio" name="questao8"> Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
+         <input type="radio" name="questao8"> Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.<br>
+         <input type="radio" name="questao8" id="correta08"> Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа<br> <br>`
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta9()"> `
+         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore8()"> `
 
+    }
+
+    function verificarScore8() {
+        if (document.getElementById('correta08').checked) {
+            score++;
+        }
+        proximaPergunta9()
     }
 
     function proximaPergunta9() {
         sessaoQuiz.innerHTML = `
-        <b> Q9- Como Tyler Lockwood reativa a maldição de lobo na sexta temporada? </b> <br><br>
+        <b> Q9- Como Tyler Lockwood reativa a maldição de lobo na sexta temporada? </b> <br><br>`
 
-         <input type="radio" name="questao1" id="correta09">Mata Liv<br>
-         <input type="radio" name="questao2">Mata Kai<br>
-         <input type="radio" name="questao3">Mata Matt<br> <br>
+        respostasQuiz.innerHTML = `
+         <input type="radio" name="questao9" id="correta09"> Mata Liv<br>
+         <input type="radio" name="questao9"> Mata Kai<br>
+         <input type="radio" name="questao9"> Mata Matt<br> <br>`
 
-         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta10()"> `
+         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore9()"> `
 
     }
 
+    function verificarScore9() {
+        if (document.getElementById('correta09').checked) {
+            score++;
+        }
+        proximaPergunta10()
+    }
 
 
     function proximaPergunta10() {
         sessaoQuiz.innerHTML = `
         <b>  Q10- Quem transformou Caroline em vampira? </b> <br><br>
-          <div class="boxQuestoes" > 
-            <input type="radio" name="questao1">Stefan Salvatore<br>
-            <input type="radio" name="questao2" id="correta10">Katherine Petrova<br>
-            <input type="radio" name="questao3">Damon Salvatore<br> <br>
-         </div> 
-         <div class="boxPergunta" > 
-             <input type="submit" class="botaoProxima" name="submit" value="Ver resultado" onclick="fimDoQuiz()"> 
-         </div>
-         `
+          <div class="boxQuestoes" > `
+        respostasQuiz.innerHTML = `
+            <input type="radio" name="questao10"> Stefan Salvatore<br>
+            <input type="radio" name="questao10" id="correta10"> Katherine Petrova<br>
+            <input type="radio" name="questao10"> Damon Salvatore<br> <br>`
+          
+        botaoQuiz.innerHTML = `
+             <input type="submit" class="botaoProxima" name="submit" value="Ver resultado" onclick="verificarScore10()"> 
+               `
 
+    }
 
-
-
-
-        if (document.getElementById('correta03').checked) {
-            score++;
-        }
-        if (document.getElementById('correta04').checked) {
-            score++;
-        }
-        if (document.getElementById('correta05').checked) {
-            score++;
-        }
-        if (document.getElementById('correta06').checked) {
-            score++;
-        }
-        if (document.getElementById('correta07').checked) {
-            score++;
-        }
-        if (document.getElementById('correta08').checked) {
-            score++;
-        }
-        if (document.getElementById('correta09').checked) {
-            score++;
-        }
+    function verificarScore10() {
         if (document.getElementById('correta10').checked) {
             score++;
         }
-
-
+        fimDoQuiz()
     }
+
 
     function fimDoQuiz() {
-        sessaoQuiz.innerHTML = `
-        O resultado é: ${score} 
-        
-        
-        `
+         sessaoQuiz.innerHTML = `
+         O resultado é: ${score} `
 
-    }
+         respostasQuiz.innerHTML = ""
+
+         botaoQuiz.innerHTML = "" 
+
+         var ctx = document.getElementById('quizChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pontuação'],
+                    datasets: [{
+                        label: 'Pontuação no Quiz',
+                        data: [score],
+                        backgroundColor: '#735944',
+                        borderColor: '#735944',
+                        borderWidth: 1
+                    }, {
+                        label: 'Total de Perguntas',
+                        data: [10], // O número total de perguntas no seu quiz
+                        backgroundColor: '#735944',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }           
+    
+   
+   
+
 
 
     function telaDashboard() {
