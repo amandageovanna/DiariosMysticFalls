@@ -4,6 +4,7 @@ var diarioModel = require("../models/diarioModel");
 function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    
 
     if (email == undefined) {
         res.status(400).send("Houve um feitiço no seu e-mail? Parece que ele está errado! Certifique-se de fornecer o endereço certo");
@@ -18,22 +19,25 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length == 1) {
+                        
                         console.log(resultadoAutenticar);
 
-                        // diarioModel.buscarDiariosPorUsuario(resultadoAutenticar[0].Id)
-                        //     .then((resultadoDiarios) => {
-                        //         if (resultadoDiarios.length > 0) {
+                        diarioModel.buscarDiariosPorUsuario(resultadoAutenticar[0].id)
+                            .then((resultadoDiarios) => {
+                                if (resultadoDiarios.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
-                                        // diarios: resultadoDiarios
+                                        diarios: resultadoDiarios
                                     });
-                            //     } else {
-                            //         res.status(204).json({ diarios: [] });
-                            //     }
-                            // })
+
+
+                                } else {
+                                   res.status(204).json({ diarios: [] });
+                                }
+                             })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {

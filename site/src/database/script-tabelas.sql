@@ -17,13 +17,8 @@ CREATE TABLE Usuario (
  Ano INT NOT NULL,
  FkUsuario int,
  foreign key (FkUsuario) references Usuario(idUsuario)
- ); 
- 
- INSERT INTO Usuario (idUsuario, nomeCompleto, email, senha) VALUES
-(1, 'Amanda Geovanna', 'amanda@sptech.com', 'senha123'),
-(2, 'Elena Gilbert', 'elena@sptech.com', 'senha456'),
-(3, 'Damon Salvatore', 'damon@sptech.com', 'senha789');
- 
+ );  
+
 -- Agosto
 -- INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
 -- (4, 'Acontecimentos em Agosto 1', 'Primeiro diário de agosto.', '08:00:00', 'Agosto', 2023, 1),

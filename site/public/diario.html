@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="caixaConteudo">
-                        <label for="conteudoDiario">Escreva aqui seus pensamentos:</label>
+                        <label for="conteudoDiario" id="">Escreva aqui seus pensamentos:</label>
                         <textarea id="conteudoDiario" name="conteudoDiario" rows="12" cols="60"
                             style="resize: both;"></textarea>
                     </div>
@@ -97,16 +97,16 @@
                 </div>
                 <div class="entradasAntigas">
                     <div class="linhaEntradasAntigas">
-                        <span>Entrada 4</span>
+                        <span onclick="procurar4()">Entrada 4</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span>Entrada 3</span>
+                        <span onclick="procurar3()">Entrada 3</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span>Entrada 2</span>
+                        <span onclick="procurar2()">Entrada 2</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span>Entrada 1</span>
+                        <span onclick="procurar1()">Entrada 1</span>
                     </div>
                 </div>
             </div>
@@ -120,28 +120,51 @@
 </body>
 
 <script>
-  var nome = sessionStorage.NOME_USUARIO;
-  nomeUsuario.innerHTML += nome;
+    var nome = sessionStorage.NOME_USUARIO;
+    nomeUsuario.innerHTML += nome;
 
-  var idUsuario = sessionStorage.ID_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
-  function salvar() {
-    var tituloVar = input_tituloDiario.value;
-    var conteudoVar = conteudoDiario.value;
+    var diarioServer = JSON.parse(sessionStorage.DIARIOS);
 
-    fetch("diarios/criar",{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            titulo: tituloVar,
-            conteudo: conteudoVar,
-            fkUsuario: idUsuario
-        }),
-    })
-    
-     .then(function (resposta) {
+
+    function procurar4() {
+        conteudoDiario.value = diarioServer[0].Conteudo;
+      
+    }
+
+    function procurar3() {
+        conteudoDiario.value = diarioServer[1].Conteudo;
+      
+    }
+
+    function procurar2() {
+        conteudoDiario.value = diarioServer[2].Conteudo;
+      
+    }
+    function procurar1() {
+        conteudoDiario.value = diarioServer[3].Conteudo;
+      
+    }
+
+
+    function salvar() {
+        var tituloVar = input_tituloDiario.value;
+        var conteudoVar = conteudoDiario.value;
+
+        fetch("diarios/criar", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                titulo: tituloVar,
+                conteudo: conteudoVar,
+                fkUsuario: idUsuario
+            }),
+        })
+
+            .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
@@ -198,13 +221,16 @@
 
 
     function telaMetricas() {
-    window.location.href = "dashboard.html"}
+        window.location.href = "dashboard.html"
+    }
 
     function telaQuiz() {
-    window.location.href = "quiz.html"}
+        window.location.href = "quiz.html"
+    }
 
     function telaSair() {
-    window.location.href = "index.html"}
+        window.location.href = "index.html"
+    }
 </script>
 
 </html>
