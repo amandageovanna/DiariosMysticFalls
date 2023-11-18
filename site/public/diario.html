@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="caixaConteudo">
-                        <label for="conteudoDiario" id="">Escreva aqui seus pensamentos:</label>
+                        <label for="conteudoDiario" id="titDiario">Escreva aqui seus pensamentos:</label>
                         <textarea id="conteudoDiario" name="conteudoDiario" rows="12" cols="60"
                             style="resize: both;"></textarea>
                     </div>
@@ -84,6 +84,19 @@
                             <span onclick="salvar()">SALVAR</span>
                         </button>
                     </div>
+
+                    <div class="boxBotao">
+                        <button>
+                            <span onclick="editar()">EDITAR</span>
+                        </button>
+                    </div>
+
+                    <div class="boxBotao">
+                        <button>
+                            <span onclick="excluir()">excluir</span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
@@ -129,20 +142,24 @@
 
 
     function procurar4() {
+        input_tituloDiario.value = diarioServer[0].Titulo;
         conteudoDiario.value = diarioServer[0].Conteudo;
       
     }
 
     function procurar3() {
+        input_tituloDiario.value = diarioServer[1].Titulo;
         conteudoDiario.value = diarioServer[1].Conteudo;
       
     }
 
     function procurar2() {
+        input_tituloDiario.value = diarioServer[2].Titulo;
         conteudoDiario.value = diarioServer[2].Conteudo;
       
     }
     function procurar1() {
+        input_tituloDiario.value = diarioServer[3].Titulo;
         conteudoDiario.value = diarioServer[3].Conteudo;
       
     }

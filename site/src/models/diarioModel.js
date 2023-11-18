@@ -30,7 +30,7 @@ function atualizarDiario(idDiario, novoTitulo, novoConteudo) {
 
     var instrucao = `
     UPDATE Diario
-    SET Titulo = '${novoTitulo}', Conteudo = '${novoConteudo}', dtQuantidade = NOW()
+    SET Titulo = '${novoTitulo}', Conteudo = '${novoConteudo}', dtCriacao = NOW()
     WHERE idDiario = ${idDiario};
     `;
 
@@ -58,7 +58,7 @@ function buscarDiariosPorUsuario(idUsuario) {
     SELECT idDiario, Titulo, Conteudo, dtCriacao
     FROM Diario
     WHERE FkUsuario = ${idUsuario}
-    ORDER BY dtCriacao DESC
+    ORDER BY idDiario DESC
     LIMIT 4
     `
 
