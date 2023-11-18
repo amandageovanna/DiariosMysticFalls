@@ -81,9 +81,12 @@
 
                 </div>
 
-                <div>
+                <div class="boxQuiz">
                     <div class="sessaoQuiz" id="sessaoQuiz">
 
+
+                    </div> 
+                    <div id="botaoQuiz">
 
                     </div>
                 </div>
@@ -96,102 +99,205 @@
         </div>
         </div>
         </div>
-        <!-- //  <div class="boxBotao">
-                        //     <button>                            
-                        //       <span onclick="proximaPergunta()">Proxima</span>
-                        //     </button>
-                        //   </div> -->
     </main>
     </div>
 
 </body>
 
 <script>
+    var score = 0;
+
 
     function iniciarQuiz() {
         var tituloQuiz = document.getElementById('TituloQuiz');
         var sessaoQuiz = document.getElementById('sessaoQuiz');
 
-        tituloQuiz.style.display = 'none'; // esconder a div inicial
+        TituloQuiz.style.display = 'none'; // esconder a div inicial
         sessaoQuiz.style.display = 'block';  //aparecer a div das questoes
 
 
         exibirPerguntaAtual();
     }
 
+
     function exibirPerguntaAtual() {
         var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
+        var sessaoQuiz = document.querySelector('.sessaoQuiz'); // 
 
-        var perguntas = [
-            // 1 
-            "Elena Gilbert morreu com o sangue de qual vampiro no organismo?",
-            // 2
-            "Quem jogou o carro de Matt da ponte Wickery?",
-            // 3
-            "Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos?",
-            // 4
-            "Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar. Por qual motivo?",
-            // 5
-            "Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr. Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ. Соmо еlеѕ ѕе сhаmаvаm?",
-            // 6
-            "Segundo The Vampire Diaries, o que o sangue de vampiro causa a uma pessoa com câncer?",
-            // 7
-            "Qual dos irmãos Originais foi cativado por Katherine Pierce?",
-            // 8
-            "O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada?",
-            // 9 
-            "Como Tyler Lockwood reativa a maldição de lobo na sexta temporada?",
-            // 10 
-            "Quem transformou Caroline em vampira? "
-        ]
+        sessaoQuiz.innerHTML = `
+      
+            <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>
+            
+                 <input type="radio" name="questao1">Stefan<br>
+                 <input type="radio" name="questao2" id="correta01">Damon<br>
+                 <input type="radio" name="questao3">Alaric<br> <br> `
 
-        var posicao = 0;
 
-        if (posicao < perguntas.length) {
-            sessaoQuiz.innerHTML = `${perguntas[posicao]} <br> 
-            <input type="radio" name="questao1">Stefan<br>
-            <input type="radio" name="questao2" id="correta1">Damon<br>
-            <input type="radio" name="questao3">Alaric<br> 
+        if (document.getElementById('correta01').checked) {
+            score++;}
+          
+            botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima"  name="submit" value="Próxima pergunta" onclick="proximaPergunta2()"> `
 
-            <input type="submit" name="submit" value="Próxima" onclick="proximaPergunta()">   
-            `
-        }
+
     }
 
-    var score = 0;
 
-    function proximaPergunta() {
-        var opcaoSelecionada = document.querySelector
-        if ('input[name="resposta"]:checked') {
-            posicao++;
-        } else {
-            sessaoQuiz.innerHTML += "Por favor, selecione uma resposta antes de avançar."
+    function proximaPergunta2() {
+        sessaoQuiz.innerHTML = `
+        <b> Q2- Quem jogou o carro de Matt da ponte Wickery? </b> <br><br>
+            <input type="radio" name="questao1">Klaus<br>
+            <input type="radio" name="questao2" id="id="correta02">Rebekah<br>
+            <input type="radio" name="questao3">Elijah<br> <br>`
+
+            if (document.getElementById('correta02').checked) {
+            score++;
         }
+
+        sessaoQuiz.innerHTML += ` <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta3()"> 
+         
+        `
+       
     }
 
-    // sessaoQuiz.innerHTML = `
-    //   "Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo?" <br>
-    //    <input type="radio" name="questao1">Stefan<br>
-    //    <input type="radio" name="questao2" id="correta1">Damon<br>
-    //    <input type="radio" name="questao3">Alaric<br> 
+    function proximaPergunta3() {
+        sessaoQuiz.innerHTML = `      
 
-    //    <input type="submit" name="submit" value="Próxima" onclick="proximaPergunta()"> 
+        <b> Q3- Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos? </b> <br><br>
+
+         <input type="radio" name="questao1">10 de maio de 1993<br>
+         <input type="radio" name="questao2">10 de maio de 1996<br>
+         <input type="radio" name="questao3" id="correta03">10 de maio de 1994<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta4()"> `
+    }
+
+    function proximaPergunta4() {
+        sessaoQuiz.innerHTML = `
+        <b> Q4- Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar. Por qual motivo? </b> <br><br>
+
+         <input type="radio" name="questao1">О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа<br>
+         <input type="radio" name="questao2" id="correta04">О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.<br>
+         <input type="radio" name="questao3">О соlаr роѕѕuі асônіtо, nãо dеіха vаmріrоѕ а соmреlіrеm.<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta5()"> `
+    }
+
+    function proximaPergunta5() {
+        sessaoQuiz.innerHTML = `
+        <b> Q5- Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr. Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ. Соmо еlеѕ ѕе сhаmаvаm?" </b> <br><br>
+
+         <input type="radio" name="questao1">Luka, Josette e Olivia<br>
+         <input type="radio" name="questao2" id="correta05">Josette, Lucas e Olivia <br>
+         <input type="radio" name="questao3">Luka, Josette e Liv<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta6()"> `
+
+    }
+
+    function proximaPergunta6() {
+        sessaoQuiz.innerHTML = `
+        <b> Q6- Segundo The Vampire Diaries, o que o sangue de vampiro causa a uma pessoa com câncer? </b> <br><br>
+
+         <input type="radio" name="questao3" id="correta06">Transforma em vampiro<br> 
+         <input type="radio" name="questao1">Mata a pessoa<br>
+         <input type="radio" name="questao2">Cura o câncer<br>
+         <input type="radio" name="questao3">Transforma em vampiro<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta7()"> `
+
+    }
+
+    function proximaPergunta7() {
+        sessaoQuiz.innerHTML = `
+        <b>  Q7- Qual dos irmãos Originais foi cativado por Katherine Pierce? </b> <br><br>
+
+         <input type="radio" name="questao1">Kol<br>
+         <input type="radio" name="questao2" id="correta07">Elijah<br>
+         <input type="radio" name="questao3">Niklaus<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta8()"> `
+
+    }
+
+    function proximaPergunta8() {
+        sessaoQuiz.innerHTML = `
+        <b> Q8- O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada? </b> <br><br>
+
+         <input type="radio" name="questao1">Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
+         <input type="radio" name="questao2">Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.<br>
+         <input type="radio" name="questao3" id="correta08">Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta9()"> `
+
+    }
+
+    function proximaPergunta9() {
+        sessaoQuiz.innerHTML = `
+        <b> Q9- Como Tyler Lockwood reativa a maldição de lobo na sexta temporada? </b> <br><br>
+
+         <input type="radio" name="questao1" id="correta09">Mata Liv<br>
+         <input type="radio" name="questao2">Mata Kai<br>
+         <input type="radio" name="questao3">Mata Matt<br> <br>
+
+         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="proximaPergunta10()"> `
+
+    }
+
+
+
+    function proximaPergunta10() {
+        sessaoQuiz.innerHTML = `
+        <b>  Q10- Quem transformou Caroline em vampira? </b> <br><br>
+          <div class="boxQuestoes" > 
+            <input type="radio" name="questao1">Stefan Salvatore<br>
+            <input type="radio" name="questao2" id="correta10">Katherine Petrova<br>
+            <input type="radio" name="questao3">Damon Salvatore<br> <br>
+         </div> 
+         <div class="boxPergunta" > 
+             <input type="submit" class="botaoProxima" name="submit" value="Ver resultado" onclick="fimDoQuiz()"> 
+         </div>
+         `
 
 
 
 
-    // var respostas = [ ]
 
-    // var opcaoPergunta1 = ["Stefan", "Damon", "Alaric"]
-    // var opcaoPergunta2 = ["Klaus", "Rebekah", "Elijah"]
-    // var opcaoPergunta3 = ["10 de maio de 1993", "10 de maio de 1996", "10 de maio de 1994"]
-    // var opcaoPergunta4 = ["О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа.", "О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.", "О соlаr роѕѕuі асônіtо, nãо dеіха vаmріrоѕ а соmреlіrеm."]
-    // var opcaoPergunta5 = ["Luka, Josette e Olivia.", "Josette, Lucas e Olivia.", "Luka, Josette e Liv."]
-    // var opcaoPergunta6 = ["Mata a pessoa.", "Cura o câncer.", "Transforma em vampiro."]
-    // var opcaoPergunta7 = ["Kol", "Elijah", "Niklaus"]       
-    // var opcaoPergunta8 = ["Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа.", "Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.", "Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа."]
-    // var opcaoPergunta9 = ["Mata Liv.", "Mata Kai.", "Mata Matt."]
-    // var opcaoPergunta10 = ["Stefan Salvatore", "Katherine Petrova", "Damon Salvatore"]
+        if (document.getElementById('correta03').checked) {
+            score++;
+        }
+        if (document.getElementById('correta04').checked) {
+            score++;
+        }
+        if (document.getElementById('correta05').checked) {
+            score++;
+        }
+        if (document.getElementById('correta06').checked) {
+            score++;
+        }
+        if (document.getElementById('correta07').checked) {
+            score++;
+        }
+        if (document.getElementById('correta08').checked) {
+            score++;
+        }
+        if (document.getElementById('correta09').checked) {
+            score++;
+        }
+        if (document.getElementById('correta10').checked) {
+            score++;
+        }
+
+
+    }
+
+    function fimDoQuiz() {
+        sessaoQuiz.innerHTML = `
+        O resultado é: ${score} 
+        
+        
+        `
+
+    }
 
 
     function telaDashboard() {
