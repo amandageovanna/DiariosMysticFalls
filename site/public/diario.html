@@ -16,7 +16,7 @@
         <div class="sidebarMarrom">
             <div class="sidebar-header">
                 <img class="imagemPerfil" src="assets/paginaDiario/fotoPerfil.png">
-                <p>Olá, Amanda!</p>
+                <p id="nomeUsuario">Olá, </p>
             </div>
         </div>
 
@@ -120,6 +120,11 @@
 </body>
 
 <script>
+  var nome = sessionStorage.NOME_USUARIO;
+  nomeUsuario.innerHTML += nome;
+
+  var idUsuario = sessionStorage.ID_USUARIO;
+
   function salvar() {
     var tituloVar = input_tituloDiario.value;
     var conteudoVar = conteudoDiario.value;
@@ -132,7 +137,7 @@
         body: JSON.stringify({
             titulo: tituloVar,
             conteudo: conteudoVar,
-            fkUsuario: idUsuarioLogado, // Usando diretamente o ID do usuário logado em login.html
+            fkUsuario: idUsuario
         }),
     })
     
