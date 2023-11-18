@@ -132,7 +132,7 @@
         body: JSON.stringify({
             titulo: tituloVar,
             conteudo: conteudoVar,
-            fkUsuario: 1,
+            fkUsuario: idUsuarioLogado, // Usando diretamente o ID do usuário logado em login.html
         }),
     })
     
