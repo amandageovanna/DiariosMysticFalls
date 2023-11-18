@@ -88,7 +88,7 @@
 
                     </div>
 
-                  
+
                     <div class="respostasQuiz">
 
                     </div>
@@ -101,7 +101,7 @@
                         <canvas id="quizChart" width="400" height="200"></canvas>
                     </div>
 
-                    
+
                 </div>
 
             </div>
@@ -145,13 +145,13 @@
         sessaoQuiz.innerHTML = `      
             <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>`
 
-          respostasQuiz.innerHTML = `
+        respostasQuiz.innerHTML = `
          <input type="radio" name="questao1"> Stefan<br>
          <input type="radio" name="questao1" id="correta01"> Damon<br>
         <input type="radio" name="questao1"> Alaric<br> <br>
                  `
 
-         botaoQuiz.innerHTML = `
+        botaoQuiz.innerHTML = `
         <input type="submit" class="botaoProxima"  name="submit" value="Próxima pergunta" onclick="verificarScore1()"> 
           `
     }
@@ -229,7 +229,7 @@
         respostasQuiz.innerHTML = ` 
             <input type = "radio" name = "questao5"> Luka, Josette e Olivia <br>
              <input type="radio" name="questao5" id="correta05"> Josette, Lucas e Olivia <br>
-             <input type="radio" name="questao5"> Luka, Josette e Liv<br> <br> ` 
+             <input type="radio" name="questao5"> Luka, Josette e Liv<br> <br> `
 
         botaoQuiz.innerHTML = ` 
          <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore5()"> `
@@ -252,7 +252,7 @@
          <input type="radio" name="questao6" id="correta06"> Mata a pessoa<br>
          <input type="radio" name="questao6"> Cura o câncer<br> <br>`
 
-         botaoQuiz.innerHTML = ` <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore6()"> `
+        botaoQuiz.innerHTML = ` <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore6()"> `
 
     }
 
@@ -267,12 +267,12 @@
         sessaoQuiz.innerHTML = `
         <b>  Q7- Qual dos irmãos Originais foi cativado por Katherine Pierce? </b> <br><br>`
 
-        respostasQuiz.innerHTML =`
+        respostasQuiz.innerHTML = `
          <input type="radio" name="questao7"> Kol<br>
          <input type="radio" name="questao7" id="correta07"> Elijah<br>
          <input type="radio" name="questao7"> Niklaus<br> <br> `
 
-         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore7()"> `
+        botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore7()"> `
 
     }
 
@@ -287,11 +287,11 @@
         sessaoQuiz.innerHTML = `
         <b> Q8- O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada? </b> <br><br>`
 
-        respostasQuiz.innerHTML =` <input type="radio" name="questao8"> Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
+        respostasQuiz.innerHTML = ` <input type="radio" name="questao8"> Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
          <input type="radio" name="questao8"> Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.<br>
          <input type="radio" name="questao8" id="correta08"> Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа<br> <br>`
 
-         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore8()"> `
+        botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore8()"> `
 
     }
 
@@ -311,7 +311,7 @@
          <input type="radio" name="questao9"> Mata Kai<br>
          <input type="radio" name="questao9"> Mata Matt<br> <br>`
 
-         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore9()"> `
+        botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore9()"> `
 
     }
 
@@ -331,7 +331,7 @@
             <input type="radio" name="questao10"> Stefan Salvatore<br>
             <input type="radio" name="questao10" id="correta10"> Katherine Petrova<br>
             <input type="radio" name="questao10"> Damon Salvatore<br> <br>`
-          
+
         botaoQuiz.innerHTML = `
              <input type="submit" class="botaoProxima" name="submit" value="Ver resultado" onclick="verificarScore10()"> 
                `
@@ -347,46 +347,65 @@
 
 
     function fimDoQuiz() {
-         sessaoQuiz.innerHTML = `
+        var questionsPerSeason = [3, 2, 2, 2, 1];
+
+        sessaoQuiz.innerHTML = `
          O resultado é: ${score} `
 
-         respostasQuiz.innerHTML = ""
+        respostasQuiz.innerHTML = ""
 
-         botaoQuiz.innerHTML = "" 
+        botaoQuiz.innerHTML = ""
 
-         var ctx = document.getElementById('quizChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Pontuação'],
-                    datasets: [{
-                        label: 'Pontuação no Quiz',
-                        data: [score],
-                        backgroundColor: '#735944',
-                        borderColor: '#735944',
-                        borderWidth: 1
-                    }, {
-                        label: 'Total de Perguntas',
-                        data: [10], // O número total de perguntas no seu quiz
-                        backgroundColor: '#735944',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+        var ctx = document.getElementById('quizChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5'],
+                datasets: [{
+                    label: 'Perguntas por Temporada',
+                    data: questionsPerSeason,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }, {
+                    type: 'line',
+                    label: 'Pontuação no Quiz',
+                    data: [score],
+                    borderColor: '#735944',
+                    backgroundColor: '#735944',
+                    borderWidth: 1,
+                    fill: false
+                }, {
+                    type: 'line',
+                    label: 'Total de Perguntas',
+                    data: [totalQuestions],
+                    borderColor: '#000',
+                    backgroundColor: '#000',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
-            });
-        }           
-    
-   
-   
-
-
+            }
+        });
+    }
 
     function telaDashboard() {
         window.location.href = "dashboard.html"

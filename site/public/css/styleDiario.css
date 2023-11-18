@@ -301,3 +301,40 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.card_erro {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.514);
+	color: white;
+	width: 230px;
+	position: fixed;
+	border-radius: 4px;
+	border: #000000 1px solid;
+	padding: 10px;
+	margin-right: 10%;
+	font-family: 'Montserrat';
+}
+
+.card_erro #mensagem_erro {
+	font-weight: 500;
+	font-size: 13px;
+}
+
+.loading-div {	
+	width: 50px;
+	display: none;
+}
+
+.loading-div img {
+	height: 50px;
+	width: 50px;
+}
+
+#div_erros_login {
+	display: none
+}
+
+.alerta_erro {
+	display: flex;
+	justify-content: flex-end;
+}

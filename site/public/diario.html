@@ -7,7 +7,7 @@
     <title>Diários de Mystic Falls</title>
 
     <link rel="stylesheet" href="css/styleDiario.css">
-    <script src="js/scriptDiario.js"></script>
+
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 
                     <div class="boxBotao">
                         <button>
-                            <span>SALVAR</span>
+                            <span onclick="salvar()">SALVAR</span>
                         </button>
                     </div>
                 </div>
@@ -120,6 +120,78 @@
 </body>
 
 <script>
+  function salvar() {
+    var tituloVar = input_tituloDiario.value;
+    var conteudoVar = conteudoDiario.value;
+
+    fetch("diarios/criar",{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            titulo: tituloVar,
+            conteudo: conteudoVar,
+            fkUsuario: 1,
+        }),
+    })
+    
+     .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Diário salvo com sucesso!";
+
+                    setTimeout(() => {
+                        window.location = "diario.html";
+                    }, "2000");
+
+
+                } else {
+                    throw "Houve um erro ao tentar salvar o diário!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
+
+    }
+
+
+    // function obterUltimosDiarios() {
+    //     fetch("diarios/obterUltimosDiarios", {
+    //         method: 'GET',
+    //         headers: {
+    //             "Content-Type": "application/json",
+
+    //         },
+    //     })
+    //         .then(function (resposta) {
+    //             console.log("resposta: ", resposta);
+
+    //             if (resposta.ok) {
+    //                 return resposta.json(); 
+    //             } else {
+    //                 throw "Houve um erro ao tentar obter os últimos diários!";
+    //             }
+    //         })
+    //         .then(function (ultimosDiarios) {
+
+    //             console.log("Últimos diários:", ultimosDiarios);
+    //         })
+
+    //         .catch(function (erro) {
+    //             console.log(`#ERRO: ${resposta}`);
+    //         });
+    // }
+
+
     function telaMetricas() {
     window.location.href = "dashboard.html"}
 
