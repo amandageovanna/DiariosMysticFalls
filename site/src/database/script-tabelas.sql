@@ -12,16 +12,14 @@ CREATE TABLE Usuario (
  idDiario INT PRIMARY KEY auto_increment,
  Titulo VARCHAR (200) NOT NULL,
  Conteudo TEXT NOT NULL, 
- Hora TIME NOT NULL,
- Mes VARCHAR(12) NOT NULL,
- Ano INT NOT NULL,
+ dtCriacao DATETIME default NOW(),
  FkUsuario int,
  foreign key (FkUsuario) references Usuario(idUsuario)
  );  
 
--- Agosto
--- INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
--- (4, 'Acontecimentos em Agosto 1', 'Primeiro diário de agosto.', '08:00:00', 'Agosto', 2023, 1),
+
+ INSERT INTO Diario (titulo, conteudo, fkUsuario) VALUES
+  ('Acontecimentos em Agosto 1', 'Primeiro diário de agosto.', 1);
 -- (5, 'Memórias de Agosto 2', 'Mais um dia memorável em agosto.', '12:30:00', 'Agosto', 2023, 2),
 -- (6, 'Reflexões de Agosto 3', 'Pensamentos profundos em agosto.', '18:45:00', 'Agosto', 2023, 3),
 --  (7, 'Explorações de Agosto 4', 'Descobrindo novos lugares em agosto.', '22:15:00', 'Agosto', 2023, 1);
@@ -45,6 +43,8 @@ where fkUsuario = 1;
 
 select * from usuario;
 select * from diario;
+
+TRUNCATE TABLE 
 
 -- Novembro
 -- INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
