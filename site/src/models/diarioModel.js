@@ -11,20 +11,6 @@ function criarDiario(titulo, conteudo, fkUsuario) {
     return database.executar(instrucao);
 }
 
-function obterUltimosDiarios() {
-    console.log("ACESSEI O OBTER ULTIMOS DIARIOS \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function obterUltimosDiarios()");
-
-    var instrucao = `
-    SELECT idDiario, Titulo, Conteudo, dtCriacao
-    FROM Diario
-    ORDER BY idDiario DESC
-    LIMIT 4; `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
 function atualizarDiario(idDiario, novoTitulo, novoConteudo) {
     console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarDiario()", idDiario, novoTitulo, novoConteudo);
 
@@ -69,8 +55,7 @@ function buscarDiariosPorUsuario(idUsuario) {
 }
 
 module.exports = {
-    criarDiario,
-    obterUltimosDiarios,
+    criarDiario,   
     atualizarDiario,
     deletarDiario,
     buscarDiariosPorUsuario

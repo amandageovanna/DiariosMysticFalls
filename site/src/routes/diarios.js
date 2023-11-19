@@ -9,8 +9,8 @@ router.post("/criar", function (req, res) {
 });
 
 // rota para obter os ultimos 4 diários
-router.get("/ultimos", function (req, res) {
-diarioController.obterUltimosDiarios (req, res); 
+router.get("/ultimos/:idUsuario", function (req, res) { // o :idUsuario eh pq espera um parametro(espera que tenha um valor)  
+diarioController.buscarDiariosPorUsuario (req, res); 
 });
 
 // rota para obter os editar o diário

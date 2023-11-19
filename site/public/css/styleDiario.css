@@ -239,9 +239,7 @@ body {
     
 }
 
-.caixaConteudo > labelfor { 
-    color: white;
-}
+
 #conteudoDiario {
     background-color: #E9D5B9;
     border: none;
@@ -299,6 +297,12 @@ body {
     color: white;
     }
 
+
+.caixinhaBotao {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
 .boxBotao {
     display: flex;
     justify-content: center;

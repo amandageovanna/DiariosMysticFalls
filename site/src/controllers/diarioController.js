@@ -25,9 +25,12 @@ function criarDiario(req, res) {
     }
     }
 
-    function obterUltimosDiarios(req, res) {
-        diarioModel.obterUltimosDiarios()
+    function buscarDiariosPorUsuario(req, res) {
+        var fkUsuario = req.params.idUsuario 
+
+        diarioModel.buscarDiariosPorUsuario(fkUsuario)
             .then(function (ultimosDiarios) {
+               console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA " + ultimosDiarios)
                 res.status(200).json(ultimosDiarios);
             })
             .catch(function (erro) {
@@ -64,7 +67,7 @@ function criarDiario(req, res) {
 
     module.exports = {
         criarDiario,
-        obterUltimosDiarios,
+        buscarDiariosPorUsuario,
         atualizarDiario,
         deletarDiario
     }

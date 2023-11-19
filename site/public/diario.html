@@ -79,24 +79,25 @@
                             style="resize: both;"></textarea>
                     </div>
 
-                    <div class="boxBotao">
-                        <button>
-                            <span onclick="salvar()">SALVAR</span>
-                        </button>
-                    </div>
+                    <div class="caixinhaBotao">
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="editar()">EDITAR</span>
+                            </button>
+                        </div>
 
-                    <div class="boxBotao">
-                        <button>
-                            <span onclick="editar()">EDITAR</span>
-                        </button>
-                    </div>
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="salvar()">SALVAR</span>
+                            </button>
+                        </div>
 
-                    <div class="boxBotao">
-                        <button>
-                            <span onclick="excluir()">excluir</span>
-                        </button>
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="excluir()">EXCLUIR</span>
+                            </button>
+                        </div>
                     </div>
-
                 </div>
             </div>
 
@@ -110,16 +111,16 @@
                 </div>
                 <div class="entradasAntigas">
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar4()">Entrada 4</span>
+                        <span id="linha4" onclick="procurar4()">Entrada 4</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar3()">Entrada 3</span>
+                        <span id="linha3" onclick="procurar3()" class="tituloDasUltimas">Entrada 3</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar2()">Entrada 2</span>
+                        <span id="linha2" onclick="procurar2()">Entrada 2</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar1()">Entrada 1</span>
+                        <span id="linha1" onclick="procurar1()">Entrada 1</span>
                     </div>
                 </div>
             </div>
@@ -133,35 +134,65 @@
 </body>
 
 <script>
+
     var nome = sessionStorage.NOME_USUARIO;
     nomeUsuario.innerHTML += nome;
 
+    // Puxando o id do usuario da sessionStorage que declarei no login.html. Quando ele se loga, salva os dados que vieram do banco na sessionStorage 
     var idUsuario = sessionStorage.ID_USUARIO;
+
+    window.onload = function buscarUltimosQuatro() { // carregar sempre quando a pagina recarregar
+        fetch(`diarios/ultimos/${idUsuario}`, { // diarios = diarios.js 
+            method: 'GET'
+        })
+
+            .then(function (resposta) {
+                console.log("resposta:", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then((diarios) => {
+                        sessionStorage.DIARIOS = JSON.stringify(diarios)
+                    });
+
+                } else {
+                    throw "Houve um erro ao tentar buscar os diários!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+    }
 
     var diarioServer = JSON.parse(sessionStorage.DIARIOS);
 
+    linha4.innerHTML = diarioServer[0].Titulo;
+    linha3.innerHTML = diarioServer[1].Titulo;
+    linha2.innerHTML = diarioServer[2].Titulo;
+    linha1.innerHTML = diarioServer[3].Titulo;
 
     function procurar4() {
         input_tituloDiario.value = diarioServer[0].Titulo;
         conteudoDiario.value = diarioServer[0].Conteudo;
-      
+
     }
 
     function procurar3() {
         input_tituloDiario.value = diarioServer[1].Titulo;
         conteudoDiario.value = diarioServer[1].Conteudo;
-      
+
     }
 
     function procurar2() {
         input_tituloDiario.value = diarioServer[2].Titulo;
         conteudoDiario.value = diarioServer[2].Conteudo;
-      
+
     }
     function procurar1() {
         input_tituloDiario.value = diarioServer[3].Titulo;
         conteudoDiario.value = diarioServer[3].Conteudo;
-      
+
     }
 
 
@@ -207,35 +238,6 @@
         return false;
 
     }
-
-
-    // function obterUltimosDiarios() {
-    //     fetch("diarios/obterUltimosDiarios", {
-    //         method: 'GET',
-    //         headers: {
-    //             "Content-Type": "application/json",
-
-    //         },
-    //     })
-    //         .then(function (resposta) {
-    //             console.log("resposta: ", resposta);
-
-    //             if (resposta.ok) {
-    //                 return resposta.json(); 
-    //             } else {
-    //                 throw "Houve um erro ao tentar obter os últimos diários!";
-    //             }
-    //         })
-    //         .then(function (ultimosDiarios) {
-
-    //             console.log("Últimos diários:", ultimosDiarios);
-    //         })
-
-    //         .catch(function (erro) {
-    //             console.log(`#ERRO: ${resposta}`);
-    //         });
-    // }
-
 
     function telaMetricas() {
         window.location.href = "dashboard.html"
