@@ -30,7 +30,7 @@ function criarDiario(req, res) {
 
         diarioModel.buscarDiariosPorUsuario(fkUsuario)
             .then(function (ultimosDiarios) {
-               console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA " + ultimosDiarios)
+               console.log(ultimosDiarios)
                 res.status(200).json(ultimosDiarios);
             })
             .catch(function (erro) {
