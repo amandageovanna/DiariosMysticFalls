@@ -50,15 +50,16 @@ function criarDiario(req, res) {
             });
     }
 
-    function deletarDiario(req, res) {
-        var idDiario = req.params.id;
+    function deletar(req, res) {
+        var idDiario = req.params.idDiario;
 
-        diarioModel.deletarDiario(idDiario)
-            .then(function () {
-                res.status(200).json({ mensagem: "Diário deletado com sucesso!" });
+        diarioModel.deletar(idDiario)
+            .then(
+                function () {
+                res.status(200).json({mensagem: "Diário deletado com sucesso!" });
             })
             .catch(function (erro) {
-                res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+                res.status(500).json({ erro: "Houve um erro ao deletar o diário"});
             });
     }
 
@@ -66,5 +67,5 @@ function criarDiario(req, res) {
         criarDiario,
         obterUltimosDiarios,
         atualizarDiario,
-        deletarDiario
+        deletar
     }

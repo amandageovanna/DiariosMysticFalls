@@ -39,8 +39,8 @@ function atualizarDiario(idDiario, novoTitulo, novoConteudo) {
     return database.executar(instrucao);
 }
 
-function deletarDiario(idDiario) {
-    console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarDiario(): ", idDiario);
+function deletar(idDiario) {
+    console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar(): ", idDiario);
 
     var instrucao = `
         DELETE FROM Diario
@@ -72,6 +72,6 @@ module.exports = {
     criarDiario,
     obterUltimosDiarios,
     atualizarDiario,
-    deletarDiario,
+    deletar,
     buscarDiariosPorUsuario
 }

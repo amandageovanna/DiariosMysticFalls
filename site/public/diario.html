@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="caixaConteudo">
-                        <label for="conteudoDiario" id="">Escreva aqui seus pensamentos:</label>
+                        <label for="conteudoDiario">Escreva aqui seus pensamentos:</label>
                         <textarea id="conteudoDiario" name="conteudoDiario" rows="12" cols="60"
                             style="resize: both;"></textarea>
                     </div>
@@ -82,6 +82,11 @@
                     <div class="boxBotao">
                         <button>
                             <span onclick="salvar()">SALVAR</span>
+                        </button>
+                    </div>
+                    <div class="boxBotao">
+                        <button>
+                            <span onclick="deletar()">DELETAR</span>
                         </button>
                     </div>
                 </div>
@@ -97,16 +102,16 @@
                 </div>
                 <div class="entradasAntigas">
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar4()">Entrada 4</span>
+                        <span id="linha4" onclick="procurar4()">Entrada 4</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar3()">Entrada 3</span>
+                        <span id="linha3" onclick="procurar3()">Entrada 3</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar2()">Entrada 2</span>
+                        <span id="linha2" onclick="procurar2()">Entrada 2</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span onclick="procurar1()">Entrada 1</span>
+                        <span id="linha1" onclick="procurar1()">Entrada 1</span>
                     </div>
                 </div>
             </div>
@@ -123,26 +128,37 @@
     var nome = sessionStorage.NOME_USUARIO;
     nomeUsuario.innerHTML += nome;
 
+    var idDiario =  sessionStorage.DIARIOS;
+
     var idUsuario = sessionStorage.ID_USUARIO;
 
     var diarioServer = JSON.parse(sessionStorage.DIARIOS);
 
+    linha4.innerHTML = diarioServer[0].Titulo;
+    linha3.innerHTML = diarioServer[1].Titulo;
+    linha2.innerHTML = diarioServer[2].Titulo;
+    linha1.innerHTML = diarioServer[3].Titulo;
+
 
     function procurar4() {
+        input_tituloDiario.value = diarioServer[0].Titulo;
         conteudoDiario.value = diarioServer[0].Conteudo;
       
     }
 
     function procurar3() {
+        input_tituloDiario.value = diarioServer[1].Titulo;
         conteudoDiario.value = diarioServer[1].Conteudo;
       
     }
 
     function procurar2() {
+        input_tituloDiario.value = diarioServer[2].Titulo;
         conteudoDiario.value = diarioServer[2].Conteudo;
       
     }
     function procurar1() {
+        input_tituloDiario.value = diarioServer[3].Titulo;
         conteudoDiario.value = diarioServer[3].Conteudo;
       
     }
@@ -191,6 +207,28 @@
 
     }
 
+    function deletar() {
+        fetch(`/diarios/deletar/${idDiario}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                alertSucessoDeletado()
+                setTimeout(() => {
+                window.location = "diario.html";
+                }, "2000")
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
 
     // function obterUltimosDiarios() {
     //     fetch("diarios/obterUltimosDiarios", {
