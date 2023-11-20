@@ -9,18 +9,22 @@ router.post("/criar", function (req, res) {
 });
 
 // rota para obter os ultimos 4 diários
-router.get("/ultimos/:idUsuario", function (req, res) { // o :idUsuario eh pq espera um parametro(espera que tenha um valor)  
+router.get("/ultimos/", function (req, res) {  
 diarioController.buscarDiariosPorUsuario (req, res); 
 });
 
 // rota para obter os editar o diário
-router.put("/editar/:id", function (req, res) {
-diarioController.atualizarDiario (req, res);
+router.put("/editar/:idDiario", function (req, res) {
+   diarioController.atualizarDiario (req, res);
 });
 
 // rota para excluir o diário
-router.delete("/excluir/:id", function (req, res) {
-   diarioController.deletarDiario(req, res);
+router.delete("/deletar/:idDiario", function (req, res) {
+   diarioController.deletar(req, res);
+});
+
+router.get("/buscardiarios/:fkUsuario", function (req, res) {
+   diarioController.buscarDiarios(req, res);
 });
 
 
