@@ -304,6 +304,13 @@ body {
     justify-content: center;
 }
 
+
+.caixinhaBotao {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
 .card_erro {
 	display: none;
 	background-color: rgba(0, 0, 0, 0.514);

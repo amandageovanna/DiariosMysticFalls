@@ -79,15 +79,22 @@
                             style="resize: both;"></textarea>
                     </div>
 
-                    <div class="boxBotao">
-                        <button>
-                            <span onclick="salvar()">SALVAR</span>
-                        </button>
-                    </div>
-                    <div class="boxBotao">
-                        <button>
-                            <span onclick="deletar()">DELETAR</span>
-                        </button>
+                    <div class="caixinhaBotao">
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="salvar()">SALVAR</span>
+                            </button>
+                        </div>
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="deletar()">DELETAR</span>
+                            </button>
+                        </div>
+                        <div class="boxBotao">
+                            <button>
+                                <span onclick="buscarDiariosPorTituloEUsuario()">buscar</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,16 +109,16 @@
                 </div>
                 <div class="entradasAntigas">
                     <div class="linhaEntradasAntigas">
-                        <span id="linha4" onclick="procurar4()">Entrada 4</span>
+                        <span id="linha4" onclick="procurar4()">Sem entradas</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span id="linha3" onclick="procurar3()">Entrada 3</span>
+                        <span id="linha3" onclick="procurar3()">Sem entradas</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span id="linha2" onclick="procurar2()">Entrada 2</span>
+                        <span id="linha2" onclick="procurar2()">Sem entradas</span>
                     </div>
                     <div class="linhaEntradasAntigas">
-                        <span id="linha1" onclick="procurar1()">Entrada 1</span>
+                        <span id="linha1" onclick="procurar1()">Sem entradas</span>
                     </div>
                 </div>
             </div>
@@ -126,9 +133,10 @@
 
 <script>
     var nome = sessionStorage.NOME_USUARIO;
+
     nomeUsuario.innerHTML += nome;
 
-    var idDiario =  sessionStorage.DIARIOS;
+    var idDiario = 2
 
     var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -143,24 +151,24 @@
     function procurar4() {
         input_tituloDiario.value = diarioServer[0].Titulo;
         conteudoDiario.value = diarioServer[0].Conteudo;
-      
+
     }
 
     function procurar3() {
         input_tituloDiario.value = diarioServer[1].Titulo;
         conteudoDiario.value = diarioServer[1].Conteudo;
-      
+
     }
 
     function procurar2() {
         input_tituloDiario.value = diarioServer[2].Titulo;
         conteudoDiario.value = diarioServer[2].Conteudo;
-      
+
     }
     function procurar1() {
         input_tituloDiario.value = diarioServer[3].Titulo;
         conteudoDiario.value = diarioServer[3].Conteudo;
-      
+
     }
 
 
@@ -191,7 +199,7 @@
 
                     setTimeout(() => {
                         window.location = "diario.html";
-                    }, "2000");
+                    }, 2000);
 
 
                 } else {
@@ -218,8 +226,8 @@
             if (resposta.ok) {
                 alertSucessoDeletado()
                 setTimeout(() => {
-                window.location = "diario.html";
-                }, "2000")
+                    window.location = "diario.html";
+                }, 2000)
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -230,32 +238,30 @@
         });
     }
 
-    // function obterUltimosDiarios() {
-    //     fetch("diarios/obterUltimosDiarios", {
-    //         method: 'GET',
-    //         headers: {
-    //             "Content-Type": "application/json",
+    function buscarDiariosPorTituloEUsuario() {
+       var titulo = 'Loremzinho'
+       var fkUsuario = 1
 
-    //         },
-    //     })
-    //         .then(function (resposta) {
-    //             console.log("resposta: ", resposta);
+        fetch(`diarios/buscar/${titulo}/${fkUsuario}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
 
-    //             if (resposta.ok) {
-    //                 return resposta.json(); 
-    //             } else {
-    //                 throw "Houve um erro ao tentar obter os últimos diários!";
-    //             }
-    //         })
-    //         .then(function (ultimosDiarios) {
+            },
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-    //             console.log("Últimos diários:", ultimosDiarios);
-    //         })
-
-    //         .catch(function (erro) {
-    //             console.log(`#ERRO: ${resposta}`);
-    //         });
-    // }
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw "Houve um erro !";
+                }
+            })
+            .catch(function (erro) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
 
 
     function telaMetricas() {
