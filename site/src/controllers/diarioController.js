@@ -63,9 +63,24 @@ function criarDiario(req, res) {
             });
     }
 
+    function buscarDiariosPorTituloEUsuario (req, res) {
+        var tituloDiario = req.params.titulo;
+        var fkUsuario =  req.params.fkUsuario;
+
+        diarioModel.buscarDiariosPorTituloEUsuario(tituloDiario, fkUsuario)
+            .then(function (idDiario) {
+                res.status(200).json(idDiario);
+            })
+            .catch(function (erro) {
+                res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+            });    
+
+    }
+
     module.exports = {
         criarDiario,
         obterUltimosDiarios,
         atualizarDiario,
+        buscarDiariosPorTituloEUsuario,
         deletar
     }

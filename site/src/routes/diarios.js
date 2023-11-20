@@ -23,5 +23,8 @@ router.delete("/deletar/:idDiario", function (req, res) {
    diarioController.deletar(req, res);
 });
 
+router.get("/buscar/:titulo/:fkUsuario", function (req, res) {
+   diarioController.buscarDiariosPorTituloEUsuario(req, res);
+});
 
 module.exports = router;
