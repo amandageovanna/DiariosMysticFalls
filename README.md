@@ -1,40 +1,44 @@
-<img src="https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png" width="600px">
 
-_Web Data Visualization = Visualização de Dados na Web_
+<h1 align=center>📖 Diários de Mystic Falls 📖</h1>
 
-_Implementação de Referência para o seu Projeto de Primeiro Semestre_
+### Bem-vindo ao Diário Online inspirado em "The Vampire Diaries"! Este projeto oferece uma plataforma interativa onde você pode criar, editar e explorar diários virtuais, mergulhando no mundo dos personagens icônicos da série.
 
-<hr>
-
-# Como usar
-
-1. Clone este repositório em sua máquina.
+<h1 align=center>🌙 E a vida será boa e bonita, mas não sem um coração partido. Com a morte, vem a paz, mas, a dor é o custo de se viver. De maneira que o amor é o como sabemos que estamos vivos.
+- Elena Gilbert </h1>
 
 
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/site/src/database/script-tabelas.sql**
+### 🖥️ Acessando o repositório
+
+- Copie a URL do repositório;
+- Abra o terminal do GitBash, PowerShell ou Terminal no Linux.
+- Digite `git clone [URL do repositório]`.
+- Depois que o download terminar, acesse a pasta digitando `cd DiariosMysticFalls` ou simplesmente abrindo o terminal dentro dessa pasta.
+- Digite ``` npm install ``` e depois ``` npm start ```
+- Acesse o link que estará sublinhado no prompt de comando, o http://localhost:3333.
+- Inicie o **MySQL Workbench** e execute o arquivo que contém a estrutura do banco de dados e as inserções. O arquivo está localizado em:  **site > src > database > script-tabelas.sql.**
+- Após seguir esses passos, o site estará pronto para ser totalmente explorado e aproveitado!
+
+<br>
+
+### ⌨️ Tecnologias utilizadas
+
+<div display=flex>
+  <img src="https://teamextension.com.br/dist/img/skills/nodejs_og.webp" width=80px>
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/JavaScript.svg" width=55px>
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/CSS.svg" width=55px>
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/HTML.svg" width=55px>
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/Figma-Dark.svg" width=55px>
+</div>
 
 
-3. Acesse o arquivo **/site/app.js** e parametrize o ambiente.
-- Se você estiver utilizando o Ambiente de Produção (SQL Server na nuvem Azure, remoto), comente a linha 1 e deixe habilitada a linha 2 onde está o valor **process.env.AMBIENTE_PROCESSO = "producao";**
-- Se você estiver utilizando o Ambiente de Desenvolvimento (MySQL Workbench, local), comente a linha 2 e deixe habilitada a linha 1 onde está o valor **process.env.AMBIENTE_PROCESSO = "desenvolvimento";**
+### 🖱️ Principais requisitos técnicos aplicadas
 
-4. Adicione as credenciais de Banco de Dados no arquivo **/site/src/database/config.js**, seguindo as instruções neste.
+-  Utilização de vetores
+-  Implementação de laços de repetição
+-  Aplicação de estruturas condicionais
+-  Desenvolvimento de operações CRUD utilizando Node.js
 
-5. Acesse o local do diretório **/site** presente neste repositório no seu terminal (GitBash ou VSCode) e execute os comandos abaixo:
+### Conclusão
 
-```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
-
-```
-npm start
-``` 
-
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
-
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
-
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+### Este é um *projeto individual* pela minha instituição de ensino SPTech School, no qual fui desafiada a desenvolver um projeto que abrange tanto o backend quanto o frontend, incluindo a integração com o banco de dados e outros requisitos específicos. Escolhi o tema com base na minha identidade pessoal e, sem dúvidas, optei pela série *The Vampire Diaries.*
 
