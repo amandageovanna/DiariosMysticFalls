@@ -7,7 +7,7 @@
 - Elena Gilbert </h3>
 
 
-# 🖥️ Acessando o repositório
+# Acessando o repositório
 
 - Copie a URL do repositório;
 - Abra o terminal do GitBash, PowerShell ou Terminal no Linux.
