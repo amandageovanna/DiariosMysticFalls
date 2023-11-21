@@ -1,7 +1,7 @@
 
 <h1 align=center>📖 Diários de Mystic Falls 📖</h1>
 
-### Bem-vindo ao Diário Online inspirado em "The Vampire Diaries"! Este projeto oferece uma plataforma interativa onde você pode criar, editar e explorar diários virtuais, mergulhando no mundo dos personagens icônicos da série.
+### Bem-vindo ao Diário Online inspirado em "The Vampire Diaries"! Este projeto oferece uma plataforma interativa onde você pode criar, editar e explorar diários virtuais, mergulhando no mundo dos personagens icônicos da série. Além disso, desafie-se com um quiz de conhecimentos gerais sobre todas as temporadas da série e mergulhe em uma seção de métricas que analisa seus diários mensais. Descubra seu tipo de usuário com base na quantidade de diários que você escreve! ✍️📊
 
 <h3 align=center>  "E a vida será boa e bonita, mas não sem um coração partido. Com a morte, vem a paz, mas, a dor é o custo de se viver. De maneira que o amor é o como sabemos que estamos vivos." <br>
 - Elena Gilbert </h3>
