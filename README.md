@@ -3,7 +3,7 @@
 
 ### Bem-vindo ao Diário Online inspirado em "The Vampire Diaries"! Este projeto oferece uma plataforma interativa onde você pode criar, editar e explorar diários virtuais, mergulhando no mundo dos personagens icônicos da série.
 
-<h3 align=center>🌙 E a vida será boa e bonita, mas não sem um coração partido. Com a morte, vem a paz, mas, a dor é o custo de se viver. De maneira que o amor é o como sabemos que estamos vivos.
+<h3 align=center> 🌙 "E a vida será boa e bonita, mas não sem um coração partido. Com a morte, vem a paz, mas, a dor é o custo de se viver. De maneira que o amor é o como sabemos que estamos vivos." <br>
 - Elena Gilbert </h3>
 
 
