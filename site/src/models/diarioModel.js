@@ -11,12 +11,25 @@ function criarDiario(titulo, conteudo, fkUsuario) {
     return database.executar(instrucao);
 }
 
+function obterUltimosDiarios() {
+    console.log("ACESSEI O OBTER ULTIMOS DIARIOS \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function obterUltimosDiarios()");
+
+    var instrucao = `
+    SELECT idDiario, Titulo, Conteudo, dtCriacao
+    FROM Diario
+    ORDER BY idDiario DESC; `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+
+    return database.executar(instrucao);
+}
+
 function atualizarDiario(idDiario, novoTitulo, novoConteudo) {
     console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarDiario()", idDiario, novoTitulo, novoConteudo);
 
     var instrucao = `
     UPDATE Diario
-    SET Titulo = '${novoTitulo}', Conteudo = '${novoConteudo}', dtCriacao = NOW()
+    SET Titulo = '${novoTitulo}', Conteudo = '${novoConteudo}'
     WHERE idDiario = ${idDiario};
     `;
 
@@ -25,8 +38,8 @@ function atualizarDiario(idDiario, novoTitulo, novoConteudo) {
     return database.executar(instrucao);
 }
 
-function deletarDiario(idDiario) {
-    console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarDiario(): ", idDiario);
+function deletar(idDiario) {
+    console.log("ACESSEI O DIARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar(): ", idDiario);
 
     var instrucao = `
         DELETE FROM Diario
@@ -44,8 +57,7 @@ function buscarDiariosPorUsuario(idUsuario) {
     SELECT idDiario, Titulo, Conteudo, dtCriacao
     FROM Diario
     WHERE FkUsuario = ${idUsuario}
-    ORDER BY idDiario DESC
-    LIMIT 4
+    ORDER BY dtCriacao DESC
     `
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -55,8 +67,9 @@ function buscarDiariosPorUsuario(idUsuario) {
 }
 
 module.exports = {
-    criarDiario,   
+    criarDiario,
+    obterUltimosDiarios,
     atualizarDiario,
-    deletarDiario,
+    deletar,
     buscarDiariosPorUsuario
 }

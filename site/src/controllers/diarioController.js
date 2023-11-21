@@ -36,9 +36,8 @@ function criarDiario(req, res) {
     }
 
 
-
     function atualizarDiario(req, res) {
-        var idDiario = req.params.id;
+        var idDiario = req.params.idDiario;
         var novoTitulo = req.body.titulo;
         var novoConteudo = req.body.conteudo;
 
@@ -47,25 +46,43 @@ function criarDiario(req, res) {
                 res.status(200).json({ mensagem: "Diário atualizado com sucesso!" });
             })
             .catch(function (erro) {
-                res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+                res.status(500).json({ erro });
             });
     }
 
-    function deletarDiario(req, res) {
-        var idDiario = req.params.id;
+    function deletar(req, res) {
+        var idDiario = req.params.idDiario;
 
-        diarioModel.deletarDiario(idDiario)
-            .then(function () {
-                res.status(200).json({ mensagem: "Diário deletado com sucesso!" });
+        diarioModel.deletar(idDiario)
+            .then(
+                function () {
+                res.status(200).json({mensagem: "Diário deletado com sucesso!" });
             })
             .catch(function (erro) {
-                res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+                res.status(500).json({erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
             });
+    }
+
+    function buscarDiarios(req, res) {
+        var fkUsuario =  req.params.fkUsuario;
+
+        diarioModel.buscarDiariosPorUsuario(fkUsuario)
+        .then((resultadoDiarios) => {
+            if (resultadoDiarios.length > 0) {
+                res.status(200).json({ diarios: resultadoDiarios });
+            } else {
+                res.status(200).json({ diarios: [] });
+            }
+        })
+        .catch(function (erro) {
+            res.status(500).json({ erro });
+        });  
     }
 
     module.exports = {
         criarDiario,
-        buscarDiariosPorUsuario,
+        obterUltimosDiarios,
         atualizarDiario,
-        deletarDiario
+        deletar,
+        buscarDiarios
     }

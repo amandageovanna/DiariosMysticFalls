@@ -12,18 +12,17 @@ CREATE TABLE Usuario (
  idDiario INT PRIMARY KEY auto_increment,
  Titulo VARCHAR (200) NOT NULL,
  Conteudo TEXT NOT NULL, 
- dtCriacao datetime DEFAULT NOW(), 
+ dtCriacao DATETIME default NOW(),
  FkUsuario int,
  foreign key (FkUsuario) references Usuario(idUsuario)
  );  
 
--- Agosto
-INSERT INTO Diario  (titulo, conteudo, fkUsuario) VALUES
-  ('Acontecimentos em Agosto 1', 'Primeiro diário de agosto.', 1),
-  ('Explorações de Agosto 4', 'Descobrindo novos lugares em agosto.', 1);
 
-  INSERT INTO Diario (Titulo, Conteudo, FkUsuario, dtCriacao) VALUES 
-    ('aaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdasdasdas', 1, NOW());
+ INSERT INTO Diario (titulo, conteudo, fkUsuario) VALUES
+  ('Acontecimentos em Agosto 1', 'Primeiro diário de agosto.', 1);
+-- (5, 'Memórias de Agosto 2', 'Mais um dia memorável em agosto.', '12:30:00', 'Agosto', 2023, 2),
+-- (6, 'Reflexões de Agosto 3', 'Pensamentos profundos em agosto.', '18:45:00', 'Agosto', 2023, 3),
+--  (7, 'Explorações de Agosto 4', 'Descobrindo novos lugares em agosto.', '22:15:00', 'Agosto', 2023, 1);
 
 -- Setembro
 -- INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
@@ -45,21 +44,11 @@ where fkUsuario = 1;
 select * from usuario;
 select * from diario;
 
-
-SELECT idDiario, Titulo, Conteudo, dtCriacao
-    FROM Diario
-    WHERE FkUsuario = 1
-    ORDER BY dtCriacao DESC
-    LIMIT 4;
-
-SELECT idDiario, Titulo, Conteudo, dtCriacao
-    FROM Diario
-    WHERE FkUsuario = idUsuario
-    ORDER BY dtCriacao DESC;
+TRUNCATE TABLE 
 
 -- Novembro
-INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
- (13, 'Novas Descobertas em Novembro 1', 'Primeiro diário de novembro.', '10:00:00', 'Novembro', 2023, 1),
+-- INSERT INTO Diario (idDiario, titulo, conteudo, hora, mes, ano, fkUsuario) VALUES
+-- (13, 'Novas Descobertas em Novembro 1', 'Primeiro diário de novembro.', '10:00:00', 'Novembro', 2023, 1),
 -- (14, 'Reflexões de Novembro 2', 'Reflexões profundas em novembro.', '15:45:00', 'Novembro', 2023, 2),
 -- (15, 'Aventuras de Novembro 3', 'Aventuras emocionantes em novembro.', '19:30:00', 'Novembro', 2023, 3),
 -- (16, 'Diário de Novembro 4', 'Registro do quarto dia de novembro.', '21:00:00', 'Novembro', 2023, 1),
