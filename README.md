@@ -20,7 +20,7 @@
 
 <br>
 
-### ⌨️ Tecnologias utilizadas
+## ⌨️ Tecnologias utilizadas
 
 <div display=flex>
   <img src="https://teamextension.com.br/dist/img/skills/nodejs_og.webp" width=80px>
@@ -31,14 +31,14 @@
 </div>
 
 
-### 🖱️ Principais requisitos técnicos aplicadas
+## 🖱️ Principais requisitos técnicos aplicadas
 
 -  Utilização de vetores
 -  Implementação de laços de repetição
 -  Aplicação de estruturas condicionais
 -  Desenvolvimento de operações CRUD utilizando Node.js
 
-### Conclusão
+## Conclusão
 
 ### Este é um *projeto individual* pela minha instituição de ensino SPTech School, no qual fui desafiada a desenvolver um projeto que abrange tanto o backend quanto o frontend, incluindo a integração com o banco de dados e outros requisitos específicos. Escolhi o tema com base na minha identidade pessoal e, sem dúvidas, optei pela série *The Vampire Diaries.*
 
