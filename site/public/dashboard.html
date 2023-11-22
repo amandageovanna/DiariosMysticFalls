@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/styleDashboard.css">
-    <script src="js/scriptDashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -15,7 +14,8 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <p>Olá, Amanda!</p>
+                <img class="imagemLogo" src="assets/logo.png"> 
+                <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
 
@@ -97,15 +97,16 @@
 
                 <div class="TituloQuiz">
                     <span class="seuPerfil"> Seu perfil é...</span> <br>
-                    <span class="nomePerfil"> <b> Katherine </b> </span> <br>
-                    <span class="descricaoPerfil"> Está melhorando... Você pode mais!</span>
+                    <span id="campoPerfil"> </span>
+                    <span class="nomePerfil" id="nomePerfil"> </span> <br>
+
                 </div>
 
                 <div class="quantidadeDiarios">
                     <div class="boxParametrosDiarios">
                         <span> Quantidade total de diários cadastrados: </span>
                         <div class="parametrosDiarios">
-                            <span> 02 </span>
+                            <div id="campoDiariosCadastrados"></div>
                         </div>
                     </div>
                 </div>
@@ -116,6 +117,63 @@
                 <canvas id="myChart" width="900" height="300" style="margin-left: 30px; margin-right: 30px; "></canvas>
 
                 <script>
+                    var idUsuario = sessionStorage.ID_USUARIO;
+                    var feed2 = document.getElementById("campoDiariosCadastrados");
+                    var mensagem = document.createElement("span");
+
+                    function listarQtdeDiario() {
+                        fetch(`/diario/listarQtdeDiario/${idUsuario}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }                           
+                        })
+                            .then(function (resposta) {
+                                if (resposta.ok) {
+                                    if (response.ok) {
+                                        throw new Error('Erro ao obter os dados.'); }
+                                        return resposta.json();
+                                    } else {
+                                        throw 'Houve um erro na API!';
+                                    }
+                                })
+
+                            .then(function (resposta) {
+                                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                                var qtdTotal = document.getElementById("campoDiariosCadastrados");
+
+                                for (let i = 0; i < resposta.length; i++) {
+                                    var publicacao = resposta[i];
+                                    qtdTotal.innerHTML = `<b>${publicacao.qtdeDiario}</b>`;
+                                }
+
+                                var campoDiariosCadastrados = document.getElementById("campoDiariosCadastrados");
+                                var campoPerfil = document.getElementById("campoPerfil");
+
+                                if (publicacao.qtdeDiario <= 8) {
+                                    campoPerfil.innerHTML = `<b>Damon</b> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
+                                } else if (publicacao.qtdeDiario <= 16) {
+                                    campoPerfil.innerHTML = `<b>Katherine</b> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
+                                } else if (publicacao.qtdeDiario <= 24) {
+                                    campoPerfil.innerHTML = `<b>Elena</b> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
+                                } else {
+                                    campoPerfil.innerHTML = `<b>Stefan</b> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
+                                }
+                            })
+                            .catch(function (erro) {
+                                console.error('Erro na requisição:', erro);
+                                if (erro instanceof TypeError) {
+                                    console.error('Erro de conexão ou requisição.');
+                                } else {
+                                    console.error('Erro desconhecido na API.');
+                                }
+                            });
+                    }
+
+                    var nome = sessionStorage.NOME_USUARIO;
+                    nomeUsuario.innerHTML += nome;
+
                     function telaDiario() {
                         window.location.href = "diario.html"
                     }
@@ -149,6 +207,10 @@
                             }
                         }
                     });
+
+                    window.onload = function () {
+                        listarQtdeDiario();
+                    };
                 </script>
             </div>
         </div>
@@ -157,10 +219,7 @@
 
     </main>
 
-
     </div>
-
-
 
 </body>
 

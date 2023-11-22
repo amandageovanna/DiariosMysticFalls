@@ -12,11 +12,12 @@
 
 <body>
 
+
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-               
-                <p id="nomeUsuario">Olá, </p>
+                <img class="imagemLogo" src="assets/logo.png"> 
+                <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
 
@@ -60,6 +61,11 @@
             </div>
         </div>
 
+        <div class="boxMensagem">
+            <div id="cardContainer" class="cardMensagem">
+                <span id="textoMensagem"></span>
+            </div>
+        </div>
         <div class="BoxNovaEntrada">
             <div class="caixaNovaEntrada">
                 <div class="boxTituloNovaEntrada">
@@ -86,7 +92,7 @@
                             </button>
                         </div>
                         <div class="boxBotao">
-                            <button id="btn_editar"  style="display: none;">
+                            <button id="btn_editar" style="display: none;">
                                 <span onclick="editar()">EDITAR</span>
                             </button>
                         </div>
@@ -99,8 +105,9 @@
                 </div>
             </div>
 
-
         </div>
+
+
 
         <div class="boxDiariosAntigos">
             <div class="caixaDiariosAntigos">
@@ -108,7 +115,7 @@
                     <span> DIÁRIOS ANTIGOS</span>
                 </div>
                 <div class="entradasAntigas">
-        
+
                 </div>
             </div>
         </div>
@@ -121,7 +128,7 @@
 </body>
 
 <script>
-    var idDiarioSelecionado; 
+    var idDiarioSelecionado;
 
     var nome = sessionStorage.NOME_USUARIO;
 
@@ -129,16 +136,22 @@
 
     var idUsuario = sessionStorage.ID_USUARIO;
 
+    var card = document.querySelector(".boxMensagem");
+        var mensagem = document.getElementById("textoMensagem")
+
+    // criei funcao que seleciona um diario especifico. ela recebe o parametro da posicao do diario que vai ser selecionado e diarios (lista de diarios)
     function selecionarDiario(i, diarios) {
         idDiarioSelecionado = diarios[i].idDiario;
         input_tituloDiario.value = diarios[i].Titulo;
         conteudoDiario.value = diarios[i].Conteudo;
 
+        // exibicao dos botoes
         document.getElementById('btn_editar').style.display = 'inline-block';
         document.getElementById('btn_deletar').style.display = 'inline-block';
         document.getElementById('btn_salvar').style.display = 'none';
     }
 
+    // 
     function buscarDiarios() {
 
         fetch(`diarios/buscarDiarios/${idUsuario}`, {
@@ -147,40 +160,42 @@
                 'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(data => exibirDiarios(data.diarios))
-        .catch(error => console.error('Erro:', error));
+            .then(response => response.json())
+            .then(data => exibirDiarios(data.diarios))
+            .catch(error => console.error('Erro:', error));
     }
 
+    // o parametro aqui é a lista de
     function exibirDiarios(diarios) {
-    var divEntradasAntigas = document.querySelector('.entradasAntigas');
-    divEntradasAntigas.innerHTML = '';
+        var divEntradasAntigas = document.querySelector('.entradasAntigas');
+        divEntradasAntigas.innerHTML = '';
 
-    for (var i = 0; i < diarios.length; i++) {
-        var divLinha = document.createElement('div');
-        divLinha.className = 'linhaEntradasAntigas';
+        for (var i = 0; i < diarios.length; i++) {
+            var divLinha = document.createElement('div');
+            divLinha.className = 'linhaEntradasAntigas';
 
-        var spanDiario = document.createElement('span');
-        spanDiario.id = 'linha';
-        spanDiario.setAttribute('data-idDiario', diarios[i].idDiario);
+            var spanDiario = document.createElement('span');
+            spanDiario.id = 'linha';
+            spanDiario.setAttribute('data-idDiario', diarios[i].idDiario);
 
 
-        (function (index) {
-            spanDiario.onclick = function () {
-                selecionarDiario(index, diarios);
-            };
-        })(i);
+            (function (index) {
+                spanDiario.onclick = function () {
+                    selecionarDiario(index, diarios);
+                };
+            })(i);
 
-        spanDiario.innerHTML = diarios[i].Titulo;
+            spanDiario.innerHTML = diarios[i].Titulo;
 
-        divLinha.appendChild(spanDiario);
-        divEntradasAntigas.appendChild(divLinha);
+            divLinha.appendChild(spanDiario);
+            divEntradasAntigas.appendChild(divLinha);
+        }
     }
-}
 
     function criar() {
         var tituloVar = input_tituloDiario.value;
         var conteudoVar = conteudoDiario.value;
+       
 
         fetch("diarios/criar", {
             method: 'POST',
@@ -198,11 +213,13 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    window.location = "diario.html";
-                    alert("Diário criado com sucesso!")
+                    card.style.display = "block";
+                    mensagem.innerHTML = "Diário criado com sucesso!";
 
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Diário criado com sucesso!";
+                    setTimeout(function () {
+                        window.location = "diario.html";
+                    }, 3000);
+
                 } else {
                     throw "Houve um erro ao tentar salvar o diário!";
                 }
@@ -233,11 +250,12 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    window.location = "diario.html";
-                    alert("Diário editado com sucesso!")
+                    card.style.display = "block";
+                    mensagem.innerHTML = "Diário editado com sucesso!";
 
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Diário editado com sucesso!";
+                    setTimeout(function () {
+                        window.location = "diario.html";
+                    }, 3000);
                 } else {
                     throw "Houve um erro ao tentar editar o diário!";
                 }
@@ -258,9 +276,12 @@
         }).then(function (resposta) {
 
             if (resposta.ok) {
-                window.location = "diario.html";
-                alert("Diário deletado com sucesso!")
+                card.style.display = "block";
+                    mensagem.innerHTML = "Diário deletado com sucesso!";
 
+                    setTimeout(function () {
+                        window.location = "diario.html";
+                    }, 3000);
             } else if (resposta.status == 404) {
                 window.alert("Diário não encontrado para deleção");
             } else {

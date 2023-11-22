@@ -66,10 +66,22 @@ function buscarDiariosPorUsuario(idUsuario) {
 
 }
 
+function listarQtdeDiario(idUsuario) {
+    var instrucao = `
+    SELECT COUNT(idDiario) AS qtdeDiario FROM Diario
+	INNER JOIN Usuario ON fkUsuario = idUsuario
+	WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     criarDiario,
     obterUltimosDiarios,
     atualizarDiario,
     deletar,
-    buscarDiariosPorUsuario
+    buscarDiariosPorUsuario,
+    listarQtdeDiario
 }

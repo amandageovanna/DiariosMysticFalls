@@ -20,17 +20,6 @@
 
 <br>
 
-## ⌨️ Tecnologias utilizadas
-
-<div display=flex>
-  <img src="https://teamextension.com.br/dist/img/skills/nodejs_og.webp" width=80px>
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/JavaScript.svg" width=55px>
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/CSS.svg" width=55px>
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/HTML.svg" width=55px>
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/Figma-Dark.svg" width=55px>
-</div>
-
-
 ## 🖱️ Principais requisitos técnicos aplicadas
 
 -  Utilização de vetores

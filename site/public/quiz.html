@@ -14,8 +14,8 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                
-                <p>Olá, Amanda!</p>
+                <img class="imagemLogo" src="assets/logo.png"> 
+                <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
 
@@ -118,6 +118,10 @@
 </body>
 
 <script>
+    var nome = sessionStorage.NOME_USUARIO;
+
+    nomeUsuario.innerHTML += nome;
+
     var score = 0;
 
     var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
