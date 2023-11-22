@@ -343,12 +343,11 @@
         if (document.getElementById('correta10').checked) {
             score++;
         }
-        fimDoQuiz()
+        fimDoQuiz(score)
     }
 
 
-    function fimDoQuiz() {
-        var questionsPerSeason = [3, 2, 2, 2, 1];
+    function fimDoQuiz(score) {        
 
         sessaoQuiz.innerHTML = `
          O resultado é: ${score} `
@@ -357,55 +356,27 @@
 
         botaoQuiz.innerHTML = ""
 
-        var ctx = document.getElementById('quizChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5'],
-                datasets: [{
-                    label: 'Perguntas por Temporada',
-                    data: questionsPerSeason,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
-                    ],
-                    borderWidth: 1
-                }, {
-                    type: 'line',
-                    label: 'Pontuação no Quiz',
-                    data: [score],
-                    borderColor: '#735944',
-                    backgroundColor: '#735944',
-                    borderWidth: 1,
-                    fill: false
-                }, {
-                    type: 'line',
-                    label: 'Total de Perguntas',
-                    data: [totalQuestions],
-                    borderColor: '#000',
-                    backgroundColor: '#000',
-                    borderWidth: 1,
-                    fill: false
-                }]
+        fetch(`quiz/pontuacao/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+            body: JSON.stringify({
+                pontuacao: score,
+                fkUsuario: sessionStorage.ID_USUARIO
+            }),
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+               
+            } else {
+               console.log("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
+
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
         });
+
     }
 
     function telaDashboard() {

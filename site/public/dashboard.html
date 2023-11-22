@@ -121,7 +121,7 @@
                     var feed2 = document.getElementById("campoDiariosCadastrados");
                     var mensagem = document.createElement("span");
 
-   
+
 
 
                     function listarQtdeDiario() {
@@ -136,28 +136,28 @@
                                 console.log("Dados recebidos: ", JSON.stringify(resposta));
                                 resposta.json()
                                     .then((json) => {
-                                        console.log(json);                                        
+                                        console.log(json);
                                         console.log(json[0].qtdeDiario);
-                                        
+
                                         var publicacao = json[0].qtdeDiario;
                                         console.log(publicacao);
-                                       
+
                                         var qtdTotal = document.getElementById("campoDiariosCadastrados")
                                         qtdTotal.innerHTML = `<b>${publicacao}</b>`;
 
                                         if (publicacao <= 8) {
-                                            campoPerfil.innerHTML = `<b>Damon</b> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <br> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
                                         } else if (publicacao <= 16) {
-                                            campoPerfil.innerHTML = `<b>Katherine</b> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Katherine</b></h2> <br> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
                                         } else if (publicacao <= 24) {
-                                            campoPerfil.innerHTML = `<b>Elena</b> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Elena</b></h2> <br>  <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
                                         } else if (publicacao > 24) {
-                                            campoPerfil.innerHTML = `<b>Stefan</b> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
-                                        } else{console.log(`Erro ao capturar perfil... valor da variavel ${publicacao}`)}
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <br> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
+                                        } else { console.log(`Erro ao capturar perfil... valor da variavel ${publicacao}`) }
                                     })
                             })
 
-                           
+
                             .catch(function (erro) {
                                 console.error('Erro na requisição:', erro);
                                 if (erro instanceof TypeError) {
@@ -173,30 +173,59 @@
 
                     function buscarMes() {
 
-                        
+                        fetch(`/diarios/buscarMes/${idUsuario}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Erro ao buscar os dados');
+                                }
+                                return response.json(); // Esta linha é essencial para extrair o corpo da resposta
+                            })
+                            .then(data => {
+                                // Ao utilizar then(data => { ... }), você está basicamente dizendo: "Quando os dados forem recebidos com sucesso do servidor, execute esta função e utilize esses dados dentro deste bloco de código." 
+
+                                const ctx = document.getElementById('myChart');
+
+                                const mesesDoAno = [
+                                    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                                    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+                                ];
+
+
+                                const labels = data.map(item => mesesDoAno[item.mes - 1]);
+                                const dados = data.map(item => item.qtdeDiario);
+
+                               
+                                new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'Quantidade de Diários por Mês',
+                                            data: dados,
+                                            backgroundColor: '#584634',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            })
+                            .catch(error => {
+                                console.error('AAAAAAAA errinho do grafico:', error);
+                            });
                     }
 
-                    const ctx = document.getElementById('myChart');
 
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                            datasets: [{
-                                label: 'Quantidade de Diários por Mês',
-                                data: [15, 18, 27, 16, 19, 22, 29, 23, 21, 17, 16, 28],
-                                backgroundColor: '#584634',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
 
                     function telaDiario() {
                         window.location.href = "diario.html"
@@ -212,6 +241,7 @@
 
                     window.onload = function () {
                         listarQtdeDiario();
+                        buscarMes();
                     };
                 </script>
             </div>

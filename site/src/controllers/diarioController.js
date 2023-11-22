@@ -139,5 +139,5 @@ module.exports = {
     deletar,
     buscarDiarios,
     listarQtdeDiario,
-    buscarMes
+    buscarMes    
 }
