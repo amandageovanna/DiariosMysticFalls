@@ -12,7 +12,7 @@ function pontuacao(req, res) {
                     if (resultadoBusca.length > 0) {
                         console.log(resultadoBusca)
                         var total = Number(resultadoBusca[0].Pontuacao) + Number(score);
-                        var totalTentativas = resultadoBusca[0].Tentativas;                       
+                        var totalTentativas = resultadoBusca[0].Tentativas+1;                       
                         quizModel.atualizarPontuacao(fkUsuario, Number(total), totalTentativas) 
                         .then (function () {
                             res.status(200);

@@ -5,8 +5,8 @@ function pontuacao(fkUsuario, score) {
 
     var instrucao = `
 
-    INSERT INTO quiz (fkUsuario, Pontuacao) VALUES 
-    ('${fkUsuario}', '${score}');
+    INSERT INTO quiz (fkUsuario, Pontuacao, Tentativas) VALUES 
+    ('${fkUsuario}', '${score}', 1);
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -29,7 +29,7 @@ function atualizarPontuacao(fkUsuario, score, tentativas) {
 
     var instrucao = `
 
-   UPDATE quiz SET Pontuacao = ${score} and Tentativas = ${tentativas}
+   UPDATE quiz SET Pontuacao = ${score}, Tentativas = ${tentativas}
    WHERE fkUsuario = ${fkUsuario};
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);

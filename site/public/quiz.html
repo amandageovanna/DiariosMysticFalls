@@ -14,7 +14,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemLogo" src="assets/logo.png"> 
+                <img class="imagemLogo" src="assets/logo.png">
                 <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
@@ -94,6 +94,10 @@
                     </div>
 
                     <div class="botaoQuiz">
+
+                    </div>
+
+                    <div class="tentativinhas">
 
                     </div>
 
@@ -347,12 +351,12 @@
     }
 
 
-    function fimDoQuiz(score) {        
+    function fimDoQuiz(score) {
 
         sessaoQuiz.innerHTML = `
-         O resultado é: ${score} `
+         Sua pontuação atual é: ${score} `
 
-        respostasQuiz.innerHTML = ""
+        respostasQuiz.innerHTML = ""       
 
         botaoQuiz.innerHTML = ""
 
@@ -368,9 +372,16 @@
         }).then(function (resposta) {
 
             if (resposta.ok) {
-               
+                if (resposta.json == 1) {
+                    respostasQuiz.innerHTML = `Sua pontuação total é: ${score}`
+                    tentativinhas.innerHTML = `Tentativa: 1`
+                } else if (resposta.json > 1) {
+                    respostasQuiz.innerHTML = `Sua pontuação total é: ${resposta.json.totalPontuacao}`;
+                    tentativinhas.innerHTML = `Tentativa: ${resposta.json.tentativinhas}`;
+                }
+
             } else {
-               console.log("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                console.log("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
 
         }).catch(function (resposta) {
@@ -378,6 +389,10 @@
         });
 
     }
+
+
+
+
 
     function telaDashboard() {
         window.location.href = "dashboard.html"
