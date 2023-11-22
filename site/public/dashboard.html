@@ -14,7 +14,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemLogo" src="assets/logo.png"> 
+                <img class="imagemLogo" src="assets/logo.png">
                 <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
@@ -121,46 +121,43 @@
                     var feed2 = document.getElementById("campoDiariosCadastrados");
                     var mensagem = document.createElement("span");
 
+   
+
+
                     function listarQtdeDiario() {
-                        fetch(`/diario/listarQtdeDiario/${idUsuario}`, {
+                        console.log(idUsuario)
+                        fetch(`/diarios/listarQtdeDiario/${idUsuario}`, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
-                            }                           
+                            }
                         })
                             .then(function (resposta) {
-                                if (resposta.ok) {
-                                    if (response.ok) {
-                                        throw new Error('Erro ao obter os dados.'); }
-                                        return resposta.json();
-                                    } else {
-                                        throw 'Houve um erro na API!';
-                                    }
-                                })
-
-                            .then(function (resposta) {
                                 console.log("Dados recebidos: ", JSON.stringify(resposta));
+                                resposta.json()
+                                    .then((json) => {
+                                        console.log(json);                                        
+                                        console.log(json[0].qtdeDiario);
+                                        
+                                        var publicacao = json[0].qtdeDiario;
+                                        console.log(publicacao);
+                                       
+                                        var qtdTotal = document.getElementById("campoDiariosCadastrados")
+                                        qtdTotal.innerHTML = `<b>${publicacao}</b>`;
 
-                                var qtdTotal = document.getElementById("campoDiariosCadastrados");
-
-                                for (let i = 0; i < resposta.length; i++) {
-                                    var publicacao = resposta[i];
-                                    qtdTotal.innerHTML = `<b>${publicacao.qtdeDiario}</b>`;
-                                }
-
-                                var campoDiariosCadastrados = document.getElementById("campoDiariosCadastrados");
-                                var campoPerfil = document.getElementById("campoPerfil");
-
-                                if (publicacao.qtdeDiario <= 8) {
-                                    campoPerfil.innerHTML = `<b>Damon</b> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
-                                } else if (publicacao.qtdeDiario <= 16) {
-                                    campoPerfil.innerHTML = `<b>Katherine</b> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
-                                } else if (publicacao.qtdeDiario <= 24) {
-                                    campoPerfil.innerHTML = `<b>Elena</b> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
-                                } else {
-                                    campoPerfil.innerHTML = `<b>Stefan</b> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
-                                }
+                                        if (publicacao <= 8) {
+                                            campoPerfil.innerHTML = `<b>Damon</b> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
+                                        } else if (publicacao <= 16) {
+                                            campoPerfil.innerHTML = `<b>Katherine</b> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
+                                        } else if (publicacao <= 24) {
+                                            campoPerfil.innerHTML = `<b>Elena</b> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
+                                        } else if (publicacao > 24) {
+                                            campoPerfil.innerHTML = `<b>Stefan</b> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
+                                        } else{console.log(`Erro ao capturar perfil... valor da variavel ${publicacao}`)}
+                                    })
                             })
+
+                           
                             .catch(function (erro) {
                                 console.error('Erro na requisição:', erro);
                                 if (erro instanceof TypeError) {
@@ -174,16 +171,9 @@
                     var nome = sessionStorage.NOME_USUARIO;
                     nomeUsuario.innerHTML += nome;
 
-                    function telaDiario() {
-                        window.location.href = "diario.html"
-                    }
+                    function buscarMes() {
 
-                    function telaQuiz() {
-                        window.location.href = "quiz.html"
-                    }
-
-                    function telaSair() {
-                        window.location.href = "index.html"
+                        
                     }
 
                     const ctx = document.getElementById('myChart');
@@ -207,6 +197,18 @@
                             }
                         }
                     });
+
+                    function telaDiario() {
+                        window.location.href = "diario.html"
+                    }
+
+                    function telaQuiz() {
+                        window.location.href = "quiz.html"
+                    }
+
+                    function telaSair() {
+                        window.location.href = "index.html"
+                    }
 
                     window.onload = function () {
                         listarQtdeDiario();

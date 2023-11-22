@@ -6,12 +6,12 @@ function criarDiario(req, res) {
     var fkUsuario = req.body.fkUsuario;
     // para garantir que cada diário seja atribuido para o usuario correto no bd
 
-    if (titulo == undefined || titulo == "" ) {
+    if (titulo == undefined || titulo == "") {
         res.status(400).send("Titulo vazio!");
     } else if (conteudo == undefined || conteudo == "") {
         res.status(400).send("Conteudo vazio!");
     } else if (fkUsuario == undefined) {
-        res.status(400).send("fkUsuario vazio!");    
+        res.status(400).send("fkUsuario vazio!");
     } else {
 
         diarioModel.criarDiario(titulo, conteudo, fkUsuario)
@@ -23,50 +23,50 @@ function criarDiario(req, res) {
             });
 
     }
-    }
+}
 
-    function obterUltimosDiarios(req, res) {
-        diarioModel.obterUltimosDiarios()
-            .then(function (ultimosDiarios) {
-                res.status(200).json(ultimosDiarios);
+function obterUltimosDiarios(req, res) {
+    diarioModel.obterUltimosDiarios()
+        .then(function (ultimosDiarios) {
+            res.status(200).json(ultimosDiarios);
+        })
+        .catch(function (erro) {
+            res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+        });
+}
+
+
+function atualizarDiario(req, res) {
+    var idDiario = req.params.idDiario;
+    var novoTitulo = req.body.titulo;
+    var novoConteudo = req.body.conteudo;
+
+    diarioModel.atualizarDiario(idDiario, novoTitulo, novoConteudo)
+        .then(function () {
+            res.status(200).json({ mensagem: "Diário atualizado com sucesso!" });
+        })
+        .catch(function (erro) {
+            res.status(500).json({ erro });
+        });
+}
+
+function deletar(req, res) {
+    var idDiario = req.params.idDiario;
+
+    diarioModel.deletar(idDiario)
+        .then(
+            function () {
+                res.status(200).json({ mensagem: "Diário deletado com sucesso!" });
             })
-            .catch(function (erro) {
-                res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
-            });
-    }
+        .catch(function (erro) {
+            res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
+        });
+}
 
+function buscarDiarios(req, res) {
+    var fkUsuario = req.params.fkUsuario;
 
-    function atualizarDiario(req, res) {
-        var idDiario = req.params.idDiario;
-        var novoTitulo = req.body.titulo;
-        var novoConteudo = req.body.conteudo;
-
-        diarioModel.atualizarDiario(idDiario, novoTitulo, novoConteudo)
-            .then(function () {
-                res.status(200).json({ mensagem: "Diário atualizado com sucesso!" });
-            })
-            .catch(function (erro) {
-                res.status(500).json({ erro });
-            });
-    }
-
-    function deletar(req, res) {
-        var idDiario = req.params.idDiario;
-
-        diarioModel.deletar(idDiario)
-            .then(
-                function () {
-                res.status(200).json({mensagem: "Diário deletado com sucesso!" });
-            })
-            .catch(function (erro) {
-                res.status(500).json({erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
-            });
-    }
-
-    function buscarDiarios(req, res) {
-        var fkUsuario =  req.params.fkUsuario;
-
-        diarioModel.buscarDiariosPorUsuario(fkUsuario)
+    diarioModel.buscarDiariosPorUsuario(fkUsuario)
         .then((resultadoDiarios) => {
             if (resultadoDiarios.length > 0) {
                 res.status(200).json({ diarios: resultadoDiarios });
@@ -76,41 +76,68 @@ function criarDiario(req, res) {
         })
         .catch(function (erro) {
             res.status(500).json({ erro });
-        });  
-    }
+        });
+}
 
-    function listarQtdeDiario(req, res) {
-        
-        var idUsuario = req.params.idUsuario;
-    
-        diarioModel.listarQtdeDiario(idUsuario)
-            .then(
-                function (resultado) {
-                    if (resultado.length > 0) {
-                        res.status(200).json(resultado);
-                        
-                    } else {
-                        res.status(204).send("Nenhum resultado encontrado!");
-                    }
-                }
-            )
-            .catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "Houve um erro ao buscar os a quantidade de diários: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+function listarQtdeDiario(req, res) {
+    var idUsuario = req.params.idUsuario;
 
-    module.exports = {
-        criarDiario,
-        obterUltimosDiarios,
-        atualizarDiario,
-        deletar,
-        buscarDiarios,
-        listarQtdeDiario
-    }
+    console.log(`estou na funcao listar qtd diario do controller`);
+    diarioModel.listarQtdeDiario(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os a quantidade de diários: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function buscarMes(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    diarioModel.buscarMes(idUsuario)
+        .then(
+            function (resultado) {                
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os a quantidade de diários",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
+module.exports = {
+    criarDiario,
+    obterUltimosDiarios,
+    atualizarDiario,
+    deletar,
+    buscarDiarios,
+    listarQtdeDiario,
+    buscarMes
+}

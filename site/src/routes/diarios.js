@@ -31,4 +31,9 @@ router.get("/listarQtdeDiario/:idUsuario", function (req, res) {
    diarioController.listarQtdeDiario(req, res);
 })
 
+router.get("/buscarMes/:idUsuario", function (req, res) {
+   diarioController.buscarMes(req, res);
+})
+
+
 module.exports = router;
