@@ -14,13 +14,13 @@
 }
 
 @font-face {
-    font-family: 'Monda';
-    src: url(Fontes/fontes/Monda-Regular.ttf);
+    font-family: 'EFCO';
+    src: url(fontes/EFCOBrookshireRegular.ttf);
 }
 
 @font-face {
-    font-family: 'Monda-Bold';
-    src: url(Fontes/fontes/Monda-Bold.ttf);
+    font-family: 'Bugaki';
+    src: url(fontes/Bugaki.ttf);
 }
 
 @font-face {
@@ -215,7 +215,7 @@ body {
 }
 
 .boxPerfil>span {    
-    font-family: "Monda";
+    font-family: "Poppins";
     display: flex;
     justify-content: center;
     margin-top: 5px;
@@ -231,7 +231,7 @@ body {
 }
 
 .seuPerfil {
-    font-family: "Bona-Bold";
+    font-family: 'EFCO';
     font-size: 35px;
 }
 
@@ -240,8 +240,8 @@ body {
 }
 
 .nomePerfil {
-    font-size: 27px;
-    font-family: "Monda";
+    font-size: 19px;
+    font-family: "EFCO";
 }
 
 .boxParametrosDiarios {
@@ -297,5 +297,9 @@ body {
     margin-left: 70px;     
     margin-top: 188px;
     padding: 0 16px 0 23px;
+
+}
+
+.campoPerfil {
 
 }

@@ -258,7 +258,7 @@ body {
 
 .boxBotao {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .deslogar > span {   
@@ -296,11 +296,14 @@ body {
 }
 .sessaoQuiz{  
     font-size: 20px;
+    height: 100px;
     font-family: 'Montserrat';
+    text-align: center;
 }
 
 .botaoProxima {
     margin-top: 5px;
+    height: 100px;
     font-family: 'Montserrat';
     cursor: pointer;
     border: none;
@@ -313,14 +316,8 @@ body {
 }
 
 .respostasQuiz {
-   
-    margin-top: 48px;
+   height: 90px;   
     font-family: 'Montserrat';
     font-size: 20px;
     text-align: center;
 }
-
-.botaoQuiz{
-    margin-top: 75px;
-}
-

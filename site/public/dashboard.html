@@ -97,9 +97,8 @@
 
                 <div class="TituloQuiz">
                     <span class="seuPerfil"> Seu perfil é...</span> <br>
-                    <span id="campoPerfil"> </span>
+                    <span class="nomePerfil" id="campoPerfil"> </span>
                     <span class="nomePerfil" id="nomePerfil"> </span> <br>
-
                 </div>
 
                 <div class="quantidadeDiarios">
@@ -120,9 +119,6 @@
                     var idUsuario = sessionStorage.ID_USUARIO;
                     var feed2 = document.getElementById("campoDiariosCadastrados");
                     var mensagem = document.createElement("span");
-
-
-
 
                     function listarQtdeDiario() {
                         console.log(idUsuario)
@@ -146,26 +142,22 @@
                                         qtdTotal.innerHTML = `<b>${publicacao}</b>`;
 
                                         if (publicacao <= 8) {
-                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <br> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
                                         } else if (publicacao <= 16) {
-                                            campoPerfil.innerHTML = `<h2><b>Katherine</b></h2> <br> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Katherine</b></h2> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
                                         } else if (publicacao <= 24) {
-                                            campoPerfil.innerHTML = `<h2><b>Elena</b></h2> <br>  <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Elena</b></h2> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
                                         } else if (publicacao > 24) {
-                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <br> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
                                         } else { console.log(`Erro ao capturar perfil... valor da variavel ${publicacao}`) }
                                     })
                             })
 
 
                             .catch(function (erro) {
-                                console.error('Erro na requisição:', erro);
-                                if (erro instanceof TypeError) {
-                                    console.error('Erro de conexão ou requisição.');
-                                } else {
-                                    console.error('Erro desconhecido na API.');
-                                }
-                            });
+                                console.error('Erro desconhecido na API.');
+                            }
+                            );
                     }
 
                     var nome = sessionStorage.NOME_USUARIO;
@@ -199,7 +191,7 @@
                                 const labels = data.map(item => mesesDoAno[item.mes - 1]);
                                 const dados = data.map(item => item.qtdeDiario);
 
-                               
+
                                 new Chart(ctx, {
                                     type: 'bar',
                                     data: {
