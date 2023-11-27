@@ -1,5 +1,4 @@
 
-// função para mudar as informações com base no personagem clicado. personagemId é como dizer a função: "aqui está um personagem com o ID xx, agora faça o que precisa ser feito".
 function mudarInformacoes(personagemId) {
 
     // pega as referências dos elementos caixaDireita2 e caixaEsquerda2. 

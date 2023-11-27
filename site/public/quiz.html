@@ -23,7 +23,7 @@
             <button>
                 <span>
                     <img src="assets/quiz/simboloMetrica.png">
-                    <span onclick="telaDashboard()"> Métricas </span>
+                    <span> <a class="link" href="dashboard.html"> Métricas  </a> </span>
                 </span>
             </button>
 
@@ -37,13 +37,13 @@
             <button>
                 <span>
                     <img src="assets/quiz/diario.png">
-                    <span onclick="telaDiario()"> Diário </span>
+                    <span> <a class="link" href="diario.html"> Diário </a> </span>
                 </span>
             </button>
 
             <div class="deslogar">
                 <div class="caixaDeslogar">
-                    <span onclick="telaSair()">SAIR</span>
+                    <span onclick="limparSessao()">SAIR</span>
                 </div>
             </div>
         </div>
@@ -125,6 +125,7 @@
     var nome = sessionStorage.NOME_USUARIO;
 
     nomeUsuario.innerHTML += nome;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
     var score = 0;
 
@@ -354,9 +355,9 @@
     function fimDoQuiz(score) {
 
         sessaoQuiz.innerHTML = `
-         Sua pontuação atual é: ${score} `
+         Sua pontuação atual nessa rodada é: ${score} `
 
-        respostasQuiz.innerHTML = ""       
+        respostasQuiz.innerHTML = ""
 
         botaoQuiz.innerHTML = ""
 
@@ -369,6 +370,7 @@
                 pontuacao: score,
                 fkUsuario: sessionStorage.ID_USUARIO
             }),
+
         }).then(function (resposta) {
 
             if (resposta.ok) {
@@ -389,23 +391,12 @@
         });
 
     }
-
-
-
-
-
-    function telaDashboard() {
-        window.location.href = "dashboard.html"
-
+    
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location = "../index.html";
     }
 
-    function telaSair() {
-        window.location.href = "index.html"
-    }
-
-    function telaDiario() {
-        window.location.href = "diario.html"
-    }
 </script>
 
 </html>

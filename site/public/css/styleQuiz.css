@@ -34,6 +34,10 @@
     padding: 0px;
 }
 
+.link { 
+    text-decoration: none;
+    color: white;
+}
 
 .imagemLogo {
     width: 200px;

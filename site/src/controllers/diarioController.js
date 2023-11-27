@@ -16,23 +16,13 @@ function criarDiario(req, res) {
 
         diarioModel.criarDiario(titulo, conteudo, fkUsuario)
             .then(function () {
-                res.status(201).json({ mensagem: "Diário criado com sucesso!" });
+                res.status(201).json({mensagem: "Diário criado com sucesso!"});
             })
             .catch(function (erro) {
                 res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
             });
 
     }
-}
-
-function obterUltimosDiarios(req, res) {
-    diarioModel.obterUltimosDiarios()
-        .then(function (ultimosDiarios) {
-            res.status(200).json(ultimosDiarios);
-        })
-        .catch(function (erro) {
-            res.status(500).json({ erro: "Poxa! Os servidores de Mystic Falls estão sobrecarregados de magia. Tente novamente mais tarde!" });
-        });
 }
 
 
@@ -133,8 +123,7 @@ function buscarMes(req, res) {
 
 
 module.exports = {
-    criarDiario,
-    obterUltimosDiarios,
+    criarDiario,  
     atualizarDiario,
     deletar,
     buscarDiarios,

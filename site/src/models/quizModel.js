@@ -6,7 +6,7 @@ function pontuacao(fkUsuario, score) {
     var instrucao = `
 
     INSERT INTO quiz (fkUsuario, Pontuacao, Tentativas) VALUES 
-    ('${fkUsuario}', '${score}', 1);
+    ('${fkUsuario}', '${score}', );
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

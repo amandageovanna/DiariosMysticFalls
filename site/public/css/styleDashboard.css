@@ -38,6 +38,10 @@ body {
     background-color: #EBE2D2;
 }
 
+.link { 
+    text-decoration: none;
+    color: white;
+}
 
 .imagemLogo {
     width: 200px;

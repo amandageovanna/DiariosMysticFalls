@@ -1,26 +1,12 @@
 @font-face {
-    font-family: 'Bona Nova';
-    src: url(fontes/BonaNova-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Bona Bold';
-    src: url(assets/fontes/BonaNova-Bold.ttf);
-}
-
-@font-face {
     font-family: 'Montserrat';
     src: url(assets/fontes/Montserrat-VariableFont_wght.ttf);
 }
 
 @font-face {
-    font-family: 'Monda';
-    src: url(assets/fontes/Monda-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Monda-Bold';
-    src: url(assets/fontes/Monda-Bold.ttf);
+    font-family: 'Poppins';
+    src: url(public/assets/fontes/Poppins-Light.ttf);
+  
 }
 
 
@@ -28,6 +14,10 @@ body {
     margin: 0;
     background-color: #9E8466;
 
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -158,11 +148,11 @@ body {
 
 .ondaPagina p {
     position: absolute;
-    top: 65%;
+    top: 56%;
     left: 0;
     padding: 10px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     text-transform: uppercase;
     margin-left: 150px;
 }
@@ -175,6 +165,7 @@ body {
     left: 60%;
     font-size: 40px;
     cursor: pointer;
+    font-family: 'Poppins';
 }
 
 .borda {
@@ -305,7 +296,7 @@ body {
 .caixaDireita h2 {
     color: #ffffff;
     font-size: 29px;
-    font-family: 'Bona Nova';
+    font-family: 'Poppins';
     text-align: center;
     text-transform: uppercase;
     line-height: 41.2px;
@@ -627,44 +618,34 @@ p {
     text-align: center;
     color: white;
     font-family: 'Bona Nova';
-    font-size: 60px;
+    font-size: 50px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    font-family: 'Montserrat';
 }
 
-.conteudo6 p {
+.linhaValores p {
     margin: 0;
     padding: 20px;
-    color: white;
-    font-family: 'Bona Nova';
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: white;    
     transition: transform 0.4s;
+    font-family: 'Montserrat';
+    font-size: 32px;
     /* o transition faz o texto demorar um pouco para chegar no hover aqui embaixo */
 }
 
 
-.conteudo6 p:hover {
+.linhaValores p:hover {
     transform: scale(1.2);
     text-shadow: 2px 10px 10px rgb(145, 143, 143);
-
 }
 
 .linhaValores {
     justify-content: space-evenly;
     display: flex;
     align-items: center;
-    margin-top: 38px;
-}
-
-.linhaValores {
-    justify-content: space-evenly;
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
+    margin-top: 76px;
 }
 
 .conteudo7 {

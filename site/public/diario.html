@@ -16,7 +16,7 @@
     <div class="sidebar">
         <div class="sidebarMarrom">
             <div class="sidebar-header">
-                <img class="imagemLogo" src="assets/logo.png"> 
+                <img class="imagemLogo" src="assets/logo.png">
                 <p class="tituloUsuario" id="nomeUsuario">Olá, </p>
             </div>
         </div>
@@ -25,27 +25,27 @@
             <button>
                 <span>
                     <img src="assets/paginaDiario/simboloMetrica.png">
-                    <span onclick="telaMetricas()"> Métricas </span>
+                    <span> <a class="link" href="dashboard.html"> Métricas  </a> </span>
                 </span>
             </button>
 
             <button>
                 <span>
                     <img src="assets/paginaDiario/quiz.png">
-                    <span onclick="telaQuiz()"> Quiz </span>
+                    <span> <a class="link" href="quiz.html"> Quiz </a> </span>
                 </span>
             </button>
 
             <button>
                 <span>
                     <img src="assets/paginaDiario/diario.png">
-                    <span onclick=""> Diário </span>
+                    <span> <a class="link" href="diario.html"> Diário </a> </span>
                 </span>
             </button>
 
             <div class="deslogar">
                 <div class="caixaDeslogar">
-                    <span onclick="telaSair()">SAIR</span>
+                    <span onclick="limparSessao()">SAIR</span>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@
     var idUsuario = sessionStorage.ID_USUARIO;
 
     var card = document.querySelector(".boxMensagem");
-        var mensagem = document.getElementById("textoMensagem")
+    var mensagem = document.getElementById("textoMensagem")
 
     // criei funcao que seleciona um diario especifico. ela recebe o parametro da posicao do diario que vai ser selecionado e diarios (lista de diarios)
     function selecionarDiario(i, diarios) {
@@ -165,7 +165,7 @@
             .catch(error => console.error('Erro:', error));
     }
 
-    // o parametro aqui é a lista de
+
     function exibirDiarios(diarios) {
         var divEntradasAntigas = document.querySelector('.entradasAntigas');
         divEntradasAntigas.innerHTML = '';
@@ -195,7 +195,7 @@
     function criar() {
         var tituloVar = input_tituloDiario.value;
         var conteudoVar = conteudoDiario.value;
-       
+
 
         fetch("diarios/criar", {
             method: 'POST',
@@ -277,11 +277,11 @@
 
             if (resposta.ok) {
                 card.style.display = "block";
-                    mensagem.innerHTML = "Diário deletado com sucesso!";
+                mensagem.innerHTML = "Diário deletado com sucesso!";
 
-                    setTimeout(function () {
-                        window.location = "diario.html";
-                    }, 3000);
+                setTimeout(function () {
+                    window.location = "diario.html";
+                }, 3000);
             } else if (resposta.status == 404) {
                 window.alert("Diário não encontrado para deleção");
             } else {
@@ -291,17 +291,10 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
-
-    function telaMetricas() {
-        window.location.href = "dashboard.html"
-    }
-
-    function telaQuiz() {
-        window.location.href = "quiz.html"
-    }
-
-    function telaSair() {
-        window.location.href = "index.html"
+   
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location = "../index.html";
     }
 
     window.onload = function () {

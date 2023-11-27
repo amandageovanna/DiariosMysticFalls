@@ -8,11 +8,6 @@ router.post("/criar", function (req, res) {
  diarioController.criarDiario(req, res); 
 });
 
-// rota para obter os ultimos 4 diários
-router.get("/ultimos", function (req, res) {
-diarioController.obterUltimosDiarios (req, res); 
-});
-
 // rota para obter os editar o diário
 router.put("/editar/:idDiario", function (req, res) {
 diarioController.atualizarDiario (req, res);

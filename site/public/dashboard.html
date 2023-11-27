@@ -30,20 +30,20 @@
             <button>
                 <span>
                     <img src="assets/dashboard/quiz.png">
-                    <span onclick="telaQuiz()"> Quiz </span>
+                    <span> <a class="link" href="quiz.html"> Quiz </a> </span>
                 </span>
             </button>
 
             <button>
                 <span>
                     <img src="assets/dashboard/diario.png">
-                    <span onclick="telaDiario()"> Diário </span>
+                    <span> <a class="link" href="diario.html"> Diário </a> </span>
                 </span>
             </button>
 
             <div class="deslogar">
                 <div class="caixaDeslogar">
-                    <span onclick="telaSair()">SAIR</span>
+                    <span onclick="limparSessao()">SAIR</span>
                 </div>
             </div>
         </div>
@@ -171,26 +171,32 @@
                                 'Content-Type': 'application/json',
                             }
                         })
-                            .then(response => {
+                            .then(function (response) {
                                 if (!response.ok) {
                                     throw new Error('Erro ao buscar os dados');
                                 }
-                                return response.json(); // Esta linha é essencial para extrair o corpo da resposta
+                                return response.json();
                             })
-                            .then(data => {
-                                // Ao utilizar then(data => { ... }), você está basicamente dizendo: "Quando os dados forem recebidos com sucesso do servidor, execute esta função e utilize esses dados dentro deste bloco de código." 
+
+                            .then(function (data) {
 
                                 const ctx = document.getElementById('myChart');
-
                                 const mesesDoAno = [
                                     'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                                     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
                                 ];
 
 
-                                const labels = data.map(item => mesesDoAno[item.mes - 1]);
-                                const dados = data.map(item => item.qtdeDiario);
+                                const labels = data.map(function (item) {
+                                    return mesesDoAno[item.mes - 1];
+                                });
 
+                                const dados = data.map(function (item) {
+                                    return item.qtdeDiario;
+                                });
+
+                                // const labels = data.map(item => mesesDoAno[item.mes - 1]);
+                                // const dados = data.map(item => item.qtdeDiario);
 
                                 new Chart(ctx, {
                                     type: 'bar',
@@ -218,17 +224,9 @@
                     }
 
 
-
-                    function telaDiario() {
-                        window.location.href = "diario.html"
-                    }
-
-                    function telaQuiz() {
-                        window.location.href = "quiz.html"
-                    }
-
-                    function telaSair() {
-                        window.location.href = "index.html"
+                    function limparSessao() {
+                        sessionStorage.clear();
+                        window.location = "../index.html";
                     }
 
                     window.onload = function () {
