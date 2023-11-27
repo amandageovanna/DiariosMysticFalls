@@ -27,11 +27,11 @@ function criarDiario(req, res) {
 
 
 function atualizarDiario(req, res) {
-    var idDiario = req.params.idDiario;
+    var idPagina = req.params.idPagina;
     var novoTitulo = req.body.titulo;
     var novoConteudo = req.body.conteudo;
 
-    diarioModel.atualizarDiario(idDiario, novoTitulo, novoConteudo)
+    diarioModel.atualizarDiario(idPagina, novoTitulo, novoConteudo)
         .then(function () {
             res.status(200).json({ mensagem: "Diário atualizado com sucesso!" });
         })
@@ -41,9 +41,9 @@ function atualizarDiario(req, res) {
 }
 
 function deletar(req, res) {
-    var idDiario = req.params.idDiario;
+    var idPagina = req.params.idPagina;
 
-    diarioModel.deletar(idDiario)
+    diarioModel.deletar(idPagina)
         .then(
             function () {
                 res.status(200).json({ mensagem: "Diário deletado com sucesso!" });

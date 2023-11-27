@@ -1,35 +1,35 @@
 var database = require("../database/config");
 
-function pontuacao(fkUsuario, score) {
-    console.log("PONTUACAO REGISTRADA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pontuacao()", fkUsuario, score);
+function publicar(fkUsuario, pontuacao, acertos) {
+    console.log("PONTUACAO REGISTRADA COM SUCESSO! function publicar()", fkUsuario, pontuacao, acertos);
 
     var instrucao = `
 
-    INSERT INTO quiz (fkUsuario, Pontuacao, Tentativas) VALUES 
-    ('${fkUsuario}', '${score}', );
+    INSERT INTO quiz (fkUsuario, Pontuacao, Acertos) VALUES 
+    ('${fkUsuario}', '${pontuacao}', ${acertos} );
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function buscarPontuacao(fkUsuario) {
-    console.log("BUSCA FEITA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarPontuacao()", fkUsuario);
+function consultar(fkUsuario) {
+    console.log("BUSCA FEITA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function consultar()");
 
     var  instrucao = `
 
-   SELECT Pontuacao, Tentativas FROM quiz 
+   SELECT * FROM quiz 
    WHERE fkUsuario = ${fkUsuario};`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function atualizarPontuacao(fkUsuario, score, tentativas) {
-    console.log("PONTUACAO ATUALIZADA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarPontuacao()", fkUsuario, score);
+function editar(fkUsuario, novaPontuacao, novaQtdAcertos) {
+    console.log("PONTUACAO ATUALIZADA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar()" );
 
     var instrucao = `
 
-   UPDATE quiz SET Pontuacao = ${score}, Tentativas = ${tentativas}
+   UPDATE quiz SET acertos = ${novaQtdAcertos}, Pontuacao = ${novaPontuacao}
    WHERE fkUsuario = ${fkUsuario};
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -38,7 +38,9 @@ function atualizarPontuacao(fkUsuario, score, tentativas) {
 
 
 module.exports = {
-    pontuacao,
-    buscarPontuacao,
-    atualizarPontuacao
+    publicar,
+    consultar,
+    editar
 }
+
+

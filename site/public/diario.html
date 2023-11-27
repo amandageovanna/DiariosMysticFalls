@@ -69,7 +69,7 @@
         <div class="BoxNovaEntrada">
             <div class="caixaNovaEntrada">
                 <div class="boxTituloNovaEntrada">
-                    <span> NOVA ENTRADA</span>
+                    <span> NOVA PÁGINA </span>
                 </div>
 
 
@@ -112,7 +112,7 @@
         <div class="boxDiariosAntigos">
             <div class="caixaDiariosAntigos">
                 <div class="boxTituloNovaEntrada">
-                    <span> DIÁRIOS ANTIGOS</span>
+                    <span> PÁGINAS ANTIGAS</span>
                 </div>
                 <div class="entradasAntigas">
 
@@ -141,7 +141,7 @@
 
     // criei funcao que seleciona um diario especifico. ela recebe o parametro da posicao do diario que vai ser selecionado e diarios (lista de diarios)
     function selecionarDiario(i, diarios) {
-        idDiarioSelecionado = diarios[i].idDiario;
+        idDiarioSelecionado = diarios[i].idPagina;
         input_tituloDiario.value = diarios[i].Titulo;
         conteudoDiario.value = diarios[i].Conteudo;
 
@@ -176,7 +176,7 @@
 
             var spanDiario = document.createElement('span');
             spanDiario.id = 'linha';
-            spanDiario.setAttribute('data-idDiario', diarios[i].idDiario);
+            spanDiario.setAttribute('data-idPagina', diarios[i].idPagina);
 
 
             (function (index) {
@@ -214,7 +214,7 @@
 
                 if (resposta.ok) {
                     card.style.display = "block";
-                    mensagem.innerHTML = "Diário criado com sucesso!";
+                    mensagem.innerHTML = "Página criada com sucesso!";
 
                     setTimeout(function () {
                         window.location = "diario.html";
@@ -251,13 +251,13 @@
 
                 if (resposta.ok) {
                     card.style.display = "block";
-                    mensagem.innerHTML = "Diário editado com sucesso!";
+                    mensagem.innerHTML = "Página editada com sucesso!";
 
                     setTimeout(function () {
                         window.location = "diario.html";
                     }, 3000);
                 } else {
-                    throw "Houve um erro ao tentar editar o diário!";
+                    throw "Houve um erro ao tentar editar a página!";
                 }
             })
             .catch(function (resposta) {
@@ -277,13 +277,13 @@
 
             if (resposta.ok) {
                 card.style.display = "block";
-                mensagem.innerHTML = "Diário deletado com sucesso!";
+                mensagem.innerHTML = "Página deletada com sucesso!";
 
                 setTimeout(function () {
                     window.location = "diario.html";
                 }, 3000);
             } else if (resposta.status == 404) {
-                window.alert("Diário não encontrado para deleção");
+                window.alert("Página não encontrada para deleção");
             } else {
                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }

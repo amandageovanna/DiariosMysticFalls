@@ -61,7 +61,7 @@
         <div class="BoxNovaEntrada">
             <div class="caixaNovaEntrada">
                 <div class="boxTituloNovaEntrada">
-                    <span> MÉTRICAS POR QUANTIDADE DE DIÁRIOS MENSAL</span>
+                    <span> MÉTRICAS POR QUANTIDADE DE PÁGINAS MENSAIS</span>
                 </div>
 
 
@@ -69,41 +69,41 @@
                     <div class="boxPerfil">
                         <span> Stefan </span>
                         <div class="parametros">
-                            <span> Mais que 25 diários</span>
+                            <span> Mais que 25 páginas</span>
                         </div>
                     </div>
 
                     <div class="boxPerfil">
                         <span> Elena </span>
                         <div class="parametros">
-                            <span> Até 24 diários </span>
+                            <span> Até 24 páginas </span>
                         </div>
                     </div>
 
                     <div class="boxPerfil">
                         <span> Katherine </span>
                         <div class="parametros">
-                            <span> Até 16 diários </span>
+                            <span> Até 16 páginas </span>
                         </div>
                     </div>
 
                     <div class="boxPerfil">
                         <span> Damon </span>
                         <div class="parametros">
-                            <span> Até 08 diários </span>
+                            <span> Até 08 páginas </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="TituloQuiz">
-                    <span class="seuPerfil"> Seu perfil é...</span> <br>
+                    <span class="seuPerfil"> Seu perfil este mês é...</span> <br>
                     <span class="nomePerfil" id="campoPerfil"> </span>
                     <span class="nomePerfil" id="nomePerfil"> </span> <br>
                 </div>
 
                 <div class="quantidadeDiarios">
                     <div class="boxParametrosDiarios">
-                        <span> Quantidade total de diários cadastrados: </span>
+                        <span> Quantidade total de páginas cadastradas: </span>
                         <div class="parametrosDiarios">
                             <div id="campoDiariosCadastrados"></div>
                         </div>
@@ -142,13 +142,13 @@
                                         qtdTotal.innerHTML = `<b>${publicacao}</b>`;
 
                                         if (publicacao <= 8) {
-                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil"> Seus diários são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil"> Suas páginas são tão frequentes quanto os de um Damon produtivo. Continue a escrever com essa cadência... ou não, afinal, um pouco de mistério não faz mal, certo? </span>`;
                                         } else if (publicacao <= 16) {
                                             campoPerfil.innerHTML = `<h2><b>Katherine</b></h2> <span class="descricaoPerfil">Parece que você está seguindo os passos de uma verdadeira Katherine, guardando segredos tão bem quanto ela. Continue a escrever, mas lembre-se, sempre é bom ter um truque na manga.</span>`;
                                         } else if (publicacao <= 24) {
-                                            campoPerfil.innerHTML = `<h2><b>Elena</b></h2> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências</span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Elena</b></h2> <span class="descricaoPerfil">Você está compartilhando suas aventuras de forma cativante. Continue registrando suas descobertas e vivências!</span>`;
                                         } else if (publicacao > 24) {
-                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil">Seus diários são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
+                                            campoPerfil.innerHTML = `<h2><b>Damon</b></h2> <span class="descricaoPerfil">Suas páginas são uma prova do compromisso, tão regulares quanto os de um Stefan que documentava cada detalhe. Continue escrevendo, mostrando sua dedicação à narrativa da sua vida. </span>`;
                                         } else { console.log(`Erro ao capturar perfil... valor da variavel ${publicacao}`) }
                                     })
                             })
@@ -203,7 +203,7 @@
                                     data: {
                                         labels: labels,
                                         datasets: [{
-                                            label: 'Quantidade de Diários por Mês',
+                                            label: 'Quantidade de páginas por mês',
                                             data: dados,
                                             backgroundColor: '#584634',
                                             borderWidth: 1

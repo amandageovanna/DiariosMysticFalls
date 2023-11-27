@@ -9,12 +9,12 @@ router.post("/criar", function (req, res) {
 });
 
 // rota para obter os editar o diário
-router.put("/editar/:idDiario", function (req, res) {
+router.put("/editar/:idPagina", function (req, res) {
 diarioController.atualizarDiario (req, res);
 });
 
 // rota para excluir o diário
-router.delete("/deletar/:idDiario", function (req, res) {
+router.delete("/deletar/:idPagina", function (req, res) {
    diarioController.deletar(req, res);
 });
 

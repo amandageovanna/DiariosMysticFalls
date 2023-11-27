@@ -23,7 +23,7 @@
             <button>
                 <span>
                     <img src="assets/quiz/simboloMetrica.png">
-                    <span> <a class="link" href="dashboard.html"> Métricas  </a> </span>
+                    <span> <a class="link" href="dashboard.html"> Métricas </a> </span>
                 </span>
             </button>
 
@@ -127,7 +127,7 @@
     nomeUsuario.innerHTML += nome;
     var idUsuario = sessionStorage.ID_USUARIO;
 
-    var score = 0;
+    var respostasCertas = 0;
 
     var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
     var sessaoQuiz = document.querySelector('.sessaoQuiz');
@@ -164,7 +164,7 @@
     function verificarScore1() {
 
         if (document.getElementById('correta01').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta2()
     }
@@ -185,7 +185,7 @@
 
     function verificarScore2() {
         if (document.getElementById('correta02').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta3()
     }
@@ -205,7 +205,7 @@
 
     function verificarScore3() {
         if (document.getElementById('correta03').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta4()
     }
@@ -223,7 +223,7 @@
 
     function verificarScore4() {
         if (document.getElementById('correta04').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta5()
     }
@@ -244,7 +244,7 @@
 
     function verificarScore5() {
         if (document.getElementById('correta05').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta6()
     }
@@ -264,7 +264,7 @@
 
     function verificarScore6() {
         if (document.getElementById('correta06').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta7()
     }
@@ -284,7 +284,7 @@
 
     function verificarScore7() {
         if (document.getElementById('correta07').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta8()
     }
@@ -303,7 +303,7 @@
 
     function verificarScore8() {
         if (document.getElementById('correta08').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta9()
     }
@@ -323,7 +323,7 @@
 
     function verificarScore9() {
         if (document.getElementById('correta09').checked) {
-            score++;
+            respostasCertas++;
         }
         proximaPergunta10()
     }
@@ -346,52 +346,105 @@
 
     function verificarScore10() {
         if (document.getElementById('correta10').checked) {
-            score++;
+            respostasCertas++;
         }
-        fimDoQuiz(score)
+        fimDoQuiz()
     }
 
 
-    function fimDoQuiz(score) {
+    function fimDoQuiz() {
+        console.log("Entrou no fimDoQuiz()")
+        console.log("Subiu todas as respostas")
 
-        sessaoQuiz.innerHTML = `
-         Sua pontuação atual nessa rodada é: ${score} `
+        var pontuacaoAtual = respostasCertas * 3;
 
-        respostasQuiz.innerHTML = ""
+        fetch(`/quiz/consultar/${idUsuario}`, {
+           })
+            .then(function (response) {
+                console.log("ESTOU NO THEN DO consultar()!")
 
-        botaoQuiz.innerHTML = ""
+                if (response.ok) {
+                    console.log("Response: ", response);
 
-        fetch(`quiz/pontuacao/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                pontuacao: score,
-                fkUsuario: sessionStorage.ID_USUARIO
-            }),
+                    if (response.status == 200) {
+                        response.json()
+                        
+                        .then(function (resposta) {
+                            console.log("Resposta: ", JSON.stringify(resposta));
+                            var resultado = resposta;
 
-        }).then(function (resposta) {
+                            console.log("Respondeu o quiz.");
 
-            if (resposta.ok) {
-                if (resposta.json == 1) {
-                    respostasQuiz.innerHTML = `Sua pontuação total é: ${score}`
-                    tentativinhas.innerHTML = `Tentativa: 1`
-                } else if (resposta.json > 1) {
-                    respostasQuiz.innerHTML = `Sua pontuação total é: ${resposta.json.totalPontuacao}`;
-                    tentativinhas.innerHTML = `Tentativa: ${resposta.json.tentativinhas}`;
+                            if (pontuacaoAtual > resultado[0].pontuacao) {
+
+                                fetch(`/quiz/editar/${idUsuario}`, {
+                                    method: "PUT",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        acertos: respostasCertas,
+                                        pontuacao: pontuacaoAtual,
+                                        fkUsuario: idUsuario
+                                    })
+
+                                }).then(function (resposta) {
+
+                                    if (resposta.ok) {
+                                        swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`, "success");
+                                    } else if (resposta.status == 404) {
+                                        window.alert("Deu 404!");
+                                    } else {
+                                        throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
+                                    }
+                                }).catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+                                });
+                            } else {
+                                swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Dá pra melhorar, hein?!`, "success");
+                            }
+
+                        });
+
+                    } else if (response.status == 204) {
+                        console.log("Não respondeu o quiz.");
+                        fetch(`/quiz/publicar/${idUsuario}`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                acertos: respostasCertas,
+                                pontuacao: pontuacaoAtual,
+                                fkUsuario: idUsuario
+                            })
+                        }).then(function (resposta) {
+
+                            if (resposta.ok) {
+                                swal("Quiz finalizado!", `Você acertou ${respostasCertas} de 10 questões!`, "success");
+                            } else if (resposta.status == 404) {
+                                window.alert("Deu 404!");
+                            } else {
+                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                            }
+                        }).catch(function (resposta) {
+                            console.log(`#ERRO: ${resposta}`);
+                        });
+
+                    } else {
+                        console.log("Erro ao consultar no banco se o usuário já respondeu o quiz ou não.");
+                    }
+
+                } else {
+                    console.log("Erro em retornar a response");
                 }
 
-            } else {
-                console.log("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+            }).catch(function (erro) {
+                console.log(erro);
+                return false;
+            })
 
     }
-    
     function limparSessao() {
         sessionStorage.clear();
         window.location = "../index.html";
