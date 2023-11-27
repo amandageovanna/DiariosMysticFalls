@@ -212,11 +212,12 @@ html {
 .caixaDireita {
     width: 1000px;
     height: 600px;
-    background-color: #584634;
+    background-color: #675441;
     box-shadow: 0px 4px 4px #00000040;
     /* serve para colocar sombra na caixa aqui */
     margin: 0px 0px 0px 30px;
 }
+
 
 .caixaDireita2 {
     width: 920px;
@@ -283,8 +284,6 @@ html {
 
 }
 
-
-
 .caixaTitulo p {
     color: white;
     text-align: center;
@@ -293,7 +292,7 @@ html {
     font-family: 'Bona Nova';
 }
 
-.caixaDireita h2 {
+.fundocaixaDireita h2 {
     color: #ffffff;
     font-size: 29px;
     font-family: 'Poppins';
@@ -302,7 +301,14 @@ html {
     line-height: 41.2px;
     letter-spacing: 0.8px;
     font-weight: 400;
+    margin-top: 0px;
+    padding: 10px;
+}
 
+.fundocaixaDireita {
+    background-color: #23160849;
+  
+    
 }
 
 .caixaDireita p {
@@ -318,12 +324,23 @@ html {
 
 
 .caixaEsquerda {
-    background-color: #584634;
+    background-color: #675441;
     width: 450px;
     height: 600px;
     box-shadow: 0px 4px 4px #00000040;
     align-self: stretch;
 
+}
+
+.tituloCidade {
+    background-color: #23160849;
+    padding: 10px;   
+    
+}
+
+.caixaEsquerda .tituloCidade p {
+    font-family: 'Poppins';
+    font-size: 30px;
 }
 
 .caixaCitacao {
@@ -367,24 +384,29 @@ p {
 }
 
 .caixaEsquerda p {
-    color: #ffffff;
-    font-family: "Bona Nova";
-    margin-top: 10px;
+    color: #ffffff;      
     text-align: center;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .imagemCaixaEsquerda {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
+    margin-top: 10%;
+    margin-bottom: 10px;
 }
 
 .imgCidade {
     height: 350px;
-    width: 400px;
-    border-radius: 20px;
+    width: 380px;
+    border-radius: 40px;
+}
+
+.MysticFalls {
+    font-size: 22px;
+    font-weight: 680;
+    letter-spacing: 1.6px;
 }
 
 .imagemTrio {
