@@ -119,6 +119,7 @@
                     var idUsuario = sessionStorage.ID_USUARIO;
                     var feed2 = document.getElementById("campoDiariosCadastrados");
                     var mensagem = document.createElement("span");
+                    var idDiario = sessionStorage.ID_DIARIO;
 
                     function listarQtdeDiario() {
                         console.log(idUsuario)
@@ -165,7 +166,7 @@
 
                     function buscarMes() {
 
-                        fetch(`/diarios/buscarMes/${idUsuario}`, {
+                        fetch(`/diarios/buscarMes/${idDiario}`, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',

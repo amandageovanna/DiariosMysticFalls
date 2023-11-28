@@ -3,18 +3,18 @@ var diarioModel = require("../models/diarioModel");
 function criarDiario(req, res) {
     var titulo = req.body.titulo;
     var conteudo = req.body.conteudo;
-    var fkUsuario = req.body.fkUsuario;
+    var fkDiario = req.body.fkDiario;
     // para garantir que cada diário seja atribuido para o usuario correto no bd
 
     if (titulo == undefined || titulo == "") {
         res.status(400).send("Titulo vazio!");
     } else if (conteudo == undefined || conteudo == "") {
         res.status(400).send("Conteudo vazio!");
-    } else if (fkUsuario == undefined) {
-        res.status(400).send("fkUsuario vazio!");
+    } else if (fkDiario == undefined) {
+        res.status(400).send("fkDiario vazio!");
     } else {
 
-        diarioModel.criarDiario(titulo, conteudo, fkUsuario)
+        diarioModel.criarDiario(titulo, conteudo, fkDiario)
             .then(function () {
                 res.status(201).json({mensagem: "Diário criado com sucesso!"});
             })
@@ -54,9 +54,9 @@ function deletar(req, res) {
 }
 
 function buscarDiarios(req, res) {
-    var fkUsuario = req.params.fkUsuario;
+    var fkDiario = req.params.idDiario;
 
-    diarioModel.buscarDiariosPorUsuario(fkUsuario)
+    diarioModel.buscarDiariosPorUsuario(fkDiario)
         .then((resultadoDiarios) => {
             if (resultadoDiarios.length > 0) {
                 res.status(200).json({ diarios: resultadoDiarios });
@@ -97,9 +97,9 @@ function listarQtdeDiario(req, res) {
 }
 
 function buscarMes(req, res) {
-    var idUsuario = req.params.idUsuario;
+    var idDiario = req.params.idDiario;
 
-    diarioModel.buscarMes(idUsuario)
+    diarioModel.buscarMes(idDiario)
         .then(
             function (resultado) {                
                 if (resultado.length > 0) {

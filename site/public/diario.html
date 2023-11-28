@@ -135,6 +135,7 @@
     nomeUsuario.innerHTML += nome;
 
     var idUsuario = sessionStorage.ID_USUARIO;
+    var idDiario = sessionStorage.ID_DIARIO;
 
     var card = document.querySelector(".boxMensagem");
     var mensagem = document.getElementById("textoMensagem")
@@ -154,7 +155,7 @@
     // 
     function buscarDiarios() {
 
-        fetch(`diarios/buscarDiarios/${idUsuario}`, {
+        fetch(`diarios/buscarDiarios/${idDiario}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -195,6 +196,8 @@
     function criar() {
         var tituloVar = input_tituloDiario.value;
         var conteudoVar = conteudoDiario.value;
+        console.log(idDiario);
+        console.log(sessionStorage.ID_DIARIO);
 
 
         fetch("diarios/criar", {
@@ -205,7 +208,7 @@
             body: JSON.stringify({
                 titulo: tituloVar,
                 conteudo: conteudoVar,
-                fkUsuario: idUsuario
+                fkDiario: idDiario,
             }),
         })
 

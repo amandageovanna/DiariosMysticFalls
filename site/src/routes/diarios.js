@@ -18,7 +18,7 @@ router.delete("/deletar/:idPagina", function (req, res) {
    diarioController.deletar(req, res);
 });
 
-router.get("/buscarDiarios/:fkUsuario", function (req, res) {
+router.get("/buscarDiarios/:idDiario", function (req, res) {
    diarioController.buscarDiarios(req, res);
 });
 
@@ -26,7 +26,7 @@ router.get("/listarQtdeDiario/:idUsuario", function (req, res) {
    diarioController.listarQtdeDiario(req, res);
 })
 
-router.get("/buscarMes/:idUsuario", function (req, res) {
+router.get("/buscarMes/:idDiario", function (req, res) {
    diarioController.buscarMes(req, res);
 })
 

@@ -20,7 +20,5 @@ CREATE TABLE Usuario (
  Conteudo TEXT NOT NULL, 
  dtCriacao DATETIME default NOW(),
  FkDiario int,
- fkUsuario INT, 
- FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
  foreign key (fkDiario) references Diario(idDiario)
  ); 
