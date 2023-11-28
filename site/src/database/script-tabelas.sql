@@ -22,3 +22,11 @@ CREATE TABLE Usuario (
  FkDiario int,
  foreign key (fkDiario) references Diario(idDiario)
  ); 
+
+CREATE TABLE pontuacaoQuiz (
+idPontuacao int auto_increment,
+acertos int,
+pontuacao int,
+fkUsuario int,
+constraint fkUser foreign key (fkUsuario) references usuario(idUsuario)
+);

@@ -5,7 +5,7 @@ function publicar(fkUsuario, pontuacao, acertos) {
 
     var instrucao = `
 
-    INSERT INTO quiz (fkUsuario, Pontuacao, Acertos) VALUES 
+    INSERT INTO pontuacaoQuiz (fkUsuario, Pontuacao, Acertos) VALUES 
     ('${fkUsuario}', '${pontuacao}', ${acertos} );
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -13,11 +13,11 @@ function publicar(fkUsuario, pontuacao, acertos) {
 }
 
 function consultar(fkUsuario) {
-    console.log("BUSCA FEITA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function consultar()");
+    console.log("BUSCA FEITA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function consultar()", fkUsuario);
 
     var  instrucao = `
 
-   SELECT * FROM quiz 
+   SELECT * FROM pontuacaoQuiz 
    WHERE fkUsuario = ${fkUsuario};`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -29,7 +29,7 @@ function editar(fkUsuario, novaPontuacao, novaQtdAcertos) {
 
     var instrucao = `
 
-   UPDATE quiz SET acertos = ${novaQtdAcertos}, Pontuacao = ${novaPontuacao}
+   UPDATE pontuacaoQuiz SET acertos = ${novaQtdAcertos}, Pontuacao = ${novaPontuacao}
    WHERE fkUsuario = ${fkUsuario};
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);

@@ -6,7 +6,7 @@ function consultar(req, res) {
         quizModel.consultar(fkUsuario) 
             .then(function (resultadoBusca) {
                     if (resultadoBusca.length > 0) {
-                            res.status(200).json(resultado);
+                            res.status(200).json(resultadoBusca);
                         } else {
                             console.log("Nenhum resultado encontrado!");
                             res.status(204).send("Nenhum resultado encontrado!");

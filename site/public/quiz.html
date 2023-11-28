@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styleQuiz.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -87,24 +88,41 @@
 
 
                     </div>
-
-
                     <div class="respostasQuiz">
-
                     </div>
 
                     <div class="botaoQuiz">
-
                     </div>
 
                     <div class="tentativinhas">
-
                     </div>
 
                     <div class="container">
-                        <canvas id="quizChart" width="400" height="200"></canvas>
-                    </div>
+                        <canvas id="quizChart" width="300" height="200"></canvas>
 
+                        <script>
+                            const ctx = document.getElementById('myChart');
+                          
+                            new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                  label: '# of Votes',
+                                  data: [12, 19, 3, 5, 2, 3],
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                scales: {
+                                  y: {
+                                    beginAtZero: true
+                                  }
+                                }
+                              }
+                            });
+                          </script>
+                    </div>
 
                 </div>
 
@@ -127,7 +145,6 @@
     nomeUsuario.innerHTML += nome;
     var idUsuario = sessionStorage.ID_USUARIO;
 
-    var respostasCertas = 0;
 
     var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
     var sessaoQuiz = document.querySelector('.sessaoQuiz');
@@ -135,6 +152,7 @@
     var botaoQuiz = document.querySelector('.botaoQuiz');
 
 
+    var respostasCertas = 0;
 
     function iniciarQuiz() {
         TituloQuiz.style.display = 'none'; // esconder a div inicial
@@ -349,7 +367,7 @@
             respostasCertas++;
         }
         fimDoQuiz()
-    }
+        }
 
 
     function fimDoQuiz() {
@@ -359,7 +377,7 @@
         var pontuacaoAtual = respostasCertas * 3;
 
         fetch(`/quiz/consultar/${idUsuario}`, {
-           })
+        })
             .then(function (response) {
                 console.log("ESTOU NO THEN DO consultar()!")
 
@@ -368,43 +386,43 @@
 
                     if (response.status == 200) {
                         response.json()
-                        
-                        .then(function (resposta) {
-                            console.log("Resposta: ", JSON.stringify(resposta));
-                            var resultado = resposta;
 
-                            console.log("Respondeu o quiz.");
+                            .then(function (resposta) {
+                                console.log("Resposta: ", JSON.stringify(resposta));
+                                var resultado = resposta;
 
-                            if (pontuacaoAtual > resultado[0].pontuacao) {
+                                console.log("Respondeu o quiz.");
 
-                                fetch(`/quiz/editar/${idUsuario}`, {
-                                    method: "PUT",
-                                    headers: {
-                                        "Content-Type": "application/json"
-                                    },
-                                    body: JSON.stringify({
-                                        acertos: respostasCertas,
-                                        pontuacao: pontuacaoAtual,
-                                        fkUsuario: idUsuario
-                                    })
+                                if (pontuacaoAtual > resultado[0].pontuacao) {
 
-                                }).then(function (resposta) {
+                                    fetch(`/quiz/editar/${idUsuario}`, {
+                                        method: "PUT",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({
+                                            acertos: respostasCertas,
+                                            pontuacao: pontuacaoAtual,
+                                            fkUsuario: idUsuario
+                                        })
 
-                                    if (resposta.ok) {
-                                        swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`, "success");
-                                    } else if (resposta.status == 404) {
-                                        window.alert("Deu 404!");
-                                    } else {
-                                        throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
-                                    }
-                                }).catch(function (resposta) {
-                                    console.log(`#ERRO: ${resposta}`);
-                                });
-                            } else {
-                                swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Dá pra melhorar, hein?!`, "success");
-                            }
+                                    }).then(function (resposta) {
 
-                        });
+                                        if (resposta.ok) {
+                                            swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`, "success");
+                                        } else if (resposta.status == 404) {
+                                            window.alert("Deu 404!");
+                                        } else {
+                                            throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
+                                        }
+                                    }).catch(function (resposta) {
+                                        console.log(`#ERRO: ${resposta}`);
+                                    });
+                                } else {
+                                    swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Dá pra melhorar, hein?!`, "success");
+                                }
+
+                            });
 
                     } else if (response.status == 204) {
                         console.log("Não respondeu o quiz.");
@@ -442,9 +460,46 @@
             }).catch(function (erro) {
                 console.log(erro);
                 return false;
-            })
-
+            })  
+            finalQuiz()
     }
+
+    function finalQuiz() {
+            sessaoQuiz.style.display = ""
+            botaoQuiz.innerHTML = ""
+            respostasQuiz.innerHTML = ""
+
+            var respostasErradas = 10 - respostasCertas; // O total de perguntas é 10
+
+            // Configurando os dados para o gráfico
+            var ctx = document.getElementById('quizChart');
+            var myChart = new Chart(ctx, {
+                type: 'pie', // Tipo de gráfico (pizza)
+                data: {
+                    labels: ['Respostas Certas', 'Respostas Erradas'], // Labels para o gráfico
+                    datasets: [{
+                        label: 'Desempenho do Quiz',
+                        data: [respostasCertas, respostasErradas], // Dados para exibir no gráfico
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
+                            'rgba(255, 99, 132, 0.5)' // Cor para respostas erradas
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    // Opções adicionais para personalizar o gráfico (títulos, cores, etc.)
+                }
+            });
+
+
+
+        }
+
     function limparSessao() {
         sessionStorage.clear();
         window.location = "../index.html";
