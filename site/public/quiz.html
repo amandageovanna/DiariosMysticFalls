@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styleQuiz.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
 </head>
 
 <body>
@@ -85,44 +85,22 @@
 
                 <div class="boxQuiz">
                     <div class="sessaoQuiz" id="sessaoQuiz">
-
-
                     </div>
+
                     <div class="respostasQuiz">
                     </div>
 
                     <div class="botaoQuiz">
+                    </div>                
+
+                    <div class="resultadoQuiz" id="resultadoQ">
+                      
+                    </div>
+                    <div class="container" id="chart">
+                        <canvas id="quizChart" width="200" height="200"></canvas>
                     </div>
 
-                    <div class="tentativinhas">
-                    </div>
 
-                    <div class="container">
-                        <canvas id="quizChart" width="300" height="200"></canvas>
-
-                        <script>
-                            const ctx = document.getElementById('myChart');
-                          
-                            new Chart(ctx, {
-                              type: 'bar',
-                              data: {
-                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                datasets: [{
-                                  label: '# of Votes',
-                                  data: [12, 19, 3, 5, 2, 3],
-                                  borderWidth: 1
-                                }]
-                              },
-                              options: {
-                                scales: {
-                                  y: {
-                                    beginAtZero: true
-                                  }
-                                }
-                              }
-                            });
-                          </script>
-                    </div>
 
                 </div>
 
@@ -149,7 +127,8 @@
     var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
     var sessaoQuiz = document.querySelector('.sessaoQuiz');
     var respostasQuiz = document.querySelector('.respostasQuiz');
-    var botaoQuiz = document.querySelector('.botaoQuiz');
+    var botaoQuiz = document.querySelector('.botaoQuiz');       
+    var resultadoQuiz = document.querySelector('.resultadoQuiz');   
 
 
     var respostasCertas = 0;
@@ -367,8 +346,9 @@
             respostasCertas++;
         }
         fimDoQuiz()
-        }
+    }
 
+    var resultadoP = 0
 
     function fimDoQuiz() {
         console.log("Entrou no fimDoQuiz()")
@@ -390,6 +370,8 @@
                             .then(function (resposta) {
                                 console.log("Resposta: ", JSON.stringify(resposta));
                                 var resultado = resposta;
+                                resultadoP = resposta[0].acertos
+
 
                                 console.log("Respondeu o quiz.");
 
@@ -409,7 +391,13 @@
                                     }).then(function (resposta) {
 
                                         if (resposta.ok) {
-                                            swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`, "success");
+                                            swal({
+                                                title: "Quiz finalizado!",
+                                                text: `Parabéns! Sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`,
+                                                icon: "success",
+                                                
+                                            });
+
                                         } else if (resposta.status == 404) {
                                             window.alert("Deu 404!");
                                         } else {
@@ -460,45 +448,55 @@
             }).catch(function (erro) {
                 console.log(erro);
                 return false;
-            })  
-            finalQuiz()
+            })
+        finalQuiz()
     }
 
     function finalQuiz() {
-            sessaoQuiz.style.display = ""
-            botaoQuiz.innerHTML = ""
-            respostasQuiz.innerHTML = ""
+       
+        respostasQuiz.style.display = "none"
+        botaoQuiz.style.display = "none"    
+        sessaoQuiz.style.display = "none"    
+       
+        
+        var respostasErradas = 10 - respostasCertas;
+        
+        resultadoQuiz.innerHTML = `Confira o desempenho da sua partida abaixo: <br> Seu maior acerto até agora foi ${resultadoP}`
 
-            var respostasErradas = 10 - respostasCertas; // O total de perguntas é 10
+        var ctx = document.getElementById('quizChart');
+        var myChart = new Chart(ctx, {
+            type: 'pie', // Tipo de gráfico (pizza)
+            data: {
+                labels: ['Respostas Certas', 'Respostas Erradas'], 
+                datasets: [{
+                    label: 'Desempenho do Quiz',
+                    data: [respostasCertas, respostasErradas],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
+                        'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+                        '#735944'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        '#735944'
+                    ],
+                    borderWidth: 1,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
 
-            // Configurando os dados para o gráfico
-            var ctx = document.getElementById('quizChart');
-            var myChart = new Chart(ctx, {
-                type: 'pie', // Tipo de gráfico (pizza)
-                data: {
-                    labels: ['Respostas Certas', 'Respostas Erradas'], // Labels para o gráfico
-                    datasets: [{
-                        label: 'Desempenho do Quiz',
-                        data: [respostasCertas, respostasErradas], // Dados para exibir no gráfico
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
-                            'rgba(255, 99, 132, 0.5)' // Cor para respostas erradas
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    // Opções adicionais para personalizar o gráfico (títulos, cores, etc.)
-                }
-            });
+                    }
+                }]
+            },
+            options: {
+
+            }
+        });
 
 
 
-        }
+    }
 
     function limparSessao() {
         sessionStorage.clear();

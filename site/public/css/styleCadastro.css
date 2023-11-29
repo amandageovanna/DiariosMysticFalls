@@ -121,7 +121,8 @@ h2 {
 
 .loading-div {	
 	width: 50px;
-	display: none;
+	display: none;	
+	justify-content: center;
 }
 
 .loading-div img {

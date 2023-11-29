@@ -37,12 +37,13 @@ function deletar(idPagina) {
     return database.executar(instrucao);
 }
 
-function buscarDiariosPorUsuario(idPagina) {
-    console.log("ACESSEI O DIARIO MODEL para buscar páginas por usuário, function buscarDiariosPorUsuario()", idPagina);
+function buscarDiariosPorUsuario(fkDiario) {
+    console.log("ACESSEI O DIARIO MODEL para buscar páginas por usuário, function buscarDiariosPorUsuario()", fkDiario);
 
     var instrucao = `
     SELECT idPagina, Titulo, Conteudo, dtCriacao
     FROM Paginas
+    WHERE fkDiario = ${fkDiario}
     ORDER BY dtCriacao DESC
     `
 

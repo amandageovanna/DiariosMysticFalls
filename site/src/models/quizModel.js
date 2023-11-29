@@ -15,7 +15,7 @@ function publicar(fkUsuario, pontuacao, acertos) {
 function consultar(fkUsuario) {
     console.log("BUSCA FEITA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function consultar()", fkUsuario);
 
-    var  instrucao = `
+    var instrucao = `
 
    SELECT * FROM pontuacaoQuiz 
    WHERE fkUsuario = ${fkUsuario};`;
@@ -24,13 +24,13 @@ function consultar(fkUsuario) {
     return database.executar(instrucao);
 }
 
-function editar(fkUsuario, novaPontuacao, novaQtdAcertos) {
-    console.log("PONTUACAO ATUALIZADA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar()" );
+function editar(novaPontuacao, novaQtdAcertos, idUsuario) {
+    console.log("PONTUACAO ATUALIZADA COM SUCESSO! \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar()");
 
     var instrucao = `
 
    UPDATE pontuacaoQuiz SET acertos = ${novaQtdAcertos}, Pontuacao = ${novaPontuacao}
-   WHERE fkUsuario = ${fkUsuario};
+   WHERE fkUsuario = ${idUsuario};
 `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
