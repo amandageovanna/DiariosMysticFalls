@@ -25,7 +25,7 @@
             <button>
                 <span>
                     <img src="assets/paginaDiario/simboloMetrica.png">
-                    <span> <a class="link" href="dashboard.html"> Métricas  </a> </span>
+                    <span> <a class="link" href="dashboard.html"> Métricas </a> </span>
                 </span>
             </button>
 
@@ -186,7 +186,12 @@
                 };
             })(i);
 
-            spanDiario.innerHTML = diarios[i].Titulo;
+           // Pegando apenas a parte da data (YYYY-MM-DD) da string dtCriacao
+           var dataCompleta = diarios[i].dtCriacao;
+            var data = dataCompleta.split('T')[0]; // Pegando apenas a parte antes do 'T'
+
+            var conteudo = diarios[i].Titulo + ' - ' + data; // Usando apenas a parte da data
+            spanDiario.innerHTML = conteudo;
 
             divLinha.appendChild(spanDiario);
             divEntradasAntigas.appendChild(divLinha);
@@ -294,7 +299,7 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
-   
+
     function limparSessao() {
         sessionStorage.clear();
         window.location = "../index.html";
