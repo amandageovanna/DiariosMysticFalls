@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styleQuiz.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -59,6 +59,12 @@
             </div>
         </div>
 
+        <div class="boxMensagem">
+            <div id="cardContainer" class="cardMensagem">
+                <span id="textoMensagem"></span>
+            </div>
+        </div>
+
         <div class="BoxNovaEntrada">
             <div class="caixaNovaEntrada">
                 <div class="boxTituloNovaEntrada">
@@ -66,8 +72,10 @@
                 </div>
 
                 <div class="TituloQuiz" id="TituloQuiz">
-                    <span> Pronto para mostrar que é um verdadeiro fã de 'The Vampire Diaries'? Teste seus conhecimentos
-                        gerais e descubra se você é um especialista na saga de Mystic Falls!
+                    <span> Pronto para mostrar que é um verdadeiro fã de 'The Vampire Diaries'? Descubra se você é um
+                        especialista na saga de Mystic Falls! <br><br>
+                        Confira gráficos que detalham suas respostas certas e erradas, e também o número de perguntas
+                        corretas por temporada. Cada resposta certa vale 3 pontos. <br> Boa sorte!
                     </span>
 
                     <div class="boxImagemQuiz">
@@ -91,15 +99,19 @@
                     </div>
 
                     <div class="botaoQuiz">
-                    </div>                
+                    </div>
 
                     <div class="resultadoQuiz" id="resultadoQ">
-                      
+
                     </div>
                     <div class="container" id="chart">
                         <canvas id="quizChart" width="200" height="200"></canvas>
+                        <canvas id="quizChart2" width="200" height="200"></canvas>
                     </div>
 
+                    <div class="jogarBotao" id="jogarBotao">
+                        
+                    </div>
 
 
                 </div>
@@ -126,12 +138,25 @@
 
     var caixa = document.querySelector('.caixaNovaEntrada'); // selecionei o elemento que está no quiz
     var sessaoQuiz = document.querySelector('.sessaoQuiz');
+    var jogarBotao = document.querySelector('.jogarBotao');
     var respostasQuiz = document.querySelector('.respostasQuiz');
-    var botaoQuiz = document.querySelector('.botaoQuiz');       
-    var resultadoQuiz = document.querySelector('.resultadoQuiz');   
+    var botaoQuiz = document.querySelector('.botaoQuiz');
+    var resultadoQuiz = document.querySelector('.resultadoQuiz');
 
 
     var respostasCertas = 0;
+    var temporada1 = 0;
+    var temporada2 = 0;
+    var temporada3 = 0;
+    var temporada4 = 0;
+    var temporada5 = 0;
+    var temporada6 = 0;
+    var temporada7 = 0;
+    var temporada8 = 0;
+
+    var card = document.querySelector(".boxMensagem");
+    var mensagem = document.getElementById("textoMensagem")
+
 
     function iniciarQuiz() {
         TituloQuiz.style.display = 'none'; // esconder a div inicial
@@ -146,12 +171,12 @@
 
 
         sessaoQuiz.innerHTML = `      
-            <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>`
+        <b> Q1- Elena Gilbert morreu com o sangue de qual vampiro no organismo? </b> <br> <br>`
 
         respostasQuiz.innerHTML = `
-         <input type="radio" name="questao1"> Stefan<br>
-         <input type="radio" name="questao1" id="correta01"> Damon<br>
-        <input type="radio" name="questao1"> Alaric<br> <br>
+         <input type="radio" name="questao1"> Stefan <br>
+         <input type="radio" name="questao1" id="correta01"> Damon <br>
+         <input type="radio" name="questao1"> Alaric <br> <br>
                  `
 
         botaoQuiz.innerHTML = `
@@ -160,20 +185,29 @@
     }
     function verificarScore1() {
 
-        if (document.getElementById('correta01').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta2()
+        if (document.querySelector('input[name="questao1"]:checked')) {
+            if (document.getElementById('correta01').checked) {
+                respostasCertas++;
+                temporada4++;
+            }
+            proximaPergunta2();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
+
 
     function proximaPergunta2() {
         sessaoQuiz.innerHTML = `
-        <b> Q2- Quem jogou o carro de Matt da ponte Wickery? </b> <br><br>`
-
+        <b> Q2- Qual dos dois irmãos Salvatore Elena conheceu primeiro? </b> <br>`
         respostasQuiz.innerHTML = `
-        <input type="radio" name="questao2"> Klaus<br>
-        <input type="radio" name="questao2" id="correta02"> Rebekah<br>
-        <input type="radio" name="questao2"> Elijah<br> <br>`
+        <input type="radio" name="questao2"> Stefan <br>
+        <input type="radio" name="questao2" id="correta02"> Damon <br>
+        <input type="radio" name="questao2"> Ela conheceu os dois juntos <br>`
 
         botaoQuiz.innerHTML = ` 
         <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore2()"> 
@@ -181,10 +215,19 @@
     }
 
     function verificarScore2() {
-        if (document.getElementById('correta02').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta3()
+        if (document.querySelector('input[name="questao2"]:checked')) {
+            if (document.getElementById('correta02').checked) {
+                respostasCertas++;
+                temporada3++;
+            }
+            proximaPergunta3();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
     function proximaPergunta3() {
@@ -193,23 +236,34 @@
         <b> Q3- Quando morrem, Damon e Bonnie ficam presos em um 'mundo-prisão' onde o tempo não passa. Qual é a data em que eles ficam presos? </b> <br><br> `
 
         respostasQuiz.innerHTML = `
+        <input type="radio" name="questao3" id="correta03"> 10 de maio de 1994<br>
          <input type="radio" name="questao3"> 10 de maio de 1993<br>
          <input type="radio" name="questao3"> 10 de maio de 1996<br>
-         <input type="radio" name="questao3" id="correta03"> 10 de maio de 1994<br> <br> `
+         `
         botaoQuiz.innerHTML = ` 
             <input type = "submit" class="botaoProxima" name = "submit" value = "Próxima pergunta" onclick = "verificarScore3()"> `
     }
 
     function verificarScore3() {
-        if (document.getElementById('correta03').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta4()
+        if (document.querySelector('input[name="questao3"]:checked')) {
+            if (document.getElementById('correta03').checked) {
+                respostasCertas++;
+                temporada6++;
+            }
+            proximaPergunta4();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
+
 
     function proximaPergunta4() {
         sessaoQuiz.innerHTML = `
-                <b> Q4 - Ainda nos primeiros episódios da 1ª temporada, Stefan e Elena começam a namorar, ele a presenteia com um colar.Por qual motivo ? </b> <br><br>`
+                <b> Q4- Quando Stefan e Elena começam a namorar, ele a presenteia com um colar. Por qual motivo ? </b> <br><br>`
         respostasQuiz.innerHTML = `
                     <input type="radio" name="questao4"> О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ ѕе аlіmеntаrеm dеlа<br>
                     <input type="radio" name="questao4" id="correta04"> О соlаr роѕѕuі vеrbеnа, nãо dеіха vаmріrоѕ а соmреlіrеm.<br>
@@ -219,20 +273,31 @@
     }
 
     function verificarScore4() {
-        if (document.getElementById('correta04').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta5()
+        if (document.querySelector('input[name="questao4"]:checked')) {
+            if (document.getElementById('correta04').checked) {
+                respostasCertas++;
+                temporada1++;
+            }
+            proximaPergunta5();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
+
     }
 
     function proximaPergunta5() {
         sessaoQuiz.innerHTML = `
-            <b> Q5 - Nа 6ª tеmроrаdа, quаndо Воnnіе е Dаmоn еѕtаvаm рrеѕоѕ nо mundо рrіѕãо, еlеѕ соnhесеm Каі Раrkеr.Маlасhаі mаtоu tоdоѕ ѕеuѕ іrmãоѕ, роrém rеѕtаrаm trêѕ.Соmо еlеѕ ѕе сhаmаvаm ? " </b> <br><br>`
+            <b> Q5 - Elena, Caroline e Bonnie vão para qual faculdade na série The Vampire Diaries? " </b> <br><br>`
 
         respostasQuiz.innerHTML = ` 
-            <input type = "radio" name = "questao5"> Luka, Josette e Olivia <br>
-             <input type="radio" name="questao5" id="correta05"> Josette, Lucas e Olivia <br>
-             <input type="radio" name="questao5"> Luka, Josette e Liv<br> <br> `
+            <input type = "radio" name = "questao5"> Harvard <br>             
+             <input type="radio" name="questao5"> Stanford <br>
+             <input type="radio" name="questao5" id="correta05"> Whitmore <br>
+             `
 
         botaoQuiz.innerHTML = ` 
          <input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore5()"> `
@@ -240,10 +305,19 @@
     }
 
     function verificarScore5() {
-        if (document.getElementById('correta05').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta6()
+        if (document.querySelector('input[name="questao5"]:checked')) {
+            if (document.getElementById('correta05').checked) {
+                respostasCertas++;
+                temporada5++;
+            }
+            proximaPergunta6();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
 
@@ -260,69 +334,109 @@
     }
 
     function verificarScore6() {
-        if (document.getElementById('correta06').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta7()
+        if (document.querySelector('input[name="questao6"]:checked')) {
+            if (document.getElementById('correta06').checked) {
+                respostasCertas++;
+                temporada6++;
+            }
+            proximaPergunta7();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
     function proximaPergunta7() {
         sessaoQuiz.innerHTML = `
-        <b>  Q7- Qual dos irmãos Originais foi cativado por Katherine Pierce? </b> <br><br>`
+        <b>  Q7- Como Stefan e Damon Salvatore conseguem que Elena Gilbert ligue sua humanidade? (Assinalar o "método" que realmente funcionou) </b> <br><br>`
 
         respostasQuiz.innerHTML = `
-         <input type="radio" name="questao7"> Kol<br>
-         <input type="radio" name="questao7" id="correta07"> Elijah<br>
-         <input type="radio" name="questao7"> Niklaus<br> <br> `
+         <input type="radio" name="questao7">Eles chamam Katherine Pierce para torturar Elena, ela não resiste à tortura e liga sua humanidade<br>
+         <input type="radio" name="questao7" id="correta07"> Eles fingem matar Matt Donovan (fingem pois ele estava com o anel que traz de volta à vida), Elena acredita que é real e liga sua humanidade.<br>
+         <input type="radio" name="questao7"> 
+          Eles ameaçam matar ela se não ligar a humanidade, então ela liga.<br> <br> `
 
         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore7()"> `
 
     }
 
     function verificarScore7() {
-        if (document.getElementById('correta07').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta8()
+        if (document.querySelector('input[name="questao7"]:checked')) {
+            if (document.getElementById('correta07').checked) {
+                respostasCertas++;
+                temporada4++;
+            }
+            proximaPergunta8();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
     function proximaPergunta8() {
         sessaoQuiz.innerHTML = `
-        <b> Q8- O que Kai decide fazer para se vingar de Damon e Bonnie no final da sexta temporada? </b> <br><br>`
+        <b> Q8- Quantos anos Bonnie e Enzo passam juntos dentro de uma cabana? </b> <br><br>`
 
-        respostasQuiz.innerHTML = ` <input type="radio" name="questao8"> Fаz um fеіtіçо quе lіgа Воnnіе е Саrоlіnе, fаzеndо Саrоlіnе fісаr еm соmа аté quе Воnnіе vіvа<br>
-         <input type="radio" name="questao8"> Fаz um fеіtіçо раrа quе Еlеnа fіquе соm fоrtеѕ dоrеѕ е еm ѕеguіdа mаtá-а.<br>
-         <input type="radio" name="questao8" id="correta08"> Fаz um fеіtіçо quе lіgа Воnnіе е Еlеnа, fаzеndо Еlеnа fісаr еm соmа аté quе Воnnіе еѕtеја vіvа<br> <br>`
+        respostasQuiz.innerHTML = ` 
+         <input type="radio" name="questao8" id="correta08"> 3 anos <br>
+         <input type="radio" name="questao8"> 2 anos <br>         
+         <input type="radio" name="questao8"> 4 anos <br>`
 
         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore8()"> `
 
     }
 
     function verificarScore8() {
-        if (document.getElementById('correta08').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta9()
+
+        if (document.querySelector('input[name="questao8"]:checked')) {
+            if (document.getElementById('correta08').checked) {
+                respostasCertas++;
+                temporada7++;
+            }
+            proximaPergunta9();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
+
     }
 
     function proximaPergunta9() {
         sessaoQuiz.innerHTML = `
-        <b> Q9- Como Tyler Lockwood reativa a maldição de lobo na sexta temporada? </b> <br><br>`
+        <b> Q9- Qual das sereias sequestraram as gêmeas bruxas Lizzie e Josie? </b> <br><br>`
 
         respostasQuiz.innerHTML = `
-         <input type="radio" name="questao9" id="correta09"> Mata Liv<br>
-         <input type="radio" name="questao9"> Mata Kai<br>
-         <input type="radio" name="questao9"> Mata Matt<br> <br>`
+         <input type="radio" name="questao9" id="correta09"> Seline <br>
+         <input type="radio" name="questao9"> Sybil <br> 
+         <input type="radio" name="questao9"> Rayna <br>`
 
         botaoQuiz.innerHTML = `<input type="submit" class="botaoProxima" name="submit" value="Próxima pergunta" onclick="verificarScore9()"> `
 
     }
 
     function verificarScore9() {
-        if (document.getElementById('correta09').checked) {
-            respostasCertas++;
-        }
-        proximaPergunta10()
+        if (document.querySelector('input[name="questao9"]:checked')) {
+            if (document.getElementById('correta09').checked) {
+                respostasCertas++;
+                temporada8++;
+            }
+            proximaPergunta10();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
 
@@ -342,13 +456,25 @@
     }
 
     function verificarScore10() {
-        if (document.getElementById('correta10').checked) {
-            respostasCertas++;
-        }
-        fimDoQuiz()
+
+        if (document.querySelector('input[name="questao10"]:checked')) {
+            if (document.getElementById('correta10').checked) {
+                respostasCertas++;
+                temporada2++;
+            }
+            fimDoQuiz();
+        } else {
+            card.style.display = "block";
+            mensagem.innerHTML = "Por favor, selecione uma resposta antes de avançar para a próxima pergunta";
+            setTimeout(function () {
+                card.style.display = "none";
+            }, 3000);
+        };
     }
 
-    var resultadoP = 0
+    var resultadoA = []
+    var resultadoP = []
+
 
     function fimDoQuiz() {
         console.log("Entrou no fimDoQuiz()")
@@ -370,7 +496,9 @@
                             .then(function (resposta) {
                                 console.log("Resposta: ", JSON.stringify(resposta));
                                 var resultado = resposta;
-                                resultadoP = resposta[0].acertos
+                                resultadoA.push(resposta[0].acertos)
+                                resultadoP.push(resposta[0].pontuacao)
+
 
 
                                 console.log("Respondeu o quiz.");
@@ -395,7 +523,7 @@
                                                 title: "Quiz finalizado!",
                                                 text: `Parabéns! Sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de 10 questões!`,
                                                 icon: "success",
-                                                
+
                                             });
 
                                         } else if (resposta.status == 404) {
@@ -407,9 +535,9 @@
                                         console.log(`#ERRO: ${resposta}`);
                                     });
                                 } else {
-                                    swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Dá pra melhorar, hein?!`, "success");
+                                    swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Continue tentando!`, "success");
                                 }
-
+                                finalQuiz();
                             });
 
                     } else if (response.status == 204) {
@@ -453,21 +581,25 @@
     }
 
     function finalQuiz() {
-       
+
         respostasQuiz.style.display = "none"
-        botaoQuiz.style.display = "none"    
-        sessaoQuiz.style.display = "none"    
-       
-        
+        sessaoQuiz.style.display = "none"
+        botaoQuiz.style.display = "none"
+
+
         var respostasErradas = 10 - respostasCertas;
-        
-        resultadoQuiz.innerHTML = `Confira o desempenho da sua partida abaixo: <br> Seu maior acerto até agora foi ${resultadoP}`
+
+
+        resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br> 
+        Seu maior acerto até agora é de <b>${resultadoA[0]}</b> questões de 10. <br>
+        Sua maior pontuação total é de <b>${resultadoP[0]}</b> pontos`
+
 
         var ctx = document.getElementById('quizChart');
         var myChart = new Chart(ctx, {
-            type: 'pie', // Tipo de gráfico (pizza)
+            type: 'bar', // Tipo de gráfico (pizza)
             data: {
-                labels: ['Respostas Certas', 'Respostas Erradas'], 
+                labels: ['Respostas Certas', 'Respostas Erradas'],
                 datasets: [{
                     label: 'Desempenho do Quiz',
                     data: [respostasCertas, respostasErradas],
@@ -494,13 +626,62 @@
             }
         });
 
+        var acertosPorTemporada = [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8];
 
+
+        var ctx2 = document.getElementById('quizChart2');
+        var myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5', 'Temporada 6', 'Temporada 7', 'Temporada 8'], // Labels das temporadas
+                datasets: [{
+                    label: 'Perguntas corretas por Temporada',
+                    data: acertosPorTemporada, // Substitua os valores com a contagem de perguntas por temporada
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)', // Cor para cada temporada
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)',
+                        'rgba(23, 156, 100, 0.5)',
+                        'rgba(180, 32, 245, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)', // Cor da borda para cada temporada
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(23, 156, 100, 1)',
+                        'rgba(180, 32, 245, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
     }
+
+    jogarBotao.innerHTML = `
+        <input type="submit" class="botaoProxima"  name="submit" value="Jogar novamente" onclick="jogar()"> 
+          `
 
     function limparSessao() {
         sessionStorage.clear();
         window.location = "../index.html";
+    }
+
+    function jogar() {
+        window.location = "../quiz.html";
     }
 
 </script>
