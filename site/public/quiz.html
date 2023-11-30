@@ -72,10 +72,12 @@
                 </div>
 
                 <div class="TituloQuiz" id="TituloQuiz">
-                    <span> Pronto para mostrar que é um verdadeiro fã de 'The Vampire Diaries'? Descubra se você é um
+                    <span class="descricaoQuiz"> <b>Pronto para mostrar que é um verdadeiro fã de 'The Vampire
+                            Diaries'?</b> Descubra se você é um
                         especialista na saga de Mystic Falls! <br><br>
                         Confira gráficos que detalham suas respostas certas e erradas, e também o número de perguntas
-                        corretas por temporada. Cada resposta certa vale 3 pontos. <br> Boa sorte!
+                        corretas por temporada. <b> Cada resposta certa vale 3 pontos. </b> <br>
+                        <b><i> Vamos nessa? </i></b>
                     </span>
 
                     <div class="boxImagemQuiz">
@@ -105,12 +107,12 @@
 
                     </div>
                     <div class="container" id="chart">
-                        <canvas id="quizChart" width="200" height="200"></canvas>
-                        <canvas id="quizChart2" width="200" height="200"></canvas>
+                        <canvas class="graficoChart" id="quizChart" width="200" height="200"></canvas>
+                        <canvas class="graficoChart2" id="quizChart2" width="200" height="200"></canvas>
                     </div>
 
                     <div class="jogarBotao" id="jogarBotao">
-                        
+
                     </div>
 
 
@@ -499,8 +501,6 @@
                                 resultadoA.push(resposta[0].acertos)
                                 resultadoP.push(resposta[0].pontuacao)
 
-
-
                                 console.log("Respondeu o quiz.");
 
                                 if (pontuacaoAtual > resultado[0].pontuacao) {
@@ -537,8 +537,8 @@
                                 } else {
                                     swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de 10 questões! Continue tentando!`, "success");
                                 }
-                                finalQuiz();
                             });
+
 
                     } else if (response.status == 204) {
                         console.log("Não respondeu o quiz.");
@@ -577,7 +577,10 @@
                 console.log(erro);
                 return false;
             })
-        finalQuiz()
+            setTimeout(function () {                
+                finalQuiz() 
+            }, 200);
+            
     }
 
     function finalQuiz() {
@@ -589,87 +592,102 @@
 
         var respostasErradas = 10 - respostasCertas;
 
-
-        resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br> 
-        Seu maior acerto até agora é de <b>${resultadoA[0]}</b> questões de 10. <br>
-        Sua maior pontuação total é de <b>${resultadoP[0]}</b> pontos`
-
-
-        var ctx = document.getElementById('quizChart');
-        var myChart = new Chart(ctx, {
-            type: 'bar', // Tipo de gráfico (pizza)
-            data: {
-                labels: ['Respostas Certas', 'Respostas Erradas'],
-                datasets: [{
-                    label: 'Desempenho do Quiz',
-                    data: [respostasCertas, respostasErradas],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
-                        'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
-                        '#735944'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 99, 132, 1)',
-                        '#735944'
-                    ],
-                    borderWidth: 1,
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-
-                    }
-                }]
-            },
-            options: {
-
-            }
-        });
-
-        var acertosPorTemporada = [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8];
+        if (resultadoA[0] != undefined) {
+            resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br> 
+             Seu <b>maior acerto</b> até agora é de <b>${resultadoA[0]}</b> questões de 10. <br>
+             Sua <b>maior pontuação total</b> é de <b>${resultadoP[0]}</b> pontos de 30.`} 
+        else {
+            resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br>` 
+        }
 
 
-        var ctx2 = document.getElementById('quizChart2');
-        var myChart2 = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5', 'Temporada 6', 'Temporada 7', 'Temporada 8'], // Labels das temporadas
-                datasets: [{
-                    label: 'Perguntas corretas por Temporada',
-                    data: acertosPorTemporada, // Substitua os valores com a contagem de perguntas por temporada
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)', // Cor para cada temporada
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)',
-                        'rgba(153, 102, 255, 0.5)',
-                        'rgba(255, 159, 64, 0.5)',
-                        'rgba(23, 156, 100, 0.5)',
-                        'rgba(180, 32, 245, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)', // Cor da borda para cada temporada
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(23, 156, 100, 1)',
-                        'rgba(180, 32, 245, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            var ctx = document.getElementById('quizChart');
+            var myChart = new Chart(ctx, {
+                type: 'bar', // Tipo de gráfico (pizza)
+                data: {
+                    labels: ['Respostas Certas', 'Respostas Erradas'],
+                    datasets: [{
+                        label: 'Desempenho do Quiz',
+                        data: [respostasCertas, respostasErradas],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
+                            'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+                            '#735944'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            '#735944'
+                        ],
+                        borderWidth: 1,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+
+                        }
+                    }]
+                },
+                options: {
+
+                }
+            });
+
+            var acertosPorTemporada = [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8];
+
+
+            var ctx2 = document.getElementById('quizChart2');
+            var myChart2 = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5', 'Temporada 6', 'Temporada 7', 'Temporada 8'], // Labels das temporadas
+                    datasets: [{
+                        label: 'Perguntas corretas por Temporada',
+                        data: acertosPorTemporada, // Substitua os valores com a contagem de perguntas por temporada
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)', // Cor para cada temporada
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(23, 156, 100, 0.5)',
+                            'rgba(180, 32, 245, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)', // Cor da borda para cada temporada
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(23, 156, 100, 1)',
+                            'rgba(180, 32, 245, 1)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0)', // Define a cor do grid do eixo Y como transparente
+                                drawBorder: false, // Não desenha a borda do grid
+                                lineWidth: 0 // Define a largura do grid como zero
+                            }
+                        }
+                    },
+                    elements: {
+                        arc: {
+                            borderWidth: 0 // Remove as linhas de fundo atrás do gráfico
+                        }
                     }
                 }
-            }
-        });
+            });
 
-    }
+        }
+    
+
 
     jogarBotao.innerHTML = `
         <input type="submit" class="botaoProxima"  name="submit" value="Jogar novamente" onclick="jogar()"> 
@@ -686,4 +704,4 @@
 
 </script>
 
-</html>
+</html

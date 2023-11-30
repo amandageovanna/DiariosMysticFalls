@@ -44,6 +44,8 @@
     height: 350px;
 }
 
+
+
 .imagemLogo {
     width: 200px;
     margin-top: 37px;
@@ -211,31 +213,16 @@ body {
 }
 
 
-.TituloQuiz>span {
-    font-family: 'Montserrat';
+.TituloQuiz {
+    font-family: 'Montserrat'; 
+    margin-top: 20px;    
+    margin-left: 50px;
+    margin-right: 50px;
     text-align: center;
-    margin-top: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
 
 
 }
 
-.textoQuiz {
-    font-family: 'Montserrat';
-    text-align: center;
-    margin-top: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-
-
-}
 
 .boxImagemQuiz {
     display: flex;
@@ -262,13 +249,13 @@ body {
     height: 40px;
     background-color: #735944;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-    color: white;    
+    color: white;
 }
 
 .boxBotao {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    cursor: pointer;
 }
 
 .deslogar>span {
@@ -324,7 +311,7 @@ body {
     background-color: #735944;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
     color: white;
-    
+
 }
 
 .respostasQuiz {
@@ -334,7 +321,7 @@ body {
     text-align: center;
 }
 
-.resultadoQuiz {   
+.resultadoQuiz {
     font-family: 'Montserrat';
     font-size: 20px;
     text-align: center;
@@ -346,9 +333,10 @@ body {
     font-family: 'Montserrat';
 }
 
-.container { 
+.container {
     display: flex;
     margin-top: 43px;
+    gap: 60px;
 }
 
 .boxMensagem {
@@ -357,16 +345,16 @@ body {
     margin-top: 10px;
 }
 
-.cardMensagem {	    
-	background-color: #d94040;
-	color: white;
-	width: 330px;
+.cardMensagem {
+    background-color: #d94040;
+    color: white;
+    width: 330px;
     height: 40px;
-	position: fixed;
-	border-radius: 4px;
-	padding: 10px;
-	margin-right: 10%;
-	font-family: 'Montserrat';
+    position: fixed;
+    border-radius: 4px;
+    padding: 10px;
+    margin-right: 10%;
+    font-family: 'Montserrat';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -388,14 +376,15 @@ input[type="radio"] {
     vertical-align: middle;
     /* Mudando cor para marrom quando selecionado */
     outline: none;
-  }
-  /* Mudando cor para marrom quando selecionado */
-  input[type="radio"]:checked {
+}
+
+/* Mudando cor para marrom quando selecionado */
+input[type="radio"]:checked {
     background-color: rgb(82, 172, 60);
-  }
-  
-  /* Estilizando os labels dos radio buttons */
-  input[type="radio"] + label {
+}
+
+/* Estilizando os labels dos radio buttons */
+input[type="radio"]+label {
     /* Estilizando o texto */
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -403,4 +392,4 @@ input[type="radio"] {
     margin-left: 5px;
     display: inline-block;
     vertical-align: middle;
-  }
+}

@@ -58,7 +58,7 @@ function listarQtdeDiario(idUsuario) {
 
     var instrucao = `       
     SELECT COUNT(Paginas.idPagina) AS qtdeDiario FROM Paginas
-        INNER JOIN Diario ON Paginas.FkDiario = Diario.idDiario
+        JOIN Diario ON Paginas.FkDiario = Diario.idDiario
         WHERE Diario.fkUsuario = ${idUsuario} AND MONTH(Paginas.dtCriacao) = 11;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
