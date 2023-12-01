@@ -24,7 +24,7 @@ CREATE TABLE Usuario (
  ); 
    
     select * from paginas;
-    select * from usuario;
+    select * from usuario;    
     select * from diario;
     select * from pontuacaoquiz;    
     
