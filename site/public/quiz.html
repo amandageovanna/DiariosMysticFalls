@@ -76,7 +76,9 @@
                             Diaries'?</b> Descubra se você é um
                         especialista na saga de Mystic Falls! <br><br>
                         Confira gráficos que detalham suas respostas certas e erradas, e também o número de perguntas
-                        corretas por temporada. <b> Cada resposta certa vale 3 pontos. </b> <br>
+                        corretas por temporada. <b> <br><br>
+                          Regras: Cada resposta certa vale 3 pontos. <br> 
+                        Na segunda rodada, confira informações como: seu maior acerto até o momento e maior pontuação.   <br>
                         <b><i> Vamos nessa? </i></b>
                     </span>
 
@@ -503,8 +505,9 @@
 
                                 console.log("Respondeu o quiz.");
 
-                                if (pontuacaoAtual > resultado[0].pontuacao) {
-
+                                // acertos é maior que o ultimo acerto?
+                                if (respostasCertas > resultado[0].acertos) {
+// se sim, atualizar o acerto do usuario com os novos dados
                                     fetch(`/quiz/editar/${idUsuario}`, {
                                         method: "PUT",
                                         headers: {
@@ -525,7 +528,7 @@
                                                 icon: "success",
 
                                             });
-
+ 
                                         } else if (resposta.status == 404) {
                                             window.alert("Deu 404!");
                                         } else {
@@ -539,7 +542,7 @@
                                 }
                             });
 
-
+// se nao, publica a nova pontuacao do usuario
                     } else if (response.status == 204) {
                         console.log("Não respondeu o quiz.");
                         fetch(`/quiz/publicar/${idUsuario}`, {
@@ -577,10 +580,10 @@
                 console.log(erro);
                 return false;
             })
-            setTimeout(function () {                
-                finalQuiz() 
-            }, 200);
-            
+        setTimeout(function () {
+            finalQuiz()
+        }, 200);
+
     }
 
     function finalQuiz() {
@@ -590,103 +593,104 @@
         botaoQuiz.style.display = "none"
 
 
-        var respostasErradas = 10 - respostasCertas;
+        var respostasErradas = 10 - respostasCertas; 
 
         if (resultadoA[0] != undefined) {
             resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br> 
              Seu <b>maior acerto</b> até agora é de <b>${resultadoA[0]}</b> questões de 10. <br>
-             Sua <b>maior pontuação total</b> é de <b>${resultadoP[0]}</b> pontos de 30.`} 
+             Sua <b>maior pontuação total</b> é de <b>${resultadoP[0]}</b> pontos de 30.`
+        }
         else {
-            resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br>` 
+            resultadoQuiz.innerHTML = `<h4> Confira o desempenho da sua partida abaixo: </h4><br>`
         }
 
 
-            var ctx = document.getElementById('quizChart');
-            var myChart = new Chart(ctx, {
-                type: 'bar', // Tipo de gráfico (pizza)
-                data: {
-                    labels: ['Respostas Certas', 'Respostas Erradas'],
-                    datasets: [{
-                        label: 'Desempenho do Quiz',
-                        data: [respostasCertas, respostasErradas],
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
-                            'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
-                            '#735944'
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            '#735944'
-                        ],
-                        borderWidth: 1,
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
+        var ctx = document.getElementById('quizChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar', // Tipo de gráfico (pizza)
+            data: {
+                labels: ['Respostas Certas', 'Respostas Erradas'],
+                datasets: [{
+                    label: 'Desempenho do Quiz',
+                    data: [respostasCertas, respostasErradas],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.5)', // Cor para respostas certas
+                        'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+                        '#735944'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        '#735944'
+                    ],
+                    borderWidth: 1,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
 
-                        }
-                    }]
-                },
-                options: {
+                    }
+                }]
+            },
+            options: {
 
-                }
-            });
+            }
+        });
 
-            var acertosPorTemporada = [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8];
+        var acertosPorTemporada = [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8];
 
 
-            var ctx2 = document.getElementById('quizChart2');
-            var myChart2 = new Chart(ctx2, {
-                type: 'pie',
-                data: {
-                    labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5', 'Temporada 6', 'Temporada 7', 'Temporada 8'], // Labels das temporadas
-                    datasets: [{
-                        label: 'Perguntas corretas por Temporada',
-                        data: acertosPorTemporada, // Substitua os valores com a contagem de perguntas por temporada
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)', // Cor para cada temporada
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(255, 159, 64, 0.5)',
-                            'rgba(23, 156, 100, 0.5)',
-                            'rgba(180, 32, 245, 0.5)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)', // Cor da borda para cada temporada
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(23, 156, 100, 1)',
-                            'rgba(180, 32, 245, 1)'
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0)', // Define a cor do grid do eixo Y como transparente
-                                drawBorder: false, // Não desenha a borda do grid
-                                lineWidth: 0 // Define a largura do grid como zero
-                            }
-                        }
-                    },
-                    elements: {
-                        arc: {
-                            borderWidth: 0 // Remove as linhas de fundo atrás do gráfico
+        var ctx2 = document.getElementById('quizChart2');
+        var myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Temporada 1', 'Temporada 2', 'Temporada 3', 'Temporada 4', 'Temporada 5', 'Temporada 6', 'Temporada 7', 'Temporada 8'], // Labels das temporadas
+                datasets: [{
+                    label: 'Perguntas corretas por Temporada',
+                    data: acertosPorTemporada, // Substitua os valores com a contagem de perguntas por temporada
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)', // Cor para cada temporada
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)',
+                        'rgba(23, 156, 100, 0.5)',
+                        'rgba(180, 32, 245, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)', // Cor da borda para cada temporada
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(23, 156, 100, 1)',
+                        'rgba(180, 32, 245, 1)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0)', // Define a cor do grid do eixo Y como transparente
+                            drawBorder: false, // Não desenha a borda do grid
+                            lineWidth: 0 // Define a largura do grid como zero
                         }
                     }
+                },
+                elements: {
+                    arc: {
+                        borderWidth: 0 // Remove as linhas de fundo atrás do gráfico
+                    }
                 }
-            });
+            }
+        });
 
-        }
-    
+    }
+
 
 
     jogarBotao.innerHTML = `

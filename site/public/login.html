@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Diários de Mystic Falls</title>    
+    <title>Login - Diários de Mystic Falls</title>
     <link rel="stylesheet" href="css/styleLogin.css" />
     <script src="./js/sessao.js"></script>
 
@@ -23,26 +23,26 @@
         </div>
 
 
-    <div class="flexbox">
-        <h1>Bem-vindo à Diários de Mystic Falls</h1>
-        <h2>Faça login para acessar sua conta</h2>
-        <h3>Insira seu e-mail</h3>
-        <input id="email_input" class="camposDeEntrada">        
-        <h3>Senha</h3>
-        <input id="senha_input" class="camposDeEntrada" type="password">
+        <div class="flexbox">
+            <h1>Bem-vindo à Diários de Mystic Falls</h1>
+            <h2>Faça login para acessar sua conta</h2>
+            <h3>Insira seu e-mail</h3>
+            <input id="email_input" class="camposDeEntrada">
+            <h3>Senha</h3>
+            <input id="senha_input" class="camposDeEntrada" type="password">
 
-        <h4><a href="#">Esqueceu sua senha?</a></h4>
+            <h4><a href="#">Esqueceu sua senha?</a></h4>
 
-        <button onclick="entrar()" class="botaoLogar">Login</button>
+            <button onclick="entrar()" class="botaoLogar">Login</button>
 
-        <h5>Não tem uma conta? <span class="corCrie" onclick="telaCadastro()">Crie agora!</span></h4>
+            <h5>Não tem uma conta? <span class="corCrie" onclick="telaCadastro()">Crie agora!</span></h4>
 
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
-            </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
 
-            <div id="div_erros_login"></div>
-    </div>
+                <div id="div_erros_login"></div>
+        </div>
 </body>
 
 <script>
@@ -55,9 +55,9 @@
     }
 
     function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
-     divAguardar.style.display = "flex";
-}
+        var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "flex";
+    }
 
     function entrar() {
         aguardar();
@@ -88,7 +88,7 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-         
+
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -100,7 +100,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.ID_DIARIO = json.diario;                 
+                    sessionStorage.ID_DIARIO = json.diario;
 
                     setTimeout(function () {
                         window.location = "diario.html";
@@ -127,6 +127,17 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+    }
+
+    function finalizarAguardar(texto) {
+        var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "none";
+
+        var divErrosLogin = document.getElementById("div_erros_login");
+        if (texto) {
+            divErrosLogin.style.display = "flex";
+            divErrosLogin.innerHTML = texto;
+        }
     }
 
 </script>

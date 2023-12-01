@@ -232,8 +232,8 @@ body {
 
 .imagemQuiz {
     margin: 15px;
-    width: 581px;
-    height: 316px;
+    width: 500px;
+    height: 266px;
     margin-bottom: 20px;
     margin-top: 0px;
     border-radius: 20px;
@@ -368,12 +368,11 @@ input[type="radio"] {
     appearance: none;
     width: 20px;
     height: 20px;
-    /* Definindo como quadrado branco */
+    /* Definicomo quadrado branco */
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 0;
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-block;    
     /* Mudando cor para marrom quando selecionado */
     outline: none;
 }
@@ -385,10 +384,10 @@ input[type="radio"]:checked {
 
 /* Estilizando os labels dos radio buttons */
 input[type="radio"]+label {
-    /* Estilizando o texto */
+    /* estilizando o texto */
     font-family: Arial, sans-serif;
     font-size: 16px;
-    /* Ajustando margem para alinhar com os botões */
+    /* ajustando margem para alinhar com os botões */
     margin-left: 5px;
     display: inline-block;
     vertical-align: middle;
