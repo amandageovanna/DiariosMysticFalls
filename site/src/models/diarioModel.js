@@ -59,7 +59,8 @@ function listarQtdeDiario(idUsuario) {
     var instrucao = `       
     SELECT COUNT(Paginas.idPagina) AS qtdeDiario FROM Paginas
         JOIN Diario ON Paginas.FkDiario = Diario.idDiario
-        WHERE Diario.fkUsuario = ${idUsuario} AND MONTH(Paginas.dtCriacao) = MONTH(CURRENT_DATE());    `;
+        WHERE Diario.fkUsuario = ${idUsuario};
+    `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -71,7 +72,7 @@ function buscarMes(idDiario) {
     SELECT COUNT(idPagina) AS qtdeDiario, MONTH(dtCriacao) AS mes 
     FROM Paginas 
     WHERE fkDiario = ${idDiario} 
-    AND dtCriacao BETWEEN '2023-01-01 00:00:00' AND '2040-12-31 23:59:59' 
+    AND dtCriacao BETWEEN '2023-01-01 00:00:00' AND '2030-12-31 23:59:59' 
     GROUP BY mes`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
