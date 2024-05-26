@@ -20,6 +20,11 @@
 
 <br>
 
+## Screenshoots
+
+![image](https://github.com/amandageovanna/DiariosMysticFalls/assets/142369084/b142e526-c4bc-469e-92f3-4c95f08959cb)
+
+
 ## 🖱️ Principais requisitos técnicos aplicadas
 
 -  Utilização de vetores
